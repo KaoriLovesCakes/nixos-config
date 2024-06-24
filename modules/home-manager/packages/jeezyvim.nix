@@ -29,6 +29,7 @@
 
       plugins = {
         lualine.theme = pkgs.lib.mkForce "base16";
+        markdown-preview.enable = true;
         which-key.registrations = {
           "<leader>y" = "Copy to system clipboard";
           "<leader>p" = lib.mkForce "Paste from system clipboard";

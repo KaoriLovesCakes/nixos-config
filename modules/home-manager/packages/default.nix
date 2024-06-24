@@ -3,13 +3,14 @@
 
   home.packages = [
     # C++.
-    pkgs.clang
-    pkgs.clang-tools
+    # pkgs.clang
+    # pkgs.clang-tools
 
     # Python.
-    pkgs.python3
+    # pkgs.python3
 
     # Applications.
+    pkgs.anki-bin
     pkgs.discord
     pkgs.obs-studio
     pkgs.osu-lazer-bin
@@ -19,8 +20,8 @@
     pkgs.vscodium-fhs
 
     # Miscellaneous.
-    pkgs.any-nix-shell
     pkgs.bluez
+    pkgs.devenv
     pkgs.fd
     pkgs.file
     pkgs.git
