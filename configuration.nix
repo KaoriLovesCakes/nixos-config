@@ -10,7 +10,13 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  environment.systemPackages = [pkgs.git];
+  environment = {
+    systemPackages = [pkgs.git];
+    variables = {
+      EDITOR = "nvim";
+      GLFW_IM_MODULE = "ibus";
+    };
+  };
 
   hardware.enableAllFirmware = true;
 
