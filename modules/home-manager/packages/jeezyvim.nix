@@ -27,7 +27,13 @@
         }
       ];
 
+      opts.relativenumber = lib.mkForce false;
+
       plugins = {
+        lsp.servers.clangd = {
+          enable = true;
+          cmd = ["clangd" "--fallback-style=webkit" "--offset-encoding=utf-16"];
+        };
         lualine.theme = pkgs.lib.mkForce "base16";
         markdown-preview.enable = true;
         which-key.registrations = {
