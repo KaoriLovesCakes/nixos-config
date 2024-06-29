@@ -7,12 +7,10 @@
     inputs.stylix.nixosModules.stylix
   ];
 
-  stylix = let
-    theme = "catppuccin-frappe";
-  in {
+  stylix = {
     enable = true;
     image = /home/_bqn/nix-config/frieren.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
 
     fonts = {
       sizes = {

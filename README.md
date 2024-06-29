@@ -2,4 +2,6 @@
 
 My Nix config directory. Might add documentation later.
 
-Wallpaper is from [chapter 61 cover page (clean)](https://frieren.fandom.com/wiki/Chapter_61?file=Chapter_61_%28clean%29.png) of the manga *Frieren: Beyond Journey's End*.
+Wallpaper is from [the cover](https://frieren.fandom.com/wiki/Original_Soundtrack?file=Original+Soundtrack.png)
+of the album
+[_Frieren: Beyond Journey's End Original Soundtrack_](https://open.spotify.com/album/1XbKcPptRAGukB7l2p93yt?si=uhuDLj5tR4G1zXff5hYgBg).

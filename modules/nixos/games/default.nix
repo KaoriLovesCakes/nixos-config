@@ -1,3 +1,6 @@
 {
-  imports = [./honkers-railway-launcher.nix];
+  imports = [
+    ./honkers-railway-launcher.nix
+    ./steam.nix
+  ];
 }

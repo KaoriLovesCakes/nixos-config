@@ -2,13 +2,6 @@
   imports = [./jeezyvim.nix];
 
   home.packages = [
-    # C++.
-    # pkgs.clang
-    # pkgs.clang-tools
-
-    # Python.
-    # pkgs.python3
-
     # Applications.
     pkgs.anki-bin
     pkgs.discord
@@ -24,7 +17,6 @@
     pkgs.devenv
     pkgs.fd
     pkgs.file
-    pkgs.git
     pkgs.hyfetch
     pkgs.libsForQt5.bismuth
     pkgs.ripgrep

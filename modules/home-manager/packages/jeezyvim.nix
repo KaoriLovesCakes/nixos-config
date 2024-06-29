@@ -8,7 +8,7 @@
       colorschemes = {
         base16 = {
           enable = true;
-          colorscheme = "catppuccin-frappe";
+          colorscheme = "everforest";
         };
         kanagawa.enable = pkgs.lib.mkForce false;
       };

@@ -8,7 +8,7 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
 
-    # Honkers Railway
+    # Honkers Railway Launcher
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
 
     # JeezyVim

@@ -25,18 +25,19 @@
     users._bqn = import ./home.nix;
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    optimise.automatic = true;
+    settings.experimental-features = ["nix-command" "flakes"];
+  };
 
   nixpkgs = {
     overlays = [inputs.jeezyvim.overlays.default];
     config.allowUnfree = true;
-  };
-
-  #security.rtkit.enable = true;
-
-  services.xserver = {
-    enable = true;
-    desktopManager.plasma5.enable = true;
   };
 
   users.users._bqn = {
