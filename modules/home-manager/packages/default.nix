@@ -16,7 +16,7 @@
     pkgs.osu-lazer-bin
     pkgs.mpv
     pkgs.qbittorrent
-    pkgs.transmission
+    pkgs.transmission_4
     pkgs.vscodium-fhs
 
     # Miscellaneous.
