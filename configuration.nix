@@ -22,7 +22,7 @@
 
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs pkgs;};
-    users._bqn = import ./home.nix;
+    users.${outputs.username} = import ./home.nix;
   };
 
   nix = {
@@ -40,9 +40,9 @@
     config.allowUnfree = true;
   };
 
-  users.users._bqn = {
+  users.users.${outputs.username} = {
     isNormalUser = true;
-    description = "_bqn";
+    description = outputs.username;
     extraGroups = ["networkmanager" "wheel" "video"];
   };
 

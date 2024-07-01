@@ -1,5 +1,6 @@
 {
   lib,
+  outputs,
   pkgs,
   ...
 }: {
@@ -8,7 +9,7 @@
       colorschemes = {
         base16 = {
           enable = true;
-          colorscheme = "everforest";
+          colorscheme = "${outputs.theme}";
         };
         kanagawa.enable = pkgs.lib.mkForce false;
       };

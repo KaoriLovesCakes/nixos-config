@@ -25,7 +25,11 @@
   } @ inputs: let
     inherit (self) outputs;
   in {
-    nixosConfigurations.bqn-nixos = nixpkgs.lib.nixosSystem {
+    hostname = "bqn-nixos";
+    username = "_bqn";
+    theme = "everforest";
+
+    nixosConfigurations.${outputs.hostname} = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs outputs;};
       modules = [./configuration.nix];
     };

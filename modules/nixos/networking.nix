@@ -1,6 +1,6 @@
-{
+{outputs, ...}: {
   networking = {
-    hostName = "bqn-nixos";
+    hostName = outputs.hostname;
     networkmanager.enable = true;
   };
   services.tailscale.enable = true;
