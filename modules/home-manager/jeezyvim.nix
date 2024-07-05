@@ -47,19 +47,20 @@
       opts.relativenumber = lib.mkForce false;
 
       plugins = {
-        # friendly-snippets.enable = true;
         lsp.servers = {
           clangd = {
             enable = true;
             cmd = ["clangd" "--fallback-style=webkit" "--offset-encoding=utf-16"];
           };
-          pylsp.enable = false;
+          pylsp.enable = true;
           pyright.enable = pkgs.lib.mkForce false;
         };
         lualine.theme = pkgs.lib.mkForce "base16";
-        luasnip.extraConfig.enable_autosnippets = pkgs.lib.mkForce false;
         markdown-preview.enable = true;
-        molten.enable = true;
+        nvim-tree.git.ignore = false;
+
+        treesitter.indent = true;
+
         which-key.registrations = {
           "<leader>y" = "Copy to system clipboard";
           "<leader>p" = lib.mkForce "Paste from system clipboard";
