@@ -58,9 +58,11 @@
         lualine.theme = pkgs.lib.mkForce "base16";
         markdown-preview.enable = true;
         nvim-tree.git.ignore = false;
-
-        treesitter.indent = true;
-
+        nvim-ufo.enable = true;
+        treesitter = {
+          folding = true;
+          indent = true;
+        };
         which-key.registrations = {
           "<leader>y" = "Copy to system clipboard";
           "<leader>p" = lib.mkForce "Paste from system clipboard";
