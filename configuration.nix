@@ -36,7 +36,10 @@
   };
 
   nixpkgs = {
-    overlays = [inputs.jeezyvim.overlays.default];
+    overlays = [
+      inputs.jeezyvim.overlays.default
+      inputs.nix-alien.overlays.default
+    ];
     config.allowUnfree = true;
   };
 

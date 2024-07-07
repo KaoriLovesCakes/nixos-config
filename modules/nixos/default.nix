@@ -9,9 +9,11 @@
     ./kde-plasma-5.nix
     ./localization.nix
     ./networking.nix
+    ./nix-alien.nix
     ./nvidia-driver.nix
     ./partition-manager.nix
     ./pipewire.nix
     ./stylix.nix
+    ./touchegg.nix
   ];
 }
