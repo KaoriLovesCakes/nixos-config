@@ -5,7 +5,7 @@
   ...
 }: {
   home.packages = [
-    (pkgs.jeezyvim.nixvimExtend {
+    (pkgs.jeezyvim.extend {
       colorschemes = {
         base16 = {
           enable = true;
@@ -50,7 +50,7 @@
         lsp.servers = {
           clangd = {
             enable = true;
-            cmd = ["clangd" "--fallback-style=webkit" "--offset-encoding=utf-16"];
+            cmd = ["clangd" "--fallback-style=microsoft" "--offset-encoding=utf-16"];
           };
           pylsp.enable = true;
           pyright.enable = pkgs.lib.mkForce false;
@@ -61,7 +61,7 @@
         nvim-ufo.enable = true;
         treesitter = {
           folding = true;
-          indent = true;
+          settings.indent.enable = true;
         };
         which-key.registrations = {
           "<leader>y" = "Copy to system clipboard";

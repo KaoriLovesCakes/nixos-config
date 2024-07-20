@@ -40,7 +40,7 @@
       inherit name;
     };
 
-    opacity.terminal = 0.8;
+    opacity.terminal = 0.75;
 
     targets = {
       grub.enable = false;

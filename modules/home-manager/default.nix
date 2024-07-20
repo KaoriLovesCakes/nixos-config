@@ -1,16 +1,19 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./jeezyvim.nix
   ];
 
   home = {
-    file.".config/touchegg/touchegg.conf".text = builtins.readFile (builtins.fetchurl {
+    file.".config/touchegg/touchegg.conf".text = builtins.replaceStrings ["LEFT" "RIGHT"] ["RIGHT" "LEFT"] (builtins.readFile (builtins.fetchurl {
       url = "https://raw.githubusercontent.com/NayamAmarshe/ToucheggKDE/main/touchegg.conf";
       sha256 = "0s2610dd73ihiv4nqb3rxwfm9fsn0laaj379pgz998mfb656bh44";
-    });
+    }));
 
     packages = [
-      # Applications.
       pkgs.anki-bin
       pkgs.discord
       pkgs.obs-studio
@@ -20,7 +23,6 @@
       pkgs.transmission_4
       pkgs.vscodium-fhs
 
-      # Miscellaneous.
       pkgs.bluez
       pkgs.devenv
       pkgs.fd
@@ -37,7 +39,15 @@
   };
 
   programs = {
-    firefox.enable = true;
+    direnv = {
+      enable = true;
+      silent = true;
+    };
+    firefox = {
+      enable = true;
+      nativeMessagingHosts = [pkgs.tridactyl-native];
+      #package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
+    };
     fish = {
       enable = true;
       interactiveShellInit = ''

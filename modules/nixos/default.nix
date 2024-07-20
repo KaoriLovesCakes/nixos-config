@@ -7,7 +7,7 @@
     ./fish.nix
     ./fonts.nix
     ./kde-plasma-5.nix
-    ./localization.nix
+    ./i18n-l10n.nix
     ./networking.nix
     ./nix-alien.nix
     ./nvidia-driver.nix
