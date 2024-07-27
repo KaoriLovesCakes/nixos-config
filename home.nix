@@ -4,6 +4,6 @@
   home = {
     homeDirectory = "/home/${outputs.username}";
     username = outputs.username;
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
 }

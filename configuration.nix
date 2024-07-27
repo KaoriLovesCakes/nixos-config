@@ -22,6 +22,8 @@
 
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs pkgs;};
+    sharedModules = [inputs.plasma-manager.homeManagerModules.plasma-manager];
+    useGlobalPkgs = true;
     users.${outputs.username} = import ./home.nix;
   };
 

@@ -1,42 +1,33 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./jeezyvim.nix
+    ./kde-plasma-5.nix
+    ./touchegg.nix
   ];
 
-  home = {
-    file.".config/touchegg/touchegg.conf".text = builtins.replaceStrings ["LEFT" "RIGHT"] ["RIGHT" "LEFT"] (builtins.readFile (builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/NayamAmarshe/ToucheggKDE/main/touchegg.conf";
-      sha256 = "0s2610dd73ihiv4nqb3rxwfm9fsn0laaj379pgz998mfb656bh44";
-    }));
+  home.packages = [
+    pkgs.anki-bin
+    pkgs.discord
+    pkgs.obs-studio
+    pkgs.osu-lazer-bin
+    pkgs.mpv
+    pkgs.qbittorrent
+    pkgs.transmission_4
+    pkgs.vscodium-fhs
 
-    packages = [
-      pkgs.anki-bin
-      pkgs.discord
-      pkgs.obs-studio
-      pkgs.osu-lazer-bin
-      pkgs.mpv
-      pkgs.qbittorrent
-      pkgs.transmission_4
-      pkgs.vscodium-fhs
-
-      pkgs.bluez
-      pkgs.devenv
-      pkgs.fd
-      pkgs.ffmpeg
-      pkgs.file
-      pkgs.hyfetch
-      pkgs.libsForQt5.bismuth
-      pkgs.ripgrep
-      pkgs.unzip
-      pkgs.wget
-      pkgs.xclip
-      pkgs.zip
-    ];
-  };
+    pkgs.bluez
+    pkgs.devenv
+    pkgs.fd
+    pkgs.ffmpeg
+    pkgs.file
+    pkgs.hyfetch
+    pkgs.libsForQt5.bismuth
+    pkgs.ripgrep
+    pkgs.unzip
+    pkgs.wget
+    pkgs.xclip
+    pkgs.zip
+  ];
 
   programs = {
     direnv = {

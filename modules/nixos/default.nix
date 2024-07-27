@@ -3,6 +3,7 @@
     ./games
     ./bluetooth.nix
     ./bootloader.nix
+    ./caps2esc.nix
     ./cloudflare-warp.nix
     ./fish.nix
     ./fonts.nix
