@@ -3,6 +3,7 @@
     ./jeezyvim.nix
     ./kde-plasma-5.nix
     ./touchegg.nix
+    ./vscode.nix
   ];
 
   home.packages = [
@@ -12,8 +13,8 @@
     pkgs.osu-lazer-bin
     pkgs.mpv
     pkgs.qbittorrent
+    pkgs.quickemu
     pkgs.transmission_4
-    pkgs.vscodium-fhs
 
     pkgs.bluez
     pkgs.devenv
@@ -37,7 +38,6 @@
     firefox = {
       enable = true;
       nativeMessagingHosts = [pkgs.tridactyl-native];
-      #package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
     };
     fish = {
       enable = true;

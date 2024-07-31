@@ -53,7 +53,7 @@
     hostname = "bqn-nixos";
     username = "_bqn";
     system = "x86_64-Linux";
-    theme = "everforest";
+    theme = "catppuccin-frappe";
 
     nixosConfigurations.${outputs.hostname} = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs outputs;};
