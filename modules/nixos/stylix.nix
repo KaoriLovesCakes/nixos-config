@@ -10,8 +10,9 @@
 
   stylix = {
     enable = true;
-    image = /home/${outputs.username}/nix-config/frieren.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${outputs.theme}.yaml";
+    image = /home/${outputs.username}/nix-config/hatsukoinonioi.png;
+    polarity = "dark";
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/${outputs.theme}.yaml";
 
     fonts = {
       sizes = {
@@ -40,11 +41,12 @@
       inherit name;
     };
 
-    opacity.terminal = 0.8;
+    opacity.terminal = 0.7;
 
     targets = {
       grub.enable = false;
       lightdm.enable = false;
+      #nixvim.transparentBackground.main = true;
     };
   };
 }

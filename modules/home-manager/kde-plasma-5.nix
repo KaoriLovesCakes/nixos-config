@@ -1,4 +1,6 @@
-{
+{pkgs, ...}: {
+  home.packages = [pkgs.libsForQt5.bismuth];
+
   programs.plasma = {
     enable = true;
     configFile = {
@@ -18,11 +20,11 @@
           "desktopchangeosdEnabled" = true;
         };
         "Script-bismuth" = {
-          "screenGapBottom" = 8;
-          "screenGapLeft" = 8;
-          "screenGapRight" = 8;
-          "screenGapTop" = 8;
-          "tileLayoutGap" = 8;
+          "screenGapBottom" = 12;
+          "screenGapLeft" = 12;
+          "screenGapRight" = 12;
+          "screenGapTop" = 12;
+          "tileLayoutGap" = 12;
         };
         "Script-desktopchangeosd"."PopupHideDelay" = 200;
         "Tiling"."padding" = 4;

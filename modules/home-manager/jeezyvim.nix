@@ -7,10 +7,10 @@
   home.packages = [
     (pkgs.jeezyvim.extend {
       colorschemes = {
-        base16 = {
-          enable = true;
-          colorscheme = "${outputs.theme}";
-        };
+        #base16 = {
+        #  enable = true;
+        #  colorscheme = "${outputs.theme}";
+        #};
         kanagawa.enable = pkgs.lib.mkForce false;
       };
 
@@ -28,20 +28,6 @@
             hash = "sha256-mddnBvIrekHh60Ix6qIYAnv10Mu40LamGI47EXk9wSo=";
           };
         })
-      ];
-
-      keymaps = [
-        {
-          mode = "x";
-          action = "\"+y";
-          key = "<Leader>y";
-        }
-
-        {
-          mode = "";
-          action = "\"+p";
-          key = "<Leader>p";
-        }
       ];
 
       opts.relativenumber = lib.mkForce false;

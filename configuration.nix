@@ -22,7 +22,10 @@
 
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs pkgs;};
-    sharedModules = [inputs.plasma-manager.homeManagerModules.plasma-manager];
+    sharedModules = [
+      inputs.nixvim.homeManagerModules.nixvim
+      inputs.plasma-manager.homeManagerModules.plasma-manager
+    ];
     useGlobalPkgs = true;
     users.${outputs.username} = import ./home.nix;
   };
@@ -39,7 +42,6 @@
 
   nixpkgs = {
     overlays = [
-      inputs.jeezyvim.overlays.default
       inputs.nix-alien.overlays.default
     ];
     config.allowUnfree = true;

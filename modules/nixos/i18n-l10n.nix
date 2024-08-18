@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  time.timeZone = "Asia/Ho_Chi_Minh";
   i18n = {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
@@ -24,4 +23,5 @@
       };
     };
   };
+  time.timeZone = "Asia/Ho_Chi_Minh";
 }

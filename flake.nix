@@ -14,13 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #firefox = {
-    #  url = "github:nix-community/flake-firefox-nightly";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
-    jeezyvim = {
-      url = "github:LGUG2Z/JeezyVim";
+    nixvim = {
+      url = "github:nix-community/nixvim";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -53,7 +48,7 @@
     hostname = "bqn-nixos";
     username = "_bqn";
     system = "x86_64-Linux";
-    theme = "catppuccin-frappe";
+    #theme = "catppuccin-frappe";
 
     nixosConfigurations.${outputs.hostname} = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs outputs;};
