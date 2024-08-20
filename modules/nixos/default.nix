@@ -9,7 +9,7 @@
     ./honkers-railway-launcher.nix
     ./kde-plasma-5.nix
     ./i18n-l10n.nix
-    ./ios.nix
+    # ./ios.nix
     ./networking.nix
     ./nix-alien.nix
     ./nvidia-driver.nix

@@ -46,7 +46,6 @@
     targets = {
       grub.enable = false;
       lightdm.enable = false;
-      #nixvim.transparentBackground.main = true;
     };
   };
 }

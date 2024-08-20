@@ -6,6 +6,7 @@
     ./git.nix
     ./kde-plasma-5.nix
     ./kitty.nix
+    #./polybar.nix
     ./qbittorrent.nix
     ./touchegg.nix
     ./vscode.nix
