@@ -49,13 +49,13 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-  in {
+  in rec {
     hostname = "bqn-nixos";
     username = "_bqn";
     system = "x86_64-Linux";
     theme = "nord";
 
-    nixosConfigurations.${outputs.hostname} = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs outputs;};
       modules = [./configuration.nix];
     };

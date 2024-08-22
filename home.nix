@@ -3,7 +3,7 @@
 
   home = {
     homeDirectory = "/home/${outputs.username}";
-    username = outputs.username;
+    inherit (outputs) username;
     stateVersion = "24.11";
   };
 }

@@ -2,16 +2,13 @@
   programs.nixvim.plugins = {
     bufferline = {
       enable = true;
-      settings.options = {
-        alwaysShowBufferline = false;
-        offsets = [
-          {
-            filetype = "NvimTree";
-            text = "Explorer";
-            highlight = "PanelHeading";
-          }
-        ];
-      };
+      settings.options.offsets = [
+        {
+          filetype = "NvimTree";
+          text = "Explorer";
+          highlight = "PanelHeading";
+        }
+      ];
     };
     cmp = {
       enable = true;
@@ -52,6 +49,10 @@
       };
     };
     lsp-format.enable = true;
+    lualine = {
+      enable = true;
+      globalstatus = true;
+    };
     luasnip.enable = true;
     markdown-preview.enable = true;
     none-ls = {
@@ -66,6 +67,7 @@
               "--disable=C0114,E0401"
             ];
           };
+          statix.enable = true;
         };
         formatting = {
           alejandra.enable = true;
@@ -82,7 +84,7 @@
       openOnSetup = true;
       git.ignore = false;
     };
-    telescope.enable = true;
+    # telescope.enable = true;
     toggleterm = {
       enable = true;
       settings = {
@@ -102,15 +104,16 @@
       enable = true;
       folding = true;
     };
+    treesitter-context.enable = true;
     which-key = {
       enable = true;
-      settings.spec = [
-        {
-          __unkeyed = "<leader>f";
-          desc = "Telescope";
-          mode = "n";
-        }
-      ];
+      # settings.spec = [
+      #   {
+      #     __unkeyed = "<leader>f";
+      #     desc = "Telescope";
+      #     mode = "n";
+      #   }
+      # ];
     };
   };
 }

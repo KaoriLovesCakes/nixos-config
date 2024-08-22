@@ -5,7 +5,6 @@
     enable = true;
     configFile = {
       "kded5rc"."Module-gtkconfig"."autoload" = false;
-      "kdeglobals"."KDE"."SingleClick" = false;
       "kscreenlockerrc"."Daemon" = {
         "LockGrace" = 15;
         "Timeout" = 30;
