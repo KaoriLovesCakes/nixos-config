@@ -19,7 +19,6 @@
           "Groups/0/Items/1" = {"Name" = "bamboo";};
           "Groups/0/Items/2" = {"Name" = "mozc";};
         };
-        waylandFrontend = true;
       };
     };
   };

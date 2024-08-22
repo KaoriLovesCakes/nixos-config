@@ -8,6 +8,7 @@
     ./modules/nixos
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.flake-programs-sqlite.nixosModules.programs-sqlite
   ];
 
   environment = {
@@ -27,7 +28,7 @@
       inputs.plasma-manager.homeManagerModules.plasma-manager
     ];
     useGlobalPkgs = true;
-    users.${outputs.username} = import ./home.nix;
+    users.${outputs.username} = ./home.nix;
   };
 
   nix = {

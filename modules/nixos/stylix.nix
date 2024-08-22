@@ -10,9 +10,9 @@
 
   stylix = {
     enable = true;
-    image = /home/${outputs.username}/nix-config/hatsukoinonioi.png;
+    image = ../../wallpaper.png;
     polarity = "dark";
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/${outputs.theme}.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${outputs.theme}.yaml";
 
     fonts = {
       sizes = {
@@ -41,7 +41,7 @@
       inherit name;
     };
 
-    opacity.terminal = 0.7;
+    opacity.terminal = 0.9;
 
     targets = {
       grub.enable = false;

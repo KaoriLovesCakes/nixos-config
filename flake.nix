@@ -13,10 +13,15 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    flake-programs-sqlite = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-alien = {
@@ -48,11 +53,16 @@
     hostname = "bqn-nixos";
     username = "_bqn";
     system = "x86_64-Linux";
-    #theme = "catppuccin-frappe";
+    theme = "nord";
 
     nixosConfigurations.${outputs.hostname} = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs outputs;};
       modules = [./configuration.nix];
+    };
+
+    templates.python = {
+      path = ./templates/python;
+      description = "Python template.";
     };
   };
 }
