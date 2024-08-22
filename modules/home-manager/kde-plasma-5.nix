@@ -10,10 +10,43 @@
         "LockGrace" = 15;
         "Timeout" = 30;
       };
+      "krunnerrc"."Plugins" = {
+        "CharacterRunnerEnabled" = false;
+        "DictionaryEnabled" = false;
+        "PowerDevilEnabled" = false;
+        "baloosearchEnabled" = false;
+        "bookmarksEnabled" = false;
+        "browserhistoryEnabled" = false;
+        "browsertabsEnabled" = false;
+        "calculatorEnabled" = false;
+        "desktopsessionsEnabled" = false;
+        "helprunnerEnabled" = false;
+        "katesessionsEnabled" = false;
+        "konsoleprofilesEnabled" = false;
+        "krunner_killEnabled" = false;
+        "krunner_spellcheckEnabled" = false;
+        "krunner_systemsettingsEnabled" = false;
+        "kwinEnabled" = false;
+        "locationsEnabled" = false;
+        "org.kde.activities2Enabled" = false;
+        "org.kde.datetimeEnabled" = false;
+        "org.kde.windowedwidgetsEnabled" = false;
+        "placesEnabled" = false;
+        "plasma-desktopEnabled" = false;
+        "recentdocumentsEnabled" = false;
+        "unitconverterEnabled" = false;
+        "webshortcutsEnabled" = false;
+        "windowsEnabled" = false;
+      };
       "kwinrc" = {
         "Desktops" = {
           "Number" = 4;
           "Rows" = 2;
+        };
+        "Effect-slide" = {
+          "HorizontalGap" = 0;
+          "SlideBackground" = false;
+          "VerticalGap" = 0;
         };
         "Plugins" = {
           "bismuthEnabled" = true;

@@ -13,7 +13,7 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,9 +60,15 @@
       modules = [./configuration.nix];
     };
 
-    templates.python = {
-      path = ./templates/python;
-      description = "Python template.";
+    templates = {
+      cpp = {
+        path = ./templates/cpp;
+        description = "C++ template.";
+      };
+      python = {
+        path = ./templates/python;
+        description = "Python template.";
+      };
     };
   };
 }
