@@ -4,7 +4,7 @@
       [Desktop Entry]
       Categories=Network;FileTransfer;P2P;Qt;
       Comment=Download and share files over BitTorrent
-      Exec=qbittorrent %U
+      Exec=qbittorrent
       GenericName=BitTorrent client
       Icon=qbittorrent
       Keywords=bittorrent;torrent;magnet;download;p2p;

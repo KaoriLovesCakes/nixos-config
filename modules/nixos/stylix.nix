@@ -43,9 +43,6 @@
 
     opacity.terminal = 0.9;
 
-    targets = {
-      grub.enable = false;
-      lightdm.enable = false;
-    };
+    targets.grub.enable = false;
   };
 }

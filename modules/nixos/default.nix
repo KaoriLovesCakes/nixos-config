@@ -4,18 +4,16 @@
     ./bootloader.nix
     ./caps2esc.nix
     ./cloudflare-warp.nix
+    ./desktop-environment-et-al.nix
     ./fish.nix
     ./fonts.nix
-    ./honkers-railway-launcher.nix
-    ./kde-plasma-5.nix
+    ./games.nix
     ./i18n-l10n.nix
-    # ./ios.nix
     ./networking.nix
     ./nix-alien.nix
     ./nvidia-driver.nix
     ./partition-manager.nix
     ./pipewire.nix
-    ./steam.nix
     ./stylix.nix
     ./touchegg.nix
   ];

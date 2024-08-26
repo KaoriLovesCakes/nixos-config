@@ -38,23 +38,5 @@
         desc = "Toggle explorer";
       };
     }
-    {
-      action = "<cmd>Telescope find_files<CR>";
-      key = "<leader>ff";
-      mode = "n";
-      options = {
-        noremap = true;
-        desc = "Find files";
-      };
-    }
-    {
-      action = "<cmd>Telescope live_grep<CR>";
-      key = "<leader>fg";
-      mode = "n";
-      options = {
-        noremap = true;
-        desc = "Live grep";
-      };
-    }
   ];
 }

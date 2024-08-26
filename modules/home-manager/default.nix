@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   imports = [
+    ./desktop-environment-et-al.nix
     ./nixvim
     ./firefox.nix
     ./fish.nix
     ./git.nix
-    ./kde-plasma-5.nix
     ./kitty.nix
     ./polybar.nix
     ./qbittorrent.nix
@@ -15,19 +15,17 @@
   home.packages = [
     pkgs.anki-bin
     pkgs.discord
+    pkgs.mpv
     pkgs.obs-studio
     pkgs.osu-lazer-bin
-    pkgs.mpv
-    pkgs.quickemu
-    pkgs.vlc
+    pkgs.typst
 
     pkgs.bluez
     pkgs.devenv
-    pkgs.fd
+    # pkgs.fd
     pkgs.ffmpeg
-    pkgs.file
     pkgs.hyfetch
-    pkgs.ripgrep
+    # pkgs.ripgrep
     pkgs.unzip
     pkgs.wget
     pkgs.xclip

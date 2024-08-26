@@ -8,11 +8,15 @@
     ./modules/nixos
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.aagl.nixosModules.default
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
   ];
 
   environment = {
-    systemPackages = [pkgs.git];
+    systemPackages = [
+      # pkgs.git
+      inputs.zen-browser.packages."${outputs.system}".default
+    ];
     variables = {
       EDITOR = "nvim";
       GLFW_IM_MODULE = "ibus";
