@@ -1,8 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./desktop-environment-et-al.nix
     ./nixvim
-    ./firefox.nix
+    ./desktop-environment-et-al.nix
     ./fish.nix
     ./git.nix
     ./kitty.nix
@@ -18,21 +17,15 @@
     pkgs.mpv
     pkgs.obs-studio
     pkgs.osu-lazer-bin
-    pkgs.typst
 
-    pkgs.bluez
     pkgs.devenv
-    # pkgs.fd
     pkgs.ffmpeg
     pkgs.hyfetch
-    # pkgs.ripgrep
+    pkgs.typst
     pkgs.unzip
-    pkgs.wget
     pkgs.xclip
     pkgs.zip
   ];
-
   programs.home-manager.enable = true;
-
   xsession.numlock.enable = true;
 }

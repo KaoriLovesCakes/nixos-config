@@ -11,7 +11,7 @@
     ./i18n-l10n.nix
     ./networking.nix
     ./nix-alien.nix
-    ./nvidia-driver.nix
+    ./nvidia.nix
     ./partition-manager.nix
     ./pipewire.nix
     ./stylix.nix

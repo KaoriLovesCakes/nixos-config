@@ -70,6 +70,7 @@
         path = ./templates/cpp;
         description = "C++ template.";
       };
+
       python = {
         path = ./templates/python;
         description = "Python template.";

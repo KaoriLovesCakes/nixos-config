@@ -3,12 +3,15 @@
 
   programs.plasma = {
     enable = true;
+
     configFile = {
       "kded5rc"."Module-gtkconfig"."autoload" = false;
+
       "kscreenlockerrc"."Daemon" = {
         "LockGrace" = 15;
         "Timeout" = 30;
       };
+
       "krunnerrc"."Plugins" = {
         "CharacterRunnerEnabled" = false;
         "DictionaryEnabled" = false;
@@ -37,20 +40,24 @@
         "webshortcutsEnabled" = false;
         "windowsEnabled" = false;
       };
+
       "kwinrc" = {
         "Desktops" = {
           "Number" = 4;
           "Rows" = 2;
         };
+
         "Effect-slide" = {
           "HorizontalGap" = 0;
           "SlideBackground" = false;
           "VerticalGap" = 0;
         };
+
         "Plugins" = {
           "bismuthEnabled" = true;
           "desktopchangeosdEnabled" = true;
         };
+
         "Script-bismuth" = {
           "screenGapBottom" = 12;
           "screenGapLeft" = 12;
@@ -58,13 +65,16 @@
           "screenGapTop" = 12;
           "tileLayoutGap" = 12;
         };
+
         "Script-desktopchangeosd"."PopupHideDelay" = 200;
         "Tiling"."padding" = 4;
+
         "Windows" = {
           "DelayFocusInterval" = 0;
           "FocusPolicy" = "FocusFollowsMouse";
         };
       };
+
       "kwinrulesrc" = {
         "1" = {
           "Description" = "Global";
@@ -75,14 +85,17 @@
           "wmclass" = ".*";
           "wmclassmatch" = 3;
         };
+
         "General" = {
           "count" = 1;
           "rules" = 1;
         };
       };
     };
+
     shortcuts = {
       "bismuth"."toggle_window_floating" = "Meta+F";
+
       "kwin" = {
         "Switch One Desktop Down" = "Meta+J";
         "Switch One Desktop Up" = "Meta+K";
@@ -90,6 +103,7 @@
         "Switch One Desktop to the Right" = "Meta+L";
       };
     };
+
     workspace.clickItemTo = "select";
   };
 }

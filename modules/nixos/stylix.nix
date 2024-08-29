@@ -13,7 +13,6 @@
     image = ../../wallpaper.png;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${outputs.theme}.yaml";
-
     fonts = {
       sizes = {
         applications = 10;
@@ -24,7 +23,6 @@
         name = "JetBrainsMonoNL Nerd Font";
       };
     };
-
     cursor = let
       url = "https://download.kde.org/unstable/plasma/5.27.80/breeze-5.27.80.tar.xz";
       hash = "sha256-biE4nqGIvRYj2Bph1HURQCAimIQAb2Fj4KmA1pz+2xE=";
@@ -40,9 +38,7 @@
       '';
       inherit name;
     };
-
     opacity.terminal = 0.9;
-
     targets.grub.enable = false;
   };
 }

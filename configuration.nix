@@ -12,16 +12,10 @@
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
   ];
 
-  environment = {
-    systemPackages = [
-      # pkgs.git
-      inputs.zen-browser.packages."${outputs.system}".default
-    ];
-    variables = {
-      EDITOR = "nvim";
-      GLFW_IM_MODULE = "ibus";
-    };
-  };
+  environment.systemPackages = [
+    pkgs.git
+    inputs.zen-browser.packages."${outputs.system}".default
+  ];
 
   hardware.enableAllFirmware = true;
 
@@ -42,20 +36,25 @@
       options = "--delete-older-than 7d";
     };
     optimise.automatic = true;
-    settings.experimental-features = ["nix-command" "flakes"];
+    settings.experimental-features = [
+      "flakes"
+      "nix-command"
+    ];
   };
 
   nixpkgs = {
-    overlays = [
-      inputs.nix-alien.overlays.default
-    ];
+    overlays = [inputs.nix-alien.overlays.default];
     config.allowUnfree = true;
   };
 
   users.users.${outputs.username} = {
     isNormalUser = true;
     description = outputs.username;
-    extraGroups = ["networkmanager" "wheel" "video"];
+    extraGroups = [
+      "networkmanager"
+      "video"
+      "wheel"
+    ];
   };
 
   system.stateVersion = "24.11";

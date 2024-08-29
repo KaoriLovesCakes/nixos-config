@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  environment.variables.GLFW_IM_MODULE = "ibus";
   i18n = {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
@@ -15,9 +16,9 @@
             "Default Layout" = "us-altgr-intl";
             "DefaultIM" = "keyboard-us-altgr-intl";
           };
-          "Groups/0/Items/0" = {"Name" = "keyboard-us-altgr-intl";};
-          "Groups/0/Items/1" = {"Name" = "bamboo";};
-          "Groups/0/Items/2" = {"Name" = "mozc";};
+          "Groups/0/Items/0"."Name" = "keyboard-us-altgr-intl";
+          "Groups/0/Items/1"."Name" = "bamboo";
+          "Groups/0/Items/2"."Name" = "mozc";
         };
       };
     };

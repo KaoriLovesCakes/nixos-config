@@ -10,6 +10,7 @@
         }
       ];
     };
+
     cmp = {
       enable = true;
       settings = {
@@ -33,10 +34,12 @@
         };
       };
     };
+
     comment.enable = true;
     illuminate.enable = true;
     image.enable = true;
     indent-blankline.enable = true;
+
     lsp = {
       enable = true;
       servers = {
@@ -44,28 +47,26 @@
           enable = true;
           cmd = ["clangd" "--fallback-style=microsoft" "--offset-encoding=utf-16"];
         };
-        marksman.enable = true;
         nil-ls.enable = true;
         pyright.enable = true;
         typst-lsp.enable = true;
       };
     };
+
     lsp-format.enable = true;
+
     lualine = {
       enable = true;
       globalstatus = true;
     };
+
     luasnip.enable = true;
-    markdown-preview = {
-      enable = true;
-      settings.echo_preview_url = true;
-    };
+
     none-ls = {
       enable = true;
       sources = {
         diagnostics = {
           cppcheck.enable = true;
-          markdownlint.enable = true;
           pylint = {
             enable = true;
             settings.extra_args = [
@@ -80,16 +81,20 @@
         };
       };
     };
+
     nvim-autopairs = {
       enable = true;
       settings.checkTs = true;
     };
+
     nvim-colorizer.enable = true;
+
     nvim-tree = {
       enable = true;
       openOnSetup = true;
       git.ignore = false;
     };
+
     toggleterm = {
       enable = true;
       settings = {
@@ -105,10 +110,12 @@
         '';
       };
     };
+
     treesitter = {
       enable = true;
       folding = true;
     };
+
     treesitter-context.enable = true;
     typst-vim.enable = true;
     which-key.enable = true;
