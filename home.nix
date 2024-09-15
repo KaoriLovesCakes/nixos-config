@@ -1,9 +1,9 @@
-{outputs, ...}: {
+{global, ...}: {
   imports = [./modules/home-manager];
 
   home = {
-    homeDirectory = "/home/${outputs.username}";
-    inherit (outputs) username;
+    homeDirectory = "/home/${global.username}";
+    inherit (global) username;
     stateVersion = "24.11";
   };
 }

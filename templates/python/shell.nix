@@ -2,7 +2,6 @@
   enterShell = ''
     export CUDA_PATH=${pkgs.cudatoolkit}
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/run/opengl-driver/lib:/run/opengl-driver-32/lib
-    exec fish
   '';
 
   env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [

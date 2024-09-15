@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    aagl = {
+    aagl-gtk-on-nix = {
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -21,7 +21,10 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
     };
 
     nix-alien = {
@@ -37,12 +40,17 @@
       };
     };
 
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser = {
+    zen-browser-flake = {
       url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -54,14 +62,15 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-  in rec {
-    hostname = "bqn-nixos";
-    username = "_bqn";
-    system = "x86_64-linux";
-    theme = "nord";
-
-    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs outputs;};
+    global = {
+      hostname = "bqn-nixos";
+      username = "_bqn";
+      system = "x86_64-linux";
+      theme = "nord";
+    };
+  in {
+    nixosConfigurations.${global.hostname} = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs outputs global;};
       modules = [./configuration.nix];
     };
 

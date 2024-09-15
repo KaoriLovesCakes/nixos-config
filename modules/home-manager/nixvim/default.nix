@@ -1,4 +1,6 @@
-{
+{pkgs, ...}: {
+  home.packages = [pkgs.ripgrep];
+
   imports = [
     ./keymaps.nix
     ./plugins.nix

@@ -1,6 +1,6 @@
 {
   inputs,
-  outputs,
+  global,
   pkgs,
   ...
 }: {
@@ -8,25 +8,27 @@
     ./modules/nixos
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.aagl.nixosModules.default
+    inputs.aagl-gtk-on-nix.nixosModules.default
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+    inputs.stylix.nixosModules.stylix
   ];
 
   environment.systemPackages = [
     pkgs.git
-    inputs.zen-browser.packages."${outputs.system}".default
+    inputs.zen-browser-flake.packages."${global.system}".default
   ];
 
   hardware.enableAllFirmware = true;
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs outputs pkgs;};
+    extraSpecialArgs = {inherit inputs global pkgs;};
     sharedModules = [
       inputs.nixvim.homeManagerModules.nixvim
       inputs.plasma-manager.homeManagerModules.plasma-manager
+      inputs.spicetify-nix.homeManagerModules.default
     ];
     useGlobalPkgs = true;
-    users.${outputs.username} = ./home.nix;
+    users.${global.username} = ./home.nix;
   };
 
   nix = {
@@ -47,9 +49,9 @@
     config.allowUnfree = true;
   };
 
-  users.users.${outputs.username} = {
+  users.users.${global.username} = {
     isNormalUser = true;
-    description = outputs.username;
+    description = global.username;
     extraGroups = [
       "networkmanager"
       "video"

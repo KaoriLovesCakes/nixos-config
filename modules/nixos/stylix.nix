@@ -1,18 +1,16 @@
 {
-  inputs,
-  outputs,
+  global,
   pkgs,
   ...
 }: {
   imports = [
-    inputs.stylix.nixosModules.stylix
   ];
 
   stylix = {
     enable = true;
     image = ../../wallpaper.png;
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${outputs.theme}.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${global.theme}.yaml";
     fonts = {
       sizes = {
         applications = 10;
@@ -23,20 +21,16 @@
         name = "JetBrainsMonoNL Nerd Font";
       };
     };
-    cursor = let
-      url = "https://download.kde.org/unstable/plasma/5.27.80/breeze-5.27.80.tar.xz";
-      hash = "sha256-biE4nqGIvRYj2Bph1HURQCAimIQAb2Fj4KmA1pz+2xE=";
+    cursor = {
       name = "Breeze";
-    in {
-      size = 24;
       package = pkgs.runCommand "moveUp" {} ''
         mkdir -p $out/share/icons
         ln -s ${pkgs.fetchzip {
-          inherit url;
-          inherit hash;
-        }}/cursors/Breeze/Breeze $out/share/icons/${name}
+          url = "https://download.kde.org/unstable/plasma/5.93.0/breeze-5.93.0.tar.xz";
+          hash = "sha256-biE4nqGIvRYj2Bph1HURQCAimIQAb2Fj4KmA1pz+2xE=";
+        }}/cursors/Breeze/Breeze $out/share/icons/Breeze
       '';
-      inherit name;
+      size = 24;
     };
     opacity.terminal = 0.9;
     targets.grub.enable = false;
