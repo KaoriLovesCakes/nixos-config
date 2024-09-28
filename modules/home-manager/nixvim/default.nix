@@ -9,7 +9,7 @@
   programs.nixvim = {
     enable = true;
     clipboard.register = "unnamedplus";
-    defaultEditor= true;
+    defaultEditor = true;
     globals = {
       mapleader = " ";
       maplocalleader = " ";

@@ -93,6 +93,13 @@
       };
     };
 
+    hotkeys.commands."rofimoji" = {
+      name = "Launch rofimoji";
+      key = "Meta+R";
+      # command = ''rofi -modi "emoji:rofimoji" -show'';
+      command = "rofimoji";
+    };
+
     shortcuts = {
       "bismuth"."toggle_window_floating" = "Meta+F";
 

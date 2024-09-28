@@ -15,7 +15,7 @@
 
   environment.systemPackages = [
     pkgs.git
-    inputs.zen-browser-flake.packages."${global.system}".default
+    inputs.zen-browser-flake.packages.${global.system}.default
   ];
 
   hardware.enableAllFirmware = true;
@@ -51,7 +51,6 @@
 
   users.users.${global.username} = {
     isNormalUser = true;
-    description = global.username;
     extraGroups = [
       "networkmanager"
       "video"

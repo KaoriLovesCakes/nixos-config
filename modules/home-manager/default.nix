@@ -8,9 +8,11 @@
     ./kitty.nix
     ./polybar.nix
     ./qbittorrent.nix
+    ./rofi.nix
     ./spicetify.nix
+    ./tmux.nix
     ./touchegg.nix
-    ./vscode.nix
+    ./vscodium.nix
   ];
 
   home.packages = [

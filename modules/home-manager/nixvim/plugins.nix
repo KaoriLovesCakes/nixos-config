@@ -4,9 +4,7 @@
       require('substitute').setup()
     '';
 
-    extraPlugins = [
-      pkgs.vimPlugins.substitute-nvim
-    ];
+    extraPlugins = [pkgs.vimPlugins.substitute-nvim];
 
     plugins = {
       bufferline = {
@@ -70,6 +68,12 @@
       };
 
       luasnip.enable = true;
+      mini = {
+        enable = true;
+        mockDevIcons = true;
+        modules.icons = {};
+      };
+      molten.enable = true;
 
       none-ls = {
         enable = true;
