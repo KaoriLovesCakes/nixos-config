@@ -54,9 +54,10 @@
             enable = true;
             cmd = ["clangd" "--fallback-style=microsoft" "--offset-encoding=utf-16"];
           };
-          nil-ls.enable = true;
+          marksman.enable = true;
+          nil_ls.enable = true;
           pyright.enable = true;
-          typst-lsp.enable = true;
+          typst_lsp.enable = true;
         };
       };
 
@@ -68,11 +69,18 @@
       };
 
       luasnip.enable = true;
+
+      markdown-preview = {
+        enable = true;
+        settings.echo_preview_url = 1;
+      };
+
       mini = {
         enable = true;
         mockDevIcons = true;
         modules.icons = {};
       };
+
       molten.enable = true;
 
       none-ls = {
@@ -80,6 +88,7 @@
         sources = {
           diagnostics = {
             cppcheck.enable = true;
+            markdownlint.enable = true;
             pylint = {
               enable = true;
               settings.extra_args = [

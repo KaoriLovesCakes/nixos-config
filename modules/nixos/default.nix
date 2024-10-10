@@ -4,8 +4,7 @@
     ./bootloader.nix
     ./caps2esc.nix
     ./cloudflare-warp.nix
-    ./desktop-environment-et-al.nix
-    ./fish.nix
+    ./desktop-environment.nix
     ./fonts.nix
     ./games.nix
     ./i18n-l10n.nix
@@ -15,6 +14,7 @@
     ./partition-manager.nix
     ./pipewire.nix
     ./stylix.nix
+    ./terminal.nix
     ./touchegg.nix
   ];
 }

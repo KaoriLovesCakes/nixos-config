@@ -1,26 +1,24 @@
 {pkgs, ...}: {
   imports = [
     ./nixvim
-    ./desktop-environment-et-al.nix
+    ./desktop-environment.nix
     ./betterdiscord.nix
-    ./fish.nix
     ./git.nix
-    ./kitty.nix
     ./polybar.nix
     ./qbittorrent.nix
     ./rofi.nix
+    ./rclone.nix
     ./spicetify.nix
-    ./tmux.nix
+    ./terminal.nix
     ./touchegg.nix
     ./vscodium.nix
   ];
 
   home.packages = [
     pkgs.anki-bin
+    pkgs.libreoffice-qt
     pkgs.mpv
     pkgs.obs-studio
-    pkgs.osu-lazer-bin
-    pkgs.ryujinx
 
     pkgs.ffmpeg
     pkgs.hyfetch

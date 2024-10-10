@@ -11,6 +11,5 @@ in {
       spicePkgs.extensions.keyboardShortcut
       spicePkgs.extensions.popupLyrics
     ];
-    theme = spicePkgs.themes.nord;
   };
 }
