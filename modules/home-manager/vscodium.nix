@@ -9,6 +9,10 @@
     ];
     mutableExtensionsDir = false;
     package = pkgs.vscodium;
-    userSettings."extensions.experimental.affinity"."asvetliakov.vscode-neovim" = 1;
+    userSettings = {
+      "extensions.experimental.affinity"."asvetliakov.vscode-neovim" = 1;
+      "window.titleBarStyle" = "custom";
+      "workbench.editor.empty.hint" = "hidden";
+    };
   };
 }

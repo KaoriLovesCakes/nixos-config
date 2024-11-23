@@ -12,6 +12,6 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [inputs.devenv.flakeModule];
       systems = ["x86_64-linux"];
-      perSystem.devenv.shells.default = ./shell.nix;
+      perSystem.devenv.shells.default = ./devenv.nix;
     };
 }

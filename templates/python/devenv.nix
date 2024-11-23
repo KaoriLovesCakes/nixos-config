@@ -18,9 +18,13 @@
     venv = {
       enable = true;
       requirements = ''
-        ipykernel
+        jupyter
+        matplotlib
+        notebook
         numpy
         pandas
+        scikit-learn
+        seaborn
         torch
       '';
     };

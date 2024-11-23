@@ -5,9 +5,7 @@
 }: {
   home = {
     packages = [pkgs.rclone];
-    shellAliases = {
-      "rclone-mount-all" = "systemctl --user restart rclone-mount-all.service";
-    };
+    shellAliases."rclone-mount-all" = "systemctl --user restart rclone-mount-all.service";
   };
 
   systemd.user.services.rclone-mount-all = {
@@ -33,7 +31,7 @@
         for remote in $remotes;
         do
         name=$(/usr/bin/env echo "$remote" | /usr/bin/env sed "s/://g")
-        ${pkgs.rclone}/bin/rclone --config=${homeDir}/.config/rclone/rclone.conf --vfs-cache-mode writes --ignore-checksum mount "$remote" "$name" &
+        ${pkgs.rclone}/bin/rclone --config=${homeDir}/.config/rclone/rclone.conf --vfs-cache-mode full mount "$remote" "$name" &
         done
       ''}";
 
@@ -49,6 +47,6 @@
       Type = "forking";
     };
 
-    Install.WantedBy = ["default.target"];
+    Install.WantedBy = ["multi-user.target"];
   };
 }

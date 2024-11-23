@@ -8,10 +8,10 @@
     ./fonts.nix
     ./games.nix
     ./i18n-l10n.nix
+    ./manga.nix
     ./networking.nix
     ./nix-alien.nix
     ./nvidia.nix
-    ./partition-manager.nix
     ./pipewire.nix
     ./stylix.nix
     ./terminal.nix

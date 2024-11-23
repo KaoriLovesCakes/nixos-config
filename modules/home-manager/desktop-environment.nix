@@ -113,4 +113,6 @@
 
     workspace.clickItemTo = "select";
   };
+
+  services.kdeconnect.enable = true;
 }

@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   imports = [
     ./nixvim
-    ./desktop-environment.nix
     ./betterdiscord.nix
+    ./desktop-environment.nix
+    ./direnv.nix
     ./git.nix
     ./polybar.nix
     ./qbittorrent.nix
@@ -20,8 +21,13 @@
     pkgs.mpv
     pkgs.obs-studio
 
+    pkgs.cachix
+    pkgs.devenv
+    pkgs.fd
     pkgs.ffmpeg
     pkgs.hyfetch
+    pkgs.pandoc
+    pkgs.texliveFull
     pkgs.typst
     pkgs.unp
     pkgs.xclip

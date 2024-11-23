@@ -33,6 +33,9 @@
       size = 24;
     };
     opacity.terminal = 0.9;
-    targets.grub.enable = false;
+    targets = {
+      grub.enable = false;
+      spicetify.enable = false;
+    };
   };
 }
