@@ -8,7 +8,10 @@
 
   stylix = {
     enable = true;
-    image = ../../wallpaper.png;
+    image = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/linuxdotexe/nordic-wallpapers/refs/heads/master/wallpapers/ign_astronaut.png";
+      sha256 = "0KP2RCkeNTYe3sf/xArmAJEcC1DF/yQJ0hIW/uR4i4Y=";
+    };
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${global.theme}.yaml";
     fonts = {
@@ -17,7 +20,7 @@
         terminal = 11;
       };
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMonoNL Nerd Font";
       };
     };
@@ -32,7 +35,7 @@
       '';
       size = 24;
     };
-    opacity.terminal = 0.9;
+    opacity.terminal = 0.5;
     targets = {
       grub.enable = false;
       spicetify.enable = false;

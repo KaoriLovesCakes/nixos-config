@@ -1,8 +1,5 @@
 {
-  programs = {
-    # kdeconnect.enable = true;
-    partition-manager.enable = true;
-  };
+  programs.partition-manager.enable = true;
   services = {
     displayManager.ly.enable = true;
     xserver = {

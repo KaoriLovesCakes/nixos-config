@@ -93,11 +93,18 @@
       };
     };
 
-    hotkeys.commands."rofimoji" = {
-      name = "Launch rofimoji";
-      key = "Meta+R";
-      # command = ''rofi -modi "emoji:rofimoji" -show'';
-      command = "rofimoji";
+    hotkeys.commands = {
+      "flameshot" = {
+        name = "Launch flameshot";
+        key = "Meta+S";
+        command = "flameshot gui";
+      };
+      "rofimoji" = {
+        name = "Launch rofimoji";
+        key = "Meta+R";
+        # command = ''rofi -modi "emoji:rofimoji" -show'';
+        command = "rofimoji";
+      };
     };
 
     shortcuts = {
@@ -113,6 +120,4 @@
 
     workspace.clickItemTo = "select";
   };
-
-  services.kdeconnect.enable = true;
 }

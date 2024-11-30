@@ -81,8 +81,6 @@
         modules.icons = {};
       };
 
-      molten.enable = true;
-
       none-ls = {
         enable = true;
         sources = {
@@ -117,21 +115,21 @@
         git.ignore = false;
       };
 
-      toggleterm = {
-        enable = true;
-        settings = {
-          direction = "vertical";
-          size = ''
-            function(term)
-              if term.direction == "horizontal" then
-                return vim.o.lines * 0.25
-              elseif term.direction == "vertical" then
-                return vim.o.columns * 0.5
-              end
-            end
-          '';
-        };
-      };
+      # toggleterm = {
+      #   enable = true;
+      #   settings = {
+      #     direction = "vertical";
+      #     size = ''
+      #       function(term)
+      #         if term.direction == "horizontal" then
+      #           return vim.o.lines * 0.25
+      #         elseif term.direction == "vertical" then
+      #           return vim.o.columns * 0.5
+      #         end
+      #       end
+      #     '';
+      #   };
+      # };
 
       telescope.enable = true;
 
