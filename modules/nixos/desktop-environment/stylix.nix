@@ -3,9 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-  ];
-
   stylix = {
     enable = true;
     image = pkgs.fetchurl {

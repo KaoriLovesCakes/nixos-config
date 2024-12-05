@@ -1,4 +1,9 @@
 {
+  imports = [
+    ./stylix.nix
+    ./touchegg.nix
+  ];
+
   programs.partition-manager.enable = true;
   services = {
     displayManager.ly.enable = true;

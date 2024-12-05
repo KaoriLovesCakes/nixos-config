@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  imports = [./touchegg.nix];
+
   home.packages = [pkgs.libsForQt5.bismuth];
 
   programs.plasma = {

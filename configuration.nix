@@ -43,16 +43,21 @@
       options = "--delete-older-than 3d";
     };
     optimise.automatic = true;
-    settings.experimental-features = [
-      "flakes"
-      "nix-command"
-    ];
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
+    };
   };
 
   nixpkgs = {
     overlays = [inputs.nix-alien.overlays.default];
     config.allowUnfree = true;
   };
+
+  time.timeZone = "Asia/Ho_Chi_Minh";
 
   users.users.${global.username} = {
     isNormalUser = true;

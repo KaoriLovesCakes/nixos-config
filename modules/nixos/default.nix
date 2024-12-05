@@ -1,20 +1,18 @@
 {
   imports = [
-    ./bluetooth.nix
+    ./desktop-environment
+    ./hardware
+    ./terminal
+
+    ./appimage.nix
     ./bootloader.nix
     ./caps2esc.nix
     ./cloudflare-warp.nix
-    ./desktop-environment.nix
+    ./fcitx5.nix
     ./fonts.nix
     ./games.nix
-    ./i18n-l10n.nix
-    ./manga.nix
+    # ./manga.nix
     ./networking.nix
     ./nix-alien.nix
-    ./nvidia.nix
-    ./pipewire.nix
-    ./stylix.nix
-    ./terminal.nix
-    ./touchegg.nix
   ];
 }

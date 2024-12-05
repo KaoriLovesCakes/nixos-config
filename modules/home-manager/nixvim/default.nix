@@ -1,10 +1,10 @@
 {pkgs, ...}: {
-  home.packages = [pkgs.ripgrep];
-
   imports = [
     ./keymaps.nix
     ./plugins.nix
   ];
+
+  home.packages = [pkgs.ripgrep];
 
   programs.nixvim = {
     enable = true;

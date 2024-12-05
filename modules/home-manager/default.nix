@@ -1,8 +1,10 @@
 {pkgs, ...}: {
   imports = [
+    ./desktop-environment
     ./nixvim
+    ./terminal
+
     ./betterdiscord.nix
-    ./desktop-environment.nix
     ./direnv.nix
     ./flameshot.nix
     ./git.nix
@@ -11,8 +13,6 @@
     ./rofi.nix
     ./rclone.nix
     ./spicetify.nix
-    ./terminal.nix
-    ./touchegg.nix
     ./vscodium.nix
   ];
 
@@ -29,6 +29,7 @@
     pkgs.fd
     pkgs.ffmpeg
     pkgs.hyfetch
+    pkgs.nix-tree
     pkgs.pandoc
     pkgs.texliveFull
     pkgs.typst
