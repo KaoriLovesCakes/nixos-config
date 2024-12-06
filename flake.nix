@@ -14,10 +14,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    impermanence.url = "github:nix-community/impermanence";
 
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -66,6 +73,7 @@
   } @ inputs: let
     inherit (self) outputs;
     global = {
+      device = "/dev/nvme0n1";
       hostname = "bqn-nixos";
       username = "_bqn";
       system = "x86_64-linux";

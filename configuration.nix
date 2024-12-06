@@ -8,9 +8,7 @@
     ./modules/nixos
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.aagl-gtk-on-nix.nixosModules.default
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
-    inputs.stylix.nixosModules.stylix
   ];
 
   environment.systemPackages = [
@@ -52,10 +50,7 @@
     };
   };
 
-  nixpkgs = {
-    overlays = [inputs.nix-alien.overlays.default];
-    config.allowUnfree = true;
-  };
+  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Asia/Ho_Chi_Minh";
 

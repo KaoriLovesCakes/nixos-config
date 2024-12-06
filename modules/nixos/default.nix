@@ -1,11 +1,11 @@
 {
   imports = [
     ./desktop-environment
+    ./disk
     ./hardware
     ./terminal
 
     ./appimage.nix
-    ./bootloader.nix
     ./caps2esc.nix
     ./cloudflare-warp.nix
     ./fcitx5.nix

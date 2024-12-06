@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./desktop-environment
+    ./disk
     ./nixvim
     ./terminal
 

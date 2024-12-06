@@ -1,8 +1,13 @@
 {
   global,
+  inputs,
   pkgs,
   ...
 }: {
+  imports = [
+    inputs.stylix.nixosModules.stylix
+  ];
+
   stylix = {
     enable = true;
     image = pkgs.fetchurl {
@@ -27,7 +32,7 @@
         mkdir -p $out/share/icons
         ln -s ${pkgs.fetchzip {
           url = "https://download.kde.org/unstable/plasma/5.93.0/breeze-5.93.0.tar.xz";
-          hash = "sha256-biE4nqGIvRYj2Bph1HURQCAimIQAb2Fj4KmA1pz+2xE=";
+          hash = "sha256-Vela7hYBE3ub00hI52RpvrrFCTSYVWmGzzxFoux3MNQ=";
         }}/cursors/Breeze/Breeze $out/share/icons/Breeze
       '';
       size = 24;
