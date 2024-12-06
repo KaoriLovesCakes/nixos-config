@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+    inputs.disko.nixosModules.disko
   ];
 
   environment.systemPackages = [
