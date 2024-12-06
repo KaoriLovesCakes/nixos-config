@@ -56,6 +56,7 @@
 
   users.users.${global.username} = {
     isNormalUser = true;
+    initialPassword = "correct-horse-battery-staple";
     extraGroups = [
       "networkmanager"
       "video"
