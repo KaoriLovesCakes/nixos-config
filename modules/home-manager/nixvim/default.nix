@@ -12,9 +12,10 @@
     defaultEditor = true;
     globals = {
       mapleader = " ";
-      maplocalleader = " ";
+      maplocalleader = ",";
     };
     opts = {
+      conceallevel = 3;
       cursorline = true;
       expandtab = true;
       foldlevel = 80;
@@ -24,7 +25,7 @@
         trail = "•";
         nbsp = "␣";
       };
-      number = true;
+      # number = true;
       showbreak = "↪ ";
       signcolumn = "number";
       swapfile = false;

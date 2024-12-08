@@ -15,32 +15,32 @@
       };
 
       "krunnerrc"."Plugins" = {
-        "CharacterRunnerEnabled" = false;
-        "DictionaryEnabled" = false;
-        "PowerDevilEnabled" = false;
-        "baloosearchEnabled" = false;
-        "bookmarksEnabled" = false;
-        "browserhistoryEnabled" = false;
-        "browsertabsEnabled" = false;
-        "calculatorEnabled" = false;
-        "desktopsessionsEnabled" = false;
-        "helprunnerEnabled" = false;
-        "katesessionsEnabled" = false;
-        "konsoleprofilesEnabled" = false;
-        "krunner_killEnabled" = false;
-        "krunner_spellcheckEnabled" = false;
-        "krunner_systemsettingsEnabled" = false;
-        "kwinEnabled" = false;
-        "locationsEnabled" = false;
-        "org.kde.activities2Enabled" = false;
-        "org.kde.datetimeEnabled" = false;
-        "org.kde.windowedwidgetsEnabled" = false;
-        "placesEnabled" = false;
-        "plasma-desktopEnabled" = false;
-        "recentdocumentsEnabled" = false;
-        "unitconverterEnabled" = false;
-        "webshortcutsEnabled" = false;
-        "windowsEnabled" = false;
+        # "CharacterRunnerEnabled" = false;
+        # "DictionaryEnabled" = false;
+        # "PowerDevilEnabled" = false;
+        # "baloosearchEnabled" = false;
+        # "bookmarksEnabled" = false;
+        # "browserhistoryEnabled" = false;
+        # "browsertabsEnabled" = false;
+        # "calculatorEnabled" = false;
+        # "desktopsessionsEnabled" = false;
+        # "helprunnerEnabled" = false;
+        # "katesessionsEnabled" = false;
+        # "konsoleprofilesEnabled" = false;
+        # "krunner_killEnabled" = false;
+        # "krunner_spellcheckEnabled" = false;
+        # "krunner_systemsettingsEnabled" = false;
+        # "kwinEnabled" = false;
+        # "locationsEnabled" = false;
+        # "org.kde.activities2Enabled" = false;
+        # "org.kde.datetimeEnabled" = false;
+        # "org.kde.windowedwidgetsEnabled" = false;
+        # "placesEnabled" = false;
+        # "plasma-desktopEnabled" = false;
+        # "recentdocumentsEnabled" = false;
+        # "unitconverterEnabled" = false;
+        # "webshortcutsEnabled" = false;
+        # "windowsEnabled" = false;
       };
 
       "kwinrc" = {
@@ -109,6 +109,8 @@
       };
     };
 
+    panels = [{hiding = "autohide";}];
+
     shortcuts = {
       "bismuth"."toggle_window_floating" = "Meta+F";
 
@@ -117,6 +119,10 @@
         "Switch One Desktop Up" = "Meta+K";
         "Switch One Desktop to the Left" = "Meta+H";
         "Switch One Desktop to the Right" = "Meta+L";
+        "Window One Desktop Down" = "Meta+Ctrl+Shift+J";
+        "Window One Desktop Up" = "Meta+Ctrl+Shift+K";
+        "Window One Desktop to the Left" = "Meta+Ctrl+Shift+H";
+        "Window One Desktop to the Right" = "Meta+Ctrl+Shift+L";
       };
     };
 

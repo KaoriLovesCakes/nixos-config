@@ -7,25 +7,14 @@
     extraPlugins = [pkgs.vimPlugins.substitute-nvim];
 
     plugins = {
-      bufferline = {
-        enable = true;
-        settings.options.offsets = [
-          {
-            filetype = "NvimTree";
-            text = "Explorer";
-            highlight = "PanelHeading";
-          }
-        ];
-      };
-
       cmp = {
         enable = true;
         settings = {
           snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
           sources = [
-            {name = "buffer";}
+            # {name = "buffer";}
             {name = "calc";}
-            {name = "git";}
+            # {name = "git";}
             {name = "luasnip";}
             {name = "nvim_lsp";}
             {name = "path";}
@@ -63,10 +52,10 @@
 
       lsp-format.enable = true;
 
-      lualine = {
-        enable = true;
-        settings.options.globalstatus = true;
-      };
+      # lualine = {
+      #   enable = true;
+      #   settings.options.globalstatus = true;
+      # };
 
       luasnip.enable = true;
 
@@ -78,7 +67,22 @@
       mini = {
         enable = true;
         mockDevIcons = true;
-        modules.icons = {};
+        modules.icons.__empty = null;
+      };
+
+      neorg = {
+        enable = true;
+        lazyLoading = true;
+        modules = {
+          "core.completion".config.engine = "nvim-cmp";
+          "core.concealer".__empty = null;
+          "core.defaults".__empty = null;
+          "core.dirman".config = {
+            workspaces.main = "~/notes";
+            default_workspace = "main";
+          };
+          "core.latex.renderer".__empty = null;
+        };
       };
 
       none-ls = {
@@ -89,9 +93,7 @@
             markdownlint.enable = true;
             pylint = {
               enable = true;
-              settings.extra_args = [
-                "--disable=C0114,E0401"
-              ];
+              settings.extra_args = ["--disable=C0114,E0401"];
             };
             statix.enable = true;
           };
@@ -111,31 +113,16 @@
 
       nvim-tree = {
         enable = true;
-        openOnSetup = true;
         git.ignore = false;
       };
 
-      # toggleterm = {
-      #   enable = true;
-      #   settings = {
-      #     direction = "vertical";
-      #     size = ''
-      #       function(term)
-      #         if term.direction == "horizontal" then
-      #           return vim.o.lines * 0.25
-      #         elseif term.direction == "vertical" then
-      #           return vim.o.columns * 0.5
-      #         end
-      #       end
-      #     '';
-      #   };
-      # };
-
+      render-markdown.enable = true;
       telescope.enable = true;
 
       treesitter = {
         enable = true;
         folding = true;
+        settings.highlight.enable = true;
       };
 
       treesitter-context.enable = true;

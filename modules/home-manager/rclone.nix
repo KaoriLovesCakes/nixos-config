@@ -3,10 +3,7 @@
   pkgs,
   ...
 }: {
-  home = {
-    packages = [pkgs.rclone];
-    shellAliases."rclone-mount-all" = "systemctl --user restart rclone-mount-all.service";
-  };
+  home.packages = [pkgs.rclone];
 
   systemd.user.services.rclone-mount-all = {
     Unit = {

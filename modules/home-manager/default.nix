@@ -7,7 +7,6 @@
 
     ./betterdiscord.nix
     ./direnv.nix
-    ./flameshot.nix
     ./git.nix
     ./polybar.nix
     ./qbittorrent.nix
@@ -27,15 +26,17 @@
 
     pkgs.cachix
     pkgs.devenv
+    pkgs.fastfetch
     pkgs.fd
     pkgs.ffmpeg
     pkgs.hyfetch
     pkgs.nix-tree
-    pkgs.pandoc
     pkgs.texliveFull
     pkgs.typst
-    pkgs.unp
+    pkgs.unzip
     pkgs.xclip
+    pkgs.yazi
+    pkgs.zip
   ];
   programs.home-manager.enable = true;
   xsession.numlock.enable = true;

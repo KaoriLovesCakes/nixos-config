@@ -37,16 +37,6 @@
     }
 
     {
-      action = "<cmd>NvimTreeFindFileToggle<CR>";
-      key = "<leader>e";
-      mode = "n";
-      options = {
-        noremap = true;
-        desc = "Toggle explorer";
-      };
-    }
-
-    {
       action = "<cmd>Telescope find_files<CR>";
       key = "<leader>f";
       mode = "n";
@@ -67,12 +57,22 @@
     }
 
     {
-      action = ":q!<CR>";
-      key = "<leader>q";
+      action = ":set number!<CR>";
+      key = "<leader>n";
       mode = "n";
       options = {
         noremap = true;
-        desc = "Force quit";
+        desc = "Toggle number";
+      };
+    }
+
+    {
+      action = "<cmd>NvimTreeFindFileToggle<CR>";
+      key = "<leader>t";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Toggle tree";
       };
     }
 

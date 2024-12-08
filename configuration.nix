@@ -1,6 +1,7 @@
 {
   inputs,
   global,
+  lib,
   pkgs,
   ...
 }: {
@@ -8,8 +9,10 @@
     ./modules/nixos
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+    inputs.aagl-gtk-on-nix.nixosModules.default
     inputs.disko.nixosModules.disko
+    inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+    inputs.impermanence.nixosModules.impermanence
   ];
 
   environment.systemPackages = [
@@ -22,6 +25,7 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs global pkgs;};
     sharedModules = [
+      inputs.impermanence.nixosModules.home-manager.impermanence
       inputs.nixvim.homeManagerModules.nixvim
       inputs.plasma-manager.homeManagerModules.plasma-manager
       inputs.spicetify-nix.homeManagerModules.default
@@ -42,17 +46,23 @@
       options = "--delete-older-than 3d";
     };
     optimise.automatic = true;
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [
-        "flakes"
-        "nix-command"
-      ];
-    };
+    settings =
+      lib.recursiveUpdate {
+        auto-optimise-store = true;
+        experimental-features = [
+          "flakes"
+          "nix-command"
+        ];
+      }
+      inputs.aagl-gtk-on-nix.nixConfig;
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [inputs.nix-alien.overlays.default];
+  };
 
+  programs.fuse.userAllowOther = true;
   time.timeZone = "Asia/Ho_Chi_Minh";
 
   users.users.${global.username} = {
