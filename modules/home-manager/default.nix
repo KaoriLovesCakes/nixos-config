@@ -34,7 +34,7 @@
     pkgs.texliveFull
     pkgs.typst
     pkgs.unzip
-    pkgs.xclip
+    pkgs.wl-clipboard
     pkgs.yazi
     pkgs.zip
   ];

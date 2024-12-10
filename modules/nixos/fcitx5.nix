@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  environment.variables.GLFW_IM_MODULE = "ibus";
   i18n = {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
@@ -11,7 +10,10 @@
           pkgs.fcitx5-mozc
         ];
         settings = {
-          globalOptions."Hotkey/TriggerKeys"."0" = "Super+I";
+          globalOptions = {
+            "Hotkey/EnumerateForwardKeys"."0" = "Shift+Shift_R";
+            "Hotkey/TriggerKeys" = {};
+          };
           inputMethod = {
             "Groups/0" = {
               "Name" = "Default";
@@ -23,6 +25,8 @@
             "Groups/0/Items/2"."Name" = "mozc";
           };
         };
+        plasma6Support = true;
+        waylandFrontend = true;
       };
     };
   };

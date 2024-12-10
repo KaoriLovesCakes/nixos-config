@@ -31,6 +31,7 @@
         };
       };
 
+      colorizer.enable = true;
       comment.enable = true;
       illuminate.enable = true;
       image.enable = true;
@@ -108,8 +109,6 @@
         enable = true;
         settings.checkTs = true;
       };
-
-      nvim-colorizer.enable = true;
 
       nvim-tree = {
         enable = true;

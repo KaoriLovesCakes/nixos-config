@@ -4,13 +4,11 @@
   ...
 }: {
   home.packages = [pkgs.rclone];
-
   systemd.user.services.rclone-mount-all = {
     Unit = {
       Description = "Mount all rclone configurations";
-      After = ["network-online.target"];
+      After = ["network-online.target" "default.target"];
     };
-
     Service = let
       homeDir = config.home.homeDirectory;
     in {
@@ -22,7 +20,6 @@
         /usr/bin/env mkdir -p ${homeDir}/"$name"
         done
       ''}";
-
       ExecStart = "${pkgs.writeShellScript "rcloneStart" ''
         remotes=$(${pkgs.rclone}/bin/rclone --config=${homeDir}/.config/rclone/rclone.conf listremotes)
         for remote in $remotes;
@@ -31,7 +28,6 @@
         ${pkgs.rclone}/bin/rclone --config=${homeDir}/.config/rclone/rclone.conf --vfs-cache-mode full mount "$remote" "$name" &
         done
       ''}";
-
       ExecStop = "${pkgs.writeShellScript "rcloneStop" ''
         remotes=$(${pkgs.rclone}/bin/rclone --config=${homeDir}/.config/rclone/rclone.conf listremotes)
         for remote in $remotes;
@@ -40,10 +36,8 @@
         /usr/bin/env fusermount -u ${homeDir}/"$name"
         done
       ''}";
-
       Type = "forking";
     };
-
-    Install.WantedBy = ["multi-user.target"];
+    Install.WantedBy = ["default.target"];
   };
 }

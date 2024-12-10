@@ -3,6 +3,7 @@
     directories = [
       ".config/Caprine"
       ".config/discord"
+      ".config/libreoffice"
       ".config/qBittorrent"
       ".config/rclone"
       ".config/spotify"
@@ -24,8 +25,8 @@
       "notes"
     ];
     files = [
+      ".config/hyfetch.json"
       ".config/nix/nix.conf"
-      ".config/plasmashellrc"
     ];
     allowOther = true;
   };
