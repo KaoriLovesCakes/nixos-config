@@ -40,7 +40,6 @@
     };
 
     plasma-manager = {
-      # url = "github:nix-community/plasma-manager/plasma-5";
       url = "github:nix-community/plasma-manager";
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -73,16 +72,19 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    global = {
+    globals = rec {
       device = "/dev/nvme0n1";
       hostname = "bqn-nixos";
       username = "_bqn";
       system = "x86_64-linux";
       theme = "nord";
+
+      homeDirectory = "/home/${username}";
+      notesDirectory = "${homeDirectory}/Documents/notes";
     };
   in {
-    nixosConfigurations.${global.hostname} = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs outputs global;};
+    nixosConfigurations.${globals.hostname} = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs outputs globals;};
       modules = [./configuration.nix];
     };
 

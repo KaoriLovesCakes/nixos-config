@@ -23,21 +23,7 @@
     }
 
     {
-      action.__raw = ''
-        function()
-          vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-        end
-      '';
-      key = "<leader>d";
-      mode = "n";
-      options = {
-        noremap = true;
-        desc = "Toggle diagnostic";
-      };
-    }
-
-    {
-      action = "<cmd>Telescope find_files<CR>";
+      action = "<cmd>Pick files<CR>";
       key = "<leader>f";
       mode = "n";
       options = {
@@ -47,7 +33,7 @@
     }
 
     {
-      action = "<cmd>Telescope live_grep<CR>";
+      action = "<cmd>Pick grep_live<CR>";
       key = "<leader>g";
       mode = "n";
       options = {
@@ -57,8 +43,41 @@
     }
 
     {
-      action = ":set number!<CR>";
-      key = "<leader>n";
+      action.__raw = ''
+        function()
+          if vim.wo.conceallevel == 0 then
+            vim.wo.conceallevel = 2
+          else
+            vim.wo.conceallevel = 0
+          end
+        end
+      '';
+
+      key = "<leader>tc";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Toggle conceal";
+      };
+    }
+
+    {
+      action.__raw = ''
+        function()
+          vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+        end
+      '';
+      key = "<leader>td";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Toggle diagnostic";
+      };
+    }
+
+    {
+      action = "<cmd>set number!<CR>";
+      key = "<leader>tn";
       mode = "n";
       options = {
         noremap = true;
@@ -68,7 +87,7 @@
 
     {
       action = "<cmd>NvimTreeFindFileToggle<CR>";
-      key = "<leader>t";
+      key = "<leader>tt";
       mode = "n";
       options = {
         noremap = true;

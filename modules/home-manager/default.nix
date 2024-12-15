@@ -7,6 +7,7 @@
 
     ./betterdiscord.nix
     ./direnv.nix
+    ./fzf.nix
     ./git.nix
     ./polybar.nix
     ./qbittorrent.nix
@@ -39,5 +40,4 @@
     pkgs.zip
   ];
   programs.home-manager.enable = true;
-  xsession.numlock.enable = true;
 }

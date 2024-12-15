@@ -1,5 +1,5 @@
-{global, ...}: {
-  home.persistence."/persist/home/${global.username}" = {
+{globals, ...}: {
+  home.persistence."/persist/${globals.homeDirectory}" = {
     directories = [
       ".config/Caprine"
       ".config/discord"
@@ -22,7 +22,6 @@
       "Pictures"
       "Videos"
       "nix-config"
-      "notes"
     ];
     files = [
       ".config/hyfetch.json"

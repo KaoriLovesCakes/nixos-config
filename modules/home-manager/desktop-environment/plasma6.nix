@@ -6,7 +6,31 @@
   programs.plasma = {
     enable = true;
 
-    kscreenlocker.timeout = 30;
+    configFile = {
+      "kcminputrc"."Keyboard"."NumLock" = 0;
+
+      "kwinrc" = {
+        "Effect-slide" = {
+          "HorizontalGap" = 0;
+          "SlideBackground" = false;
+          "VerticalGap" = 0;
+        };
+        "Script-krohnkite" = {
+          "screenGapBottom" = 12;
+          "screenGapLeft" = 12;
+          "screenGapRight" = 12;
+          "screenGapTop" = 12;
+          "tileLayoutGap" = 12;
+        };
+        "Plugins"."krohnkiteEnabled" = true;
+        "Windows" = {
+          "DelayFocusInterval" = 0;
+          "FocusPolicy" = "FocusFollowsMouse";
+        };
+        "Wayland"."InputMethod" = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
+        "Xwayland"."Scale" = 1; # why is this not working :(
+      };
+    };
 
     kwin = {
       effects.desktopSwitching.animation = "slide";
@@ -16,6 +40,8 @@
         rows = 2;
       };
     };
+
+    powerdevil.AC.autoSuspend.action = "nothing";
 
     window-rules = [
       {
@@ -38,28 +64,6 @@
         };
       }
     ];
-
-    configFile."kwinrc" = {
-      "Effect-slide" = {
-        "HorizontalGap" = 0;
-        "SlideBackground" = false;
-        "VerticalGap" = 0;
-      };
-      "Script-krohnkite" = {
-        "screenGapBottom" = 12;
-        "screenGapLeft" = 12;
-        "screenGapRight" = 12;
-        "screenGapTop" = 12;
-        "tileLayoutGap" = 12;
-      };
-      "Plugins"."krohnkiteEnabled" = true;
-      "Windows" = {
-        "DelayFocusInterval" = 0;
-        "FocusPolicy" = "FocusFollowsMouse";
-      };
-      "Wayland"."InputMethod" = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
-      "Xwayland"."Scale" = 1; # why is this not working :(
-    };
 
     hotkeys.commands = {
       "rofimoji" = {

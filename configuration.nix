@@ -1,6 +1,6 @@
 {
   inputs,
-  global,
+  globals,
   lib,
   pkgs,
   ...
@@ -17,13 +17,13 @@
 
   environment.systemPackages = [
     pkgs.git
-    inputs.zen-browser-flake.packages.${global.system}.default
+    inputs.zen-browser-flake.packages.${globals.system}.default
   ];
 
   hardware.enableAllFirmware = true;
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs global pkgs;};
+    extraSpecialArgs = {inherit inputs globals pkgs;};
     sharedModules = [
       inputs.impermanence.nixosModules.home-manager.impermanence
       inputs.nixvim.homeManagerModules.nixvim
@@ -31,14 +31,14 @@
       inputs.spicetify-nix.homeManagerModules.default
     ];
     useGlobalPkgs = true;
-    users.${global.username} = ./home.nix;
+    users.${globals.username} = ./home.nix;
   };
 
   nix = {
     extraOptions = ''
       extra-substituters = https://devenv.cachix.org
       extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw= nixpkgs-python.cachix.org-1:hxjI7pFxTyuTHn2NkvWCrAUcNZLNS3ZAvfYNuYifcEU=
-      trusted-users = root ${global.username}
+      trusted-users = root ${globals.username}
     '';
     gc = {
       automatic = true;
@@ -65,7 +65,7 @@
   programs.fuse.userAllowOther = true;
   time.timeZone = "Asia/Ho_Chi_Minh";
 
-  users.users.${global.username} = {
+  users.users.${globals.username} = {
     isNormalUser = true;
     initialPassword = "correct-horse-battery-staple";
     extraGroups = [

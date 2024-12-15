@@ -1,5 +1,5 @@
 {
-  global,
+  globals,
   inputs,
   pkgs,
   ...
@@ -15,7 +15,7 @@
       sha256 = "0KP2RCkeNTYe3sf/xArmAJEcC1DF/yQJ0hIW/uR4i4Y=";
     };
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${global.theme}.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${globals.theme}.yaml";
     fonts = {
       sizes = {
         applications = 10;

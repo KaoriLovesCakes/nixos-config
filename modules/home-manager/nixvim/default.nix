@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./autocmd.nix
     ./keymaps.nix
     ./plugins.nix
   ];
@@ -15,7 +16,7 @@
       maplocalleader = ",";
     };
     opts = {
-      conceallevel = 3;
+      conceallevel = 2;
       cursorline = true;
       expandtab = true;
       foldlevel = 80;
@@ -25,7 +26,6 @@
         trail = "•";
         nbsp = "␣";
       };
-      # number = true;
       showbreak = "↪ ";
       signcolumn = "number";
       swapfile = false;
