@@ -49,6 +49,7 @@
           '';
           sources = [
             {name = "luasnip";}
+            {name = "neorg";}
             {name = "nvim_lsp";}
             {name = "path";}
           ];
@@ -110,7 +111,7 @@
             default_workspace = "main";
           };
           "core.journal".config.strategy = "flat";
-          "core.latex.renderer".__empty = null;
+          "core.latex.renderer".config.render_on_enter = true;
           "external.templates".config.templates_dir = "${globals.notesDirectory}/templates";
         };
       };

@@ -94,6 +94,11 @@
         description = "C++ template.";
       };
 
+      notes = {
+        path = ./templates/notes;
+        description = "Notes template.";
+      };
+
       python = {
         path = ./templates/python;
         description = "Python template.";

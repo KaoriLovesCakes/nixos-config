@@ -1,0 +1,19 @@
+@document.meta
+title: {TODAY_OF_FILENAME}
+description:
+authors: {AUTHOR}
+categories:
+created: {TODAY_OF_FILENAME}
+updated: {TODAY_OF_FILENAME}
+version: 1.0.0
+@end
+
+* {TODAY_OF_FILENAME}
+  {{:{YESTERDAY_OF_FILENAME}:}}[Yesterday] - {{:{TOMORROW_OF_FILENAME}:}}[Tomorrow]
+
+** Tasks
+   - ( ) 
+
+** Notes
+   - {CURSOR}
+

@@ -11,12 +11,20 @@
           end)
         end
       '';
-      event = [
-        "BufNew"
-      ];
-      pattern = [
-        "${globals.notesDirectory}/journal/*.norg"
-      ];
+      event = ["BufNew"];
+      pattern = ["${globals.notesDirectory}/journal/*.norg"];
+    }
+
+    {
+      callback.__raw = ''
+        function()
+          vim.schedule(function()
+            vim.api.nvim_cmd({cmd = 'Neorg', args = {'templates', 'fload', 'index'}}, {})
+          end)
+        end
+      '';
+      event = ["BufEnter"];
+      pattern = ["${globals.notesDirectory}/index.norg"];
     }
   ];
 }
