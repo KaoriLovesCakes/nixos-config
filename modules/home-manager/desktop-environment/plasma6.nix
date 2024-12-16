@@ -7,8 +7,6 @@
     enable = true;
 
     configFile = {
-      # "kcminputrc"."Keyboard"."NumLock" = 0;
-
       kwinrc = {
         Effect-slide = {
           HorizontalGap = 0;
@@ -55,6 +53,7 @@
         postCommands = ''
           SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
           ssh-add ~/.ssh/id_ed25519
+          systemctl --user restart git-sync-notes
         '';
         text = "";
       };
