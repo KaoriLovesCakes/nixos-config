@@ -25,6 +25,8 @@
     ];
     files = [
       ".config/hyfetch.json"
+      ".config/kwinoutputconfig.json"
+      ".config/kwinrc"
       ".config/nix/nix.conf"
     ];
     allowOther = true;

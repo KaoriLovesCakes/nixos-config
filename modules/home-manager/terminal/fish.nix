@@ -2,7 +2,7 @@
   programs.fish = {
     enable = true;
     functions = {
-      nixos-update-rebuild = ''
+      nixos-update-rebuild-switch = ''
         argparse 'flake=' 'help' -- $argv
 
         if set -q _flag_help
@@ -29,6 +29,12 @@
       fish_hybrid_key_bindings
       set fish_greeting
     '';
+    #   if test -z (ssh-add -l | grep -o "~/.ssh/id_ed25519")
+    #       echo "SSH key has not been added into ssh-agent."
+    #       ssh-add ~/.ssh/id_ed25519
+    #       systemctl --user restart git-sync-notes
+    #   end
+    # '';
     #   if not set -q tmux
     #     exec tmux
     #   end
