@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  home.packages = [
-    pkgs.kdePackages.krohnkite
-  ];
-
   programs.plasma = {
     enable = true;
 
@@ -52,8 +48,8 @@
       ksshaskpass = {
         postCommands = ''
           SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
-          ssh-add ~/.ssh/id_ed25519
-          systemctl --user restart git-sync-notes
+          # ssh-add ~/.ssh/id_ed25519
+          # systemctl --user restart git-sync-notes
         '';
         text = "";
       };
@@ -84,8 +80,7 @@
     hotkeys.commands.rofimoji = {
       name = "Launch rofimoji";
       key = "Meta+R";
-      # command = ''rofi -modi "emoji:rofimoji" -show'';
-      command = "rofimoji";
+      command = ''rofi -modi "emoji:rofimoji" -show'';
     };
 
     shortcuts = {

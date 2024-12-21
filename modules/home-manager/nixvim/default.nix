@@ -5,7 +5,9 @@
     ./plugins.nix
   ];
 
-  home.packages = [pkgs.ripgrep];
+  home = {
+    packages = [pkgs.ripgrep];
+  };
 
   programs.nixvim = {
     enable = true;

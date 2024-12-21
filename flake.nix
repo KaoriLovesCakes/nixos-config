@@ -61,7 +61,7 @@
     };
 
     zen-browser-flake = {
-      url = "github:MarceColl/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -83,20 +83,25 @@
       notesDirectory = "${homeDirectory}/Documents/notes";
     };
   in {
-    nixosConfigurations.${globals.hostname} = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs outputs globals;};
-      modules = [./configuration.nix];
+    nixosConfigurations = {
+      ${globals.hostname} = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs globals;};
+        modules = [./configuration.nix];
+      };
+
+      live = nixpkgs.lib.nixosSystem {
+        inherit (globals) system;
+        specialArgs = {inherit inputs outputs globals;};
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
+        ];
+      };
     };
 
     templates = {
       cpp = {
         path = ./templates/cpp;
         description = "C++ template.";
-      };
-
-      notes = {
-        path = ./templates/notes;
-        description = "Notes template.";
       };
 
       python = {

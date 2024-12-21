@@ -3,9 +3,6 @@
   pkgs,
   ...
 }: {
-  home.packages = [
-    # pkgs.rclone
-  ];
   systemd.user.services.rclone-mount-all = {
     Unit = {
       Description = "Mount all rclone configurations";

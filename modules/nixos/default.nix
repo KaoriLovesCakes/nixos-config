@@ -11,8 +11,10 @@
     ./fcitx5.nix
     ./fonts.nix
     ./games.nix
-    # ./manga.nix
+    ./ios.nix
     ./nix-alien.nix
+    ./packages.nix
     ./rclone.nix
+    ./virtualisation.nix
   ];
 }

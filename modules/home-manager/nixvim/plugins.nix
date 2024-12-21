@@ -25,12 +25,32 @@
       })
 
       (pkgs.vimUtils.buildVimPlugin {
+        name = "neorg-hop-extras";
+        src = pkgs.fetchFromGitHub {
+          owner = "phenax";
+          repo = "neorg-hop-extras";
+          rev = "main";
+          hash = "sha256-oQAzu17Mu91XPBDrn8OBOTdIhQmJOpab+nPlEZqAUZs=";
+        };
+      })
+
+      (pkgs.vimUtils.buildVimPlugin {
         name = "neorg-templates";
         src = pkgs.fetchFromGitHub {
           owner = "pysan3";
           repo = "neorg-templates";
           rev = "v2.0.3";
           hash = "sha256-nZOAxXSHTUDBpUBS/Esq5HHwEaTB01dI7x5CQFB3pcw=";
+        };
+      })
+
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "neorg-timelog";
+        src = pkgs.fetchFromGitHub {
+          owner = "phenax";
+          repo = "neorg-timelog";
+          rev = "main";
+          hash = "sha256-X6Za3wkTCB7bdmA3om5zWfPss9IYtMNDbwQ74di5rIg=";
         };
       })
 
@@ -111,8 +131,10 @@
             default_workspace = "main";
           };
           "core.journal".config.strategy = "flat";
-          "core.latex.renderer".config.render_on_enter = true;
+          "core.latex.renderer".__empty = null;
+          "external.hop-extras".__empty = null;
           "external.templates".config.templates_dir = "${globals.notesDirectory}/templates";
+          "external.timelog".config.time_format = "%H:%M | ";
         };
       };
 

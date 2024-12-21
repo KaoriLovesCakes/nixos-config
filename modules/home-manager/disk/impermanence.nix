@@ -1,6 +1,7 @@
 {globals, ...}: {
   home.persistence."/persist/${globals.homeDirectory}" = {
     directories = [
+      ".config/BetterDiscord"
       ".config/Caprine"
       ".config/discord"
       ".config/libreoffice"

@@ -1,7 +1,8 @@
-{pkgs, ...}: {
+{
   imports = [
     ./desktop-environment
     ./disk
+    ./networking
     ./nixvim
     ./terminal
 
@@ -9,6 +10,7 @@
     ./direnv.nix
     ./fzf.nix
     ./git.nix
+    ./mimeapps.nix
     ./polybar.nix
     ./qbittorrent.nix
     ./rofi.nix
@@ -17,27 +19,5 @@
     ./vscodium.nix
   ];
 
-  home.packages = [
-    pkgs.anki-bin
-    pkgs.caprine
-    pkgs.libreoffice-qt
-    pkgs.mpv
-    pkgs.obs-studio
-    # pkgs.zen-browser
-
-    pkgs.cachix
-    pkgs.devenv
-    pkgs.fastfetch
-    pkgs.fd
-    pkgs.ffmpeg
-    pkgs.hyfetch
-    pkgs.nix-tree
-    pkgs.texliveFull
-    pkgs.typst
-    pkgs.unzip
-    pkgs.wl-clipboard
-    pkgs.yazi
-    pkgs.zip
-  ];
   programs.home-manager.enable = true;
 }

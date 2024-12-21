@@ -5,7 +5,8 @@
 }: {
   home = {
     file.".config/rofimoji.rc".text = ''
-      files = [math, nerd_font]
+      action = copy
+      files = [math]
       prompt =
     '';
     packages = [
@@ -15,6 +16,7 @@
   };
   programs.rofi = {
     enable = true;
+    package = pkgs.rofi-wayland;
     theme = let
       inherit (config.lib.formats.rasi) mkLiteral;
     in {

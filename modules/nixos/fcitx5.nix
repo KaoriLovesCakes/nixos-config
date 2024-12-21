@@ -16,13 +16,13 @@
           };
           inputMethod = {
             "Groups/0" = {
-              "Name" = "Default";
+              Name = "Default";
               "Default Layout" = "us-altgr-intl";
-              "DefaultIM" = "keyboard-us-altgr-intl";
+              DefaultIM = "keyboard-us-altgr-intl";
             };
-            "Groups/0/Items/0"."Name" = "keyboard-us-altgr-intl";
-            "Groups/0/Items/1"."Name" = "bamboo";
-            "Groups/0/Items/2"."Name" = "mozc";
+            "Groups/0/Items/0".Name = "keyboard-us-altgr-intl";
+            "Groups/0/Items/1".Name = "bamboo";
+            "Groups/0/Items/2".Name = "mozc";
           };
         };
         plasma6Support = true;
