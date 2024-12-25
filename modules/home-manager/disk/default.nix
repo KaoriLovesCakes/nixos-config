@@ -1,3 +1,3 @@
 {
-  imports = [./impermanence.nix];
+  imports = [./persistence.nix];
 }

@@ -2,7 +2,6 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "application/pdf" = "zen.desktop";
       "audio/aac" = "mpv.desktop";
       "audio/mp4" = "mpv.desktop";
       "audio/mpeg" = "mpv.desktop";

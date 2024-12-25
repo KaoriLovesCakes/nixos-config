@@ -5,6 +5,8 @@
     pkgs.libreoffice-qt
     pkgs.mpv
     pkgs.obs-studio
+    pkgs.obsidian
+    pkgs.qbittorrent
     # pkgs.zen-browser
 
     pkgs.cachix
@@ -14,12 +16,12 @@
     pkgs.ffmpeg
     pkgs.hyfetch
     pkgs.nix-tree
+    pkgs.ripgrep
     pkgs.tdf
     pkgs.texliveFull
     pkgs.typst
     pkgs.unzip
     pkgs.wl-clipboard
-    pkgs.yazi
     pkgs.zip
   ];
 }

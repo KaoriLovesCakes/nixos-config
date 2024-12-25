@@ -9,10 +9,7 @@
       files = [math]
       prompt =
     '';
-    packages = [
-      pkgs.rofimoji
-      pkgs.xdotool
-    ];
+    packages = [pkgs.rofimoji];
   };
   programs.rofi = {
     enable = true;

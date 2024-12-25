@@ -2,7 +2,6 @@
   imports = [
     ./desktop-environment
     ./disk
-    ./networking
     ./nixvim
     ./terminal
 
@@ -12,11 +11,11 @@
     ./git.nix
     ./mimeapps.nix
     ./polybar.nix
-    ./qbittorrent.nix
     ./rofi.nix
     ./rclone.nix
     ./spicetify.nix
     ./vscodium.nix
+    ./yazi.nix
   ];
 
   programs.home-manager.enable = true;

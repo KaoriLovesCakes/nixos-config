@@ -45,6 +45,31 @@
     {
       action.__raw = ''
         function()
+          require("menu").open("default")
+        end
+      '';
+
+      key = "<leader>m";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Open menu";
+      };
+    }
+
+    {
+      action = "<Cmd>AssistantToggle<CR>";
+      key = "<leader>a";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Toggle assistant";
+      };
+    }
+
+    {
+      action.__raw = ''
+        function()
           if vim.wo.conceallevel == 0 then
             vim.wo.conceallevel = 2
           else
@@ -121,6 +146,23 @@
       key = "s";
       mode = "x";
       options.noremap = true;
+    }
+
+    {
+      action.__raw = ''
+        function()
+          vim.cmd.exec '"normal! \\<RightMouse>"'
+          local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+          require("menu").open(options, { mouse = true })
+        end
+      '';
+
+      key = "<RightMouse>";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Open menu";
+      };
     }
   ];
 }

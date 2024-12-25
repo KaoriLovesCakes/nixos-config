@@ -1,29 +1,14 @@
 {
   programs.fish = {
     enable = true;
-    functions = {
-      nixos-update-rebuild-switch = ''
-        argparse 'flake=' 'help' -- $argv
-
-        if set -q _flag_help
-          echo "usage: nixos-update-rebuild [--flake <flake-url>] [--help]"
-          echo "    --flake <flake-url>: the flake to operate on. default is the current directory."
-          echo "    --help             : show usage information."
-          return 0
-        end
-
-        if set -q _flag_flake
-          set flake_url $_flag_flake
-        else
-          set flake_url "."
-        end
-
-        nix flake update --flake $flake_url && sudo nixos-rebuild switch --flake $flake_url --option eval-cache false
-      '';
-      rclone-mount-all = ''
-        systemctl --user restart rclone-mount-all.service
-      '';
-    };
+    functions.y = ''
+      set tmp (mktemp -t "yazi-cwd.XXXXXX")
+      yazi $argv --cwd-file="$tmp"
+      if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+      	builtin cd -- "$cwd"
+      end
+      rm -f -- "$tmp"
+    '';
     interactiveShellInit = ''
       fish_config prompt choose informative_vcs
       fish_hybrid_key_bindings

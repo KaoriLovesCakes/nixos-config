@@ -1,13 +1,10 @@
 {pkgs, ...}: {
   imports = [
     ./autocmd.nix
+    ./extra-plugins.nix
     ./keymaps.nix
     ./plugins.nix
   ];
-
-  home = {
-    packages = [pkgs.ripgrep];
-  };
 
   programs.nixvim = {
     enable = true;

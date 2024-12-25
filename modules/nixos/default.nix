@@ -12,9 +12,10 @@
     ./fonts.nix
     ./games.nix
     ./ios.nix
+    ./nh.nix
     ./nix-alien.nix
     ./packages.nix
     ./rclone.nix
-    ./virtualisation.nix
+    # ./virtualisation.nix
   ];
 }

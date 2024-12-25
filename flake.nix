@@ -79,6 +79,7 @@
       system = "x86_64-linux";
       theme = "nord";
 
+      configDirectory = "${homeDirectory}/nix-config";
       homeDirectory = "/home/${username}";
       notesDirectory = "${homeDirectory}/Documents/notes";
     };
@@ -88,14 +89,14 @@
         specialArgs = {inherit inputs outputs globals;};
         modules = [./configuration.nix];
       };
-
-      live = nixpkgs.lib.nixosSystem {
-        inherit (globals) system;
-        specialArgs = {inherit inputs outputs globals;};
-        modules = [
-          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
-        ];
-      };
+      #
+      # live = nixpkgs.lib.nixosSystem {
+      #   inherit (globals) system;
+      #   specialArgs = {inherit inputs outputs globals;};
+      #   modules = [
+      #     "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
+      #   ];
+      # };
     };
 
     templates = {

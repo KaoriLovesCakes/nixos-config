@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.plasma = {
     enable = true;
 
@@ -38,7 +38,10 @@
       };
     };
 
-    powerdevil.AC.autoSuspend.action = "nothing";
+    powerdevil.AC = {
+      autoSuspend.action = "nothing";
+      turnOffDisplay.idleTimeout = "never";
+    };
 
     startup.desktopScript = {
       qBittorrent = {
@@ -48,9 +51,13 @@
       ksshaskpass = {
         postCommands = ''
           SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
-          # ssh-add ~/.ssh/id_ed25519
-          # systemctl --user restart git-sync-notes
+          ssh-add ~/.ssh/id_ed25519
+          systemctl --user restart git-sync-notes
         '';
+        text = "";
+      };
+      rclone-mount-all = {
+        postCommands = "systemctl --user restart rclone-mount-all";
         text = "";
       };
     };

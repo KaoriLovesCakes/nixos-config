@@ -30,8 +30,7 @@
           };
           root = {
             name = "root";
-            # size = "100%";
-            size = "384G";
+            size = "100%";
             content = {
               type = "lvm_pv";
               vg = "root_vg";
@@ -52,16 +51,17 @@
 
               subvolumes = {
                 "/root" = {
+                  mountOptions = ["compress=zstd"];
                   mountpoint = "/";
                 };
 
                 "/persist" = {
-                  mountOptions = ["subvol=persist" "noatime"];
+                  mountOptions = ["subvol=persist" "compress=zstd" "noatime"];
                   mountpoint = "/persist";
                 };
 
                 "/nix" = {
-                  mountOptions = ["subvol=nix" "noatime"];
+                  mountOptions = ["subvol=nix" "compress=zstd" "noatime"];
                   mountpoint = "/nix";
                 };
               };

@@ -1,60 +1,15 @@
 {
-  globals,
+  config,
   pkgs,
+  globals,
   ...
 }: {
   programs.nixvim = {
-    extraConfigLua = ''
-      require('fcitx5').setup({
-        define_autocmd = true,
-        remember_prior = true,
-      })
-
-      require('substitute').setup({})
-    '';
-
-    extraPlugins = [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "fcitx5-nvim";
-        src = pkgs.fetchFromGitHub {
-          owner = "pysan3";
-          repo = "fcitx5.nvim";
-          rev = "v1.1.0";
-          hash = "sha256-AUfakFumvNI4KTYdeUrZc/ybHzgxPNlAGI9pYBYXFFg=";
-        };
-      })
-
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "neorg-hop-extras";
-        src = pkgs.fetchFromGitHub {
-          owner = "phenax";
-          repo = "neorg-hop-extras";
-          rev = "main";
-          hash = "sha256-oQAzu17Mu91XPBDrn8OBOTdIhQmJOpab+nPlEZqAUZs=";
-        };
-      })
-
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "neorg-templates";
-        src = pkgs.fetchFromGitHub {
-          owner = "pysan3";
-          repo = "neorg-templates";
-          rev = "v2.0.3";
-          hash = "sha256-nZOAxXSHTUDBpUBS/Esq5HHwEaTB01dI7x5CQFB3pcw=";
-        };
-      })
-
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "neorg-timelog";
-        src = pkgs.fetchFromGitHub {
-          owner = "phenax";
-          repo = "neorg-timelog";
-          rev = "main";
-          hash = "sha256-X6Za3wkTCB7bdmA3om5zWfPss9IYtMNDbwQ74di5rIg=";
-        };
-      })
-
-      pkgs.vimPlugins.substitute-nvim
+    extraPackages = [
+      pkgs.alejandra
+      pkgs.markdownlint-cli2
+      pkgs.ruff
+      pkgs.typstyle
     ];
 
     plugins = {
@@ -87,6 +42,36 @@
 
       colorizer.enable = true;
       comment.enable = true;
+
+      conform-nvim = {
+        enable = true;
+        settings = {
+          format_on_save.__raw = "{}";
+          formatters = {
+            clang-format.prepend_args = ["--style=microsoft"];
+            markdownlint-cli2.prepend_args = let
+              configFile = builtins.toFile ".markdownlint.yaml" ''
+                MD007:
+                  indent: 4
+              '';
+            in ["--config" configFile];
+          };
+          formatters_by_ft = {
+            "*" = ["trim_whitespace"];
+            cpp = ["clang-format"];
+            markdown = ["markdownlint-cli2"];
+            nix = ["alejandra"];
+            python = [
+              "ruff_fix"
+              "ruff_format"
+              "ruff_organize_imports"
+            ];
+            typst = ["typstyle"];
+          };
+        };
+      };
+
+      guess-indent.enable = true;
       illuminate.enable = true;
       image.enable = true;
       indent-blankline.enable = true;
@@ -94,11 +79,8 @@
       lsp = {
         enable = true;
         servers = {
-          clangd = {
-            enable = true;
-            cmd = ["clangd" "--fallback-style=microsoft" "--offset-encoding=utf-16"];
-          };
-          marksman.enable = true;
+          clangd.enable = true;
+          markdown_oxide.enable = true;
           nil_ls.enable = true;
           pyright.enable = true;
           tinymist = {
@@ -108,54 +90,33 @@
         };
       };
 
-      lsp-format.enable = true;
       luasnip.enable = true;
 
       mini = {
         enable = true;
         mockDevIcons = true;
         modules = {
-          icons.__empty = null;
-          pick.__empty = null;
+          icons = config.lib.nixvim.emptyTable;
+          pick = config.lib.nixvim.emptyTable;
         };
       };
 
-      neorg = {
-        enable = true;
-        settings.load = {
-          "core.completion".config.engine = "nvim-cmp";
-          "core.concealer".__empty = null;
-          "core.defaults".__empty = null;
-          "core.dirman".config = {
-            workspaces.main = globals.notesDirectory;
-            default_workspace = "main";
-          };
-          "core.journal".config.strategy = "flat";
-          "core.latex.renderer".__empty = null;
-          "external.hop-extras".__empty = null;
-          "external.templates".config.templates_dir = "${globals.notesDirectory}/templates";
-          "external.timelog".config.time_format = "%H:%M | ";
-        };
-      };
-
-      none-ls = {
-        enable = true;
-        sources = {
-          diagnostics = {
-            cppcheck.enable = true;
-            markdownlint.enable = true;
-            pylint = {
-              enable = true;
-              settings.extra_args = ["--disable=C0114,E0401"];
-            };
-            statix.enable = true;
-          };
-          formatting = {
-            alejandra.enable = true;
-            prettier.enable = true;
-          };
-        };
-      };
+      # neorg = {
+      #   enable = true;
+      #   settings.load = {
+      #     "core.completion".config.engine = "nvim-cmp";
+      #     "core.concealer" = config.lib.nixvim.emptyTable;
+      #     "core.defaults" = config.lib.nixvim.emptyTable;
+      #     "core.dirman".config = {
+      #       workspaces.main = globals.notesDirectory;
+      #       default_workspace = "main";
+      #     };
+      #     "core.journal".config.strategy = "flat";
+      #     "core.latex.renderer" = config.lib.nixvim.emptyTable;
+      #     # "external.hop-extras" = config.lib.nixvim.emptyTable;
+      #     # "external.templates".config.templates_dir = "${globals.notesDirectory}/templates";
+      #   };
+      # };
 
       nvim-autopairs = {
         enable = true;
@@ -167,31 +128,55 @@
         git.ignore = false;
       };
 
-      # obsidian = let
-      #   obsidianDirectory = "~/Documents/obsidian";
-      # in {
-      #   enable = true;
-      #   settings = {
-      #     daily_notes = {
-      #       folder = "journals";
-      #       template = "journal_template.md";
-      #     };
-      #     workspaces = [
-      #       {
-      #         name = "main";
-      #         path = obsidianDirectory;
-      #       }
-      #     ];
-      #     templates.subdir = "templates";
-      #   };
-      # };
+      obsidian = {
+        enable = true;
+        settings = {
+          daily_notes = {
+            folder = "journals";
+            template = "journal_template.md";
+          };
+          follow_url_func = ''
+            function(url)
+              vim.fn.jobstart({"xdg-open", url})
+            end
+          '';
+          templates.subdir = "templates";
+          workspaces = [
+            {
+              name = "main";
+              path = globals.notesDirectory;
+            }
+          ];
+        };
+      };
 
       telescope.enable = true;
 
       treesitter = {
         enable = true;
+        # grammarPackages =
+        #   pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars
+        #   ++ [
+        #     (pkgs.tree-sitter.buildGrammar {
+        #       language = "norg-meta";
+        #       fixupPhase = ''
+        #         mkdir -p $out/queries/norg-meta
+        #         mv $out/queries/*.scm $out/queries/norg-meta/
+        #       '';
+        #       src = pkgs.fetchFromGitHub {
+        #         owner = "nvim-neorg";
+        #         repo = "tree-sitter-norg-meta";
+        #         rev = "v0.1.0";
+        #         hash = "sha256-8qSdwHlfnjFuQF4zNdLtU2/tzDRhDZbo9K54Xxgn5+8=";
+        #       };
+        #       version = "0.1.0";
+        #     })
+        #   ];
         folding = true;
-        settings.highlight.enable = true;
+        settings = {
+          highlight.enable = true;
+          indent.enable = true;
+        };
       };
 
       treesitter-context.enable = true;
