@@ -73,7 +73,6 @@
 
       guess-indent.enable = true;
       illuminate.enable = true;
-      image.enable = true;
       indent-blankline.enable = true;
 
       lsp = {
