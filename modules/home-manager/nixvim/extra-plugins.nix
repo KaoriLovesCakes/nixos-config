@@ -49,7 +49,7 @@
       #     hash = "sha256-oQAzu17Mu91XPBDrn8OBOTdIhQmJOpab+nPlEZqAUZs=";
       #   };
       # })
-      #
+
       # (pkgs.vimUtils.buildVimPlugin {
       #   name = "neorg-templates";
       #   src = pkgs.fetchFromGitHub {

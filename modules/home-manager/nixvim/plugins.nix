@@ -113,8 +113,8 @@
       #     };
       #     "core.journal".config.strategy = "flat";
       #     "core.latex.renderer" = config.lib.nixvim.emptyTable;
-      #     # "external.hop-extras" = config.lib.nixvim.emptyTable;
-      #     # "external.templates".config.templates_dir = "${globals.notesDirectory}/templates";
+      #     "external.hop-extras" = config.lib.nixvim.emptyTable;
+      #     "external.templates".config.templates_dir = "${globals.notesDirectory}/templates";
       #   };
       # };
 

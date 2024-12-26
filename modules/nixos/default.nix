@@ -15,7 +15,6 @@
     ./nh.nix
     ./nix-alien.nix
     ./packages.nix
-    ./rclone.nix
     # ./virtualisation.nix
   ];
 }

@@ -42,30 +42,30 @@
       };
     }
 
-    {
-      action.__raw = ''
-        function()
-          require("menu").open("default")
-        end
-      '';
+    # {
+    #   action.__raw = ''
+    #     function()
+    #       require("menu").open("default")
+    #     end
+    #   '';
+    #
+    #   key = "<leader>m";
+    #   mode = "n";
+    #   options = {
+    #     noremap = true;
+    #     desc = "Open menu";
+    #   };
+    # }
 
-      key = "<leader>m";
-      mode = "n";
-      options = {
-        noremap = true;
-        desc = "Open menu";
-      };
-    }
-
-    {
-      action = "<Cmd>AssistantToggle<CR>";
-      key = "<leader>a";
-      mode = "n";
-      options = {
-        noremap = true;
-        desc = "Toggle assistant";
-      };
-    }
+    # {
+    #   action = "<Cmd>AssistantToggle<CR>";
+    #   key = "<leader>a";
+    #   mode = "n";
+    #   options = {
+    #     noremap = true;
+    #     desc = "Toggle assistant";
+    #   };
+    # }
 
     {
       action.__raw = ''
@@ -121,15 +121,44 @@
     }
 
     {
-      action.__raw = "require('substitute').operator";
-      key = "s";
+      action.__raw = ''
+        function()
+          local line = vim.api.nvim_get_current_line()
+          if line:match("^ *`:.*` *$") then
+            command = line:match("^ *`:(.*)` *$")
+            vim.cmd(command)
+          end
+        end
+      '';
+
+      key = "<leader>x";
       mode = "n";
-      options.noremap = true;
+      options = {
+        noremap = true;
+        desc = "Execute as Vim script";
+      };
     }
 
+    # {
+    #   action.__raw = ''
+    #     function()
+    #       for _, command in pairs(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."))) do
+    #         vim.cmd(command)
+    #       end
+    #     end
+    #   '';
+    #
+    #   key = "<leader>x";
+    #   mode = "x";
+    #   options = {
+    #     noremap = true;
+    #     desc = "Execute as Vim script";
+    #   };
+    # }
+
     {
-      action.__raw = "require('substitute').line";
-      key = "ss";
+      action.__raw = "require('substitute').operator";
+      key = "s";
       mode = "n";
       options.noremap = true;
     }
@@ -142,27 +171,17 @@
     }
 
     {
-      action.__raw = "require('substitute').visual";
-      key = "s";
-      mode = "x";
+      action.__raw = "require('substitute').line";
+      key = "ss";
+      mode = "n";
       options.noremap = true;
     }
 
     {
-      action.__raw = ''
-        function()
-          vim.cmd.exec '"normal! \\<RightMouse>"'
-          local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
-          require("menu").open(options, { mouse = true })
-        end
-      '';
-
-      key = "<RightMouse>";
-      mode = "n";
-      options = {
-        noremap = true;
-        desc = "Open menu";
-      };
+      action.__raw = "require('substitute').visual";
+      key = "s";
+      mode = "x";
+      options.noremap = true;
     }
   ];
 }

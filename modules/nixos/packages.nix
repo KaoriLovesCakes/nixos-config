@@ -16,6 +16,7 @@
     pkgs.ffmpeg
     pkgs.hyfetch
     pkgs.nix-tree
+    pkgs.rclone
     pkgs.ripgrep
     pkgs.tdf
     pkgs.texliveFull

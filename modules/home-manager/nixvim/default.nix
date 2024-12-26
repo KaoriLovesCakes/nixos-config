@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [
     ./autocmd.nix
     ./extra-plugins.nix
