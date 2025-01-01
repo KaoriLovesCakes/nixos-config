@@ -99,11 +99,11 @@
       # };
     };
 
-    packages.${globals.system}.neovim = inputs.nixvim.legacyPackages.${globals.system}.makeNixvimWithModule {
-      pkgs = nixpkgs.legacyPackages.${globals.system};
-      module = builtins.removeAttrs (import ./modules/nixos/nixvim {inherit globals;}).programs.nixvim ["enable" "defaultEditor"];
-      extraSpecialArgs = {inherit globals;};
-    };
+    packages.${globals.system}.neovim = inputs.nixvim.legacyPackages.${globals.system}.makeNixvim (
+      builtins.removeAttrs
+      (import ./modules/nixos/nixvim {inherit globals;}).programs.nixvim
+      ["enable" "defaultEditor"]
+    );
 
     templates = {
       cpp = {
