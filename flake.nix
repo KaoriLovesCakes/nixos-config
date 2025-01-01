@@ -99,11 +99,7 @@
       # };
     };
 
-    packages.${globals.system}.neovim = let
-      _module = (import ./modules/nixos/nixvim {inherit globals;}).programs.nixvim;
-      module = builtins.removeAttrs _module ["enable" "defaultEditor"];
-    in
-      inputs.nixvim.legacyPackages.${globals.system}.makeNixvim module;
+    packages.${globals.system}.neovim = inputs.nixvim.legacyPackages.${globals.system}.makeNixvim ./modules/nixos/nixvim/modules;
 
     templates = {
       cpp = {

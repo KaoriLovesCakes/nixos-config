@@ -1,5 +1,5 @@
 {
-  programs.nixvim.keymaps = [
+  keymaps = [
     {
       action = "<gv";
       key = "<";
@@ -23,18 +23,8 @@
     }
 
     {
-      action = "vipgq$";
-      key = "<leader>fp";
-      mode = "n";
-      options = {
-        noremap = true;
-        desc = "Format paragraph";
-      };
-    }
-
-    {
       action = "<cmd>Pick files<CR>";
-      key = "<leader>pf";
+      key = "<leader>f";
       mode = "n";
       options = {
         noremap = true;
@@ -44,7 +34,7 @@
 
     {
       action = "<cmd>Pick grep_live<CR>";
-      key = "<leader>pg";
+      key = "<leader>g";
       mode = "n";
       options = {
         noremap = true;

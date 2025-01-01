@@ -1,5 +1,5 @@
 {
-  programs.nixvim.autoCmd = [
+  autoCmd = [
     # {
     #   callback.__raw = ''
     #     function()
