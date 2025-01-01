@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    # nixpkgs.url = "github:nixos/nixpkgs/79ed846045f8bbb67b67c74ff6dee9e0582d09d9";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -78,7 +77,7 @@
       hostname = "bqn-nixos";
       username = "_bqn";
       system = "x86_64-linux";
-      theme = "nord";
+      base16-scheme = "nord";
 
       configDirectory = "${homeDirectory}/nix-config";
       homeDirectory = "/home/${username}";
@@ -98,6 +97,12 @@
       #     "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
       #   ];
       # };
+    };
+
+    packages.${globals.system}.neovim = inputs.nixvim.legacyPackages.${globals.system}.makeNixvimWithModule {
+      pkgs = nixpkgs.legacyPackages.${globals.system};
+      module = builtins.removeAttrs (import ./modules/nixos/nixvim {inherit globals;}).programs.nixvim ["enable" "defaultEditor"];
+      extraSpecialArgs = {inherit globals;};
     };
 
     templates = {

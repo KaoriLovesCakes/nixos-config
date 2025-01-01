@@ -1,4 +1,4 @@
-{
+{globals, ...}: {
   imports = [
     ./autocmd.nix
     ./extra-plugins.nix
@@ -9,6 +9,10 @@
   programs.nixvim = {
     enable = true;
     clipboard.register = "unnamedplus";
+    colorschemes.base16 = {
+      enable = true;
+      colorscheme = globals.base16-scheme;
+    };
     defaultEditor = true;
     globals = {
       mapleader = " ";
@@ -18,7 +22,8 @@
       conceallevel = 2;
       cursorline = true;
       expandtab = true;
-      foldlevel = 80;
+      foldlevel = 16;
+      foldmethod = "indent";
       list = true;
       listchars = {
         tab = "󰌒 ";

@@ -1,9 +1,9 @@
 {
+  globals,
   inputs,
-  pkgs,
   ...
 }: let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${globals.system};
 in {
   programs.spicetify = {
     enable = true;

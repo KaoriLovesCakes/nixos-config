@@ -28,6 +28,7 @@
     };
 
     input.keyboard.numlockOnStartup = "on";
+    kscreenlocker.autoLock = false;
 
     kwin = {
       effects.desktopSwitching.animation = "slide";
@@ -40,26 +41,17 @@
 
     powerdevil.AC = {
       autoSuspend.action = "nothing";
+      dimDisplay.enable = false;
       turnOffDisplay.idleTimeout = "never";
     };
 
-    startup.desktopScript = {
-      qBittorrent = {
-        postCommands = "qbittorrent";
-        text = "";
-      };
-      ksshaskpass = {
-        postCommands = ''
-          SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
-          ssh-add ~/.ssh/id_ed25519
-          systemctl --user restart git-sync-notes
-        '';
-        text = "";
-      };
-      rclone-mount-all = {
-        postCommands = "systemctl --user restart rclone-mount-all";
-        text = "";
-      };
+    startup.startupScript = {
+      qBittorrent.text = "qbittorrent";
+      ksshaskpass.text = ''
+        SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
+        ssh-add ~/.ssh/id_ed25519
+        systemctl --user restart git-sync-notes
+      '';
     };
 
     window-rules = [

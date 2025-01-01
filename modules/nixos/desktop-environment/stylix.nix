@@ -1,21 +1,16 @@
 {
   globals,
-  inputs,
   pkgs,
   ...
 }: {
-  imports = [
-    inputs.stylix.nixosModules.stylix
-  ];
-
   stylix = {
     enable = true;
     image = pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/linuxdotexe/nordic-wallpapers/refs/heads/master/wallpapers/ign_astronaut.png";
-      sha256 = "0KP2RCkeNTYe3sf/xArmAJEcC1DF/yQJ0hIW/uR4i4Y=";
+      hash = "sha256-0KP2RCkeNTYe3sf/xArmAJEcC1DF/yQJ0hIW/uR4i4Y=";
     };
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${globals.theme}.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${globals.base16-scheme}.yaml";
     fonts = {
       sizes = {
         applications = 10;
@@ -40,6 +35,7 @@
     opacity.terminal = 0.5;
     targets = {
       grub.enable = false;
+      nixvim.enable = false;
       spicetify.enable = false;
     };
   };

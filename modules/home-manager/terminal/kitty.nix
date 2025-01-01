@@ -1,7 +1,6 @@
 {
   programs.kitty = {
     enable = true;
-    environment.NIXPKGS_ALLOW_UNFREE = "1";
     keybindings = {
       "ctrl+shift+enter" = "launch --location=split";
       "ctrl+shift+h" = "move_window left";

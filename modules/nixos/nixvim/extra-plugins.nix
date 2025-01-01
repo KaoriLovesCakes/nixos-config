@@ -6,6 +6,7 @@
         remember_prior = true,
       })
 
+      require('lorem').opts({})
       require('substitute').setup({})
     '';
 
@@ -30,6 +31,16 @@
         };
       })
 
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "lorem-nvim";
+        src = pkgs.fetchFromGitHub {
+          owner = "derektata";
+          repo = "lorem.nvim";
+          rev = "main";
+          hash = "sha256-1BoIz6n1vs7ZZbatLZTpECwFkeOsek3AxTYFRUjggCM=";
+        };
+      })
+
       # (pkgs.vimUtils.buildVimPlugin {
       #   name = "menu";
       #   src = pkgs.fetchFromGitHub {
@@ -37,26 +48,6 @@
       #     repo = "menu";
       #     rev = "main";
       #     hash = "sha256-dc91BYkFXXDcd4+9G9BV46CoSLNOD8B0UXRiDDOMWnM=";
-      #   };
-      # })
-
-      # (pkgs.vimUtils.buildVimPlugin {
-      #   name = "neorg-hop-extras";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "phenax";
-      #     repo = "neorg-hop-extras";
-      #     rev = "main";
-      #     hash = "sha256-oQAzu17Mu91XPBDrn8OBOTdIhQmJOpab+nPlEZqAUZs=";
-      #   };
-      # })
-
-      # (pkgs.vimUtils.buildVimPlugin {
-      #   name = "neorg-templates";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "pysan3";
-      #     repo = "neorg-templates";
-      #     rev = "v2.0.3";
-      #     hash = "sha256-nZOAxXSHTUDBpUBS/Esq5HHwEaTB01dI7x5CQFB3pcw=";
       #   };
       # })
 

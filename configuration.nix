@@ -13,6 +13,8 @@
     inputs.disko.nixosModules.disko
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
     inputs.impermanence.nixosModules.impermanence
+    inputs.nixvim.nixosModules.nixvim
+    inputs.stylix.nixosModules.stylix
   ];
 
   environment.systemPackages = [
@@ -26,12 +28,11 @@
     extraSpecialArgs = {inherit inputs globals pkgs;};
     sharedModules = [
       inputs.impermanence.nixosModules.home-manager.impermanence
-      inputs.nixvim.homeManagerModules.nixvim
       inputs.plasma-manager.homeManagerModules.plasma-manager
       inputs.spicetify-nix.homeManagerModules.default
     ];
     useGlobalPkgs = true;
-    users.${globals.username} = ./home.nix;
+    users.${globals.username} = ./modules/home-manager;
   };
 
   nix = {

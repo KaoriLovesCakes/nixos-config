@@ -1,13 +1,14 @@
 {
   config,
-  pkgs,
   globals,
+  pkgs,
   ...
 }: {
   programs.nixvim = {
     extraPackages = [
       pkgs.alejandra
       pkgs.markdownlint-cli2
+      # pkgs.nodePackages.prettier
       pkgs.ruff
       pkgs.typstyle
     ];
@@ -24,7 +25,6 @@
           '';
           sources = [
             {name = "luasnip";}
-            {name = "neorg";}
             {name = "nvim_lsp";}
             {name = "path";}
           ];
@@ -55,11 +55,20 @@
                   indent: 4
               '';
             in ["--config" configFile];
+            # prettier.prepend_args = let
+            #   configFile = builtins.toFile ".prettierrc.yaml" ''
+            #     tabWidth: 4
+            #     proseWrap: "always"
+            #   '';
+            # in ["--config" configFile];
           };
           formatters_by_ft = {
             "*" = ["trim_whitespace"];
             cpp = ["clang-format"];
-            markdown = ["markdownlint-cli2"];
+            markdown = [
+              "markdownlint-cli2"
+              # "prettier"
+            ];
             nix = ["alejandra"];
             python = [
               "ruff_fix"
@@ -73,7 +82,13 @@
 
       guess-indent.enable = true;
       illuminate.enable = true;
-      indent-blankline.enable = true;
+
+      indent-blankline = {
+        enable = true;
+        settings.scope.include.node_type.nix = ["attrset_expression"];
+      };
+
+      leap.enable = true;
 
       lsp = {
         enable = true;
@@ -89,6 +104,51 @@
         };
       };
 
+      lualine = {
+        enable = true;
+        settings = {
+          options = {
+            component_separators = "";
+            globalstatus = true;
+            theme = "base16";
+            section_separators = "";
+          };
+          sections = {
+            lualine_a = ["mode"];
+            lualine_b = [""];
+            lualine_c = [
+              "filetype"
+              "filename"
+            ];
+            lualine_x = [
+              {
+                __unkeyed.__raw = ''
+                  function()
+                    if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" or vim.bo.filetype == "typst" then
+                      local word_count = vim.fn.wordcount().words
+                      if vim.fn.wordcount().visual_words ~= nil then
+                        word_count = vim.fn.wordcount().visual_words
+                      end
+
+                      if word_count == 1 then
+                        return "1 word"
+                      else
+                        return tostring(word_count) .. " words"
+                      end
+                    else
+                      return ""
+                    end
+                  end
+                '';
+              }
+              "location"
+            ];
+            lualine_y = [""];
+            lualine_z = [""];
+          };
+        };
+      };
+
       luasnip.enable = true;
 
       mini = {
@@ -99,23 +159,6 @@
           pick = config.lib.nixvim.emptyTable;
         };
       };
-
-      # neorg = {
-      #   enable = true;
-      #   settings.load = {
-      #     "core.completion".config.engine = "nvim-cmp";
-      #     "core.concealer" = config.lib.nixvim.emptyTable;
-      #     "core.defaults" = config.lib.nixvim.emptyTable;
-      #     "core.dirman".config = {
-      #       workspaces.main = globals.notesDirectory;
-      #       default_workspace = "main";
-      #     };
-      #     "core.journal".config.strategy = "flat";
-      #     "core.latex.renderer" = config.lib.nixvim.emptyTable;
-      #     "external.hop-extras" = config.lib.nixvim.emptyTable;
-      #     "external.templates".config.templates_dir = "${globals.notesDirectory}/templates";
-      #   };
-      # };
 
       nvim-autopairs = {
         enable = true;
@@ -134,11 +177,10 @@
             folder = "journals";
             template = "journal_template.md";
           };
-          follow_url_func = ''
-            function(url)
-              vim.fn.jobstart({"xdg-open", url})
-            end
-          '';
+          mappings."<CR>" = {
+            action = "require('obsidian').util.toggle_checkbox";
+            opts.buffer = true;
+          };
           templates.subdir = "templates";
           workspaces = [
             {
@@ -153,24 +195,6 @@
 
       treesitter = {
         enable = true;
-        # grammarPackages =
-        #   pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars
-        #   ++ [
-        #     (pkgs.tree-sitter.buildGrammar {
-        #       language = "norg-meta";
-        #       fixupPhase = ''
-        #         mkdir -p $out/queries/norg-meta
-        #         mv $out/queries/*.scm $out/queries/norg-meta/
-        #       '';
-        #       src = pkgs.fetchFromGitHub {
-        #         owner = "nvim-neorg";
-        #         repo = "tree-sitter-norg-meta";
-        #         rev = "v0.1.0";
-        #         hash = "sha256-8qSdwHlfnjFuQF4zNdLtU2/tzDRhDZbo9K54Xxgn5+8=";
-        #       };
-        #       version = "0.1.0";
-        #     })
-        #   ];
         folding = true;
         settings = {
           highlight.enable = true;
@@ -184,6 +208,14 @@
       which-key = {
         enable = true;
         settings.spec = [
+          {
+            __unkeyed = "<leader>f";
+            group = "Format";
+          }
+          {
+            __unkeyed = "<leader>p";
+            group = "Pick";
+          }
           {
             __unkeyed = "<leader>t";
             group = "Toggle";

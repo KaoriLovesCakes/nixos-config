@@ -23,8 +23,18 @@
     }
 
     {
+      action = "vipgq$";
+      key = "<leader>fp";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Format paragraph";
+      };
+    }
+
+    {
       action = "<cmd>Pick files<CR>";
-      key = "<leader>f";
+      key = "<leader>pf";
       mode = "n";
       options = {
         noremap = true;
@@ -34,7 +44,7 @@
 
     {
       action = "<cmd>Pick grep_live<CR>";
-      key = "<leader>g";
+      key = "<leader>pg";
       mode = "n";
       options = {
         noremap = true;
@@ -120,24 +130,24 @@
       };
     }
 
-    {
-      action.__raw = ''
-        function()
-          local line = vim.api.nvim_get_current_line()
-          if line:match("^ *`:.*` *$") then
-            command = line:match("^ *`:(.*)` *$")
-            vim.cmd(command)
-          end
-        end
-      '';
-
-      key = "<leader>x";
-      mode = "n";
-      options = {
-        noremap = true;
-        desc = "Execute as Vim script";
-      };
-    }
+    # {
+    #   action.__raw = ''
+    #     function()
+    #       local line = vim.api.nvim_get_current_line()
+    #       if line:match("^ *`:.*` *$") then
+    #         command = line:match("^ *`:(.*)` *$")
+    #         vim.cmd(command)
+    #       end
+    #     end
+    #   '';
+    #
+    #   key = "<leader>x";
+    #   mode = "n";
+    #   options = {
+    #     noremap = true;
+    #     desc = "Execute as Vim script";
+    #   };
+    # }
 
     # {
     #   action.__raw = ''
@@ -157,31 +167,13 @@
     # }
 
     {
-      action.__raw = "require('substitute').operator";
-      key = "s";
-      mode = "n";
-      options.noremap = true;
-    }
-
-    {
-      action.__raw = "require('substitute').eol";
-      key = "S";
-      mode = "n";
-      options.noremap = true;
-    }
-
-    {
-      action.__raw = "require('substitute').line";
-      key = "ss";
-      mode = "n";
-      options.noremap = true;
-    }
-
-    {
       action.__raw = "require('substitute').visual";
-      key = "s";
-      mode = "x";
-      options.noremap = true;
+      key = "<C-s>";
+      mode = "v";
+      options = {
+        noremap = true;
+        desc = "Substitute";
+      };
     }
   ];
 }

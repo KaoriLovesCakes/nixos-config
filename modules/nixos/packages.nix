@@ -2,6 +2,7 @@
   environment.systemPackages = [
     pkgs.anki-bin
     pkgs.caprine
+    pkgs.discord
     pkgs.libreoffice-qt
     pkgs.mpv
     pkgs.obs-studio
@@ -9,6 +10,7 @@
     pkgs.qbittorrent
     # pkgs.zen-browser
 
+    pkgs.betterdiscordctl
     pkgs.cachix
     pkgs.devenv
     pkgs.fastfetch

@@ -4,6 +4,7 @@
     ./disk
     ./hardware
     ./networking
+    ./nixvim
     ./terminal
 
     ./appimage.nix
