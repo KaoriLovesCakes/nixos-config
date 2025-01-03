@@ -21,9 +21,8 @@
           DelayFocusInterval = 0;
           FocusPolicy = "FocusFollowsMouse";
         };
-        Wayland.InputMethod = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
+        Wayland.InputMethod = "/run/current-system/sw/share/applications/org.fcitx.Fcitx5.desktop";
       };
-
       plasmashellrc."PlasmaViews/Panel 2".panelVisibility = 1;
     };
 

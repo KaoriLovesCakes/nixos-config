@@ -1,13 +1,14 @@
-{
-  config,
-  globals,
-  pkgs,
-  ...
-}: {
-  programs.nixvim =
-    (import ./modules {inherit config globals pkgs;})
-    // {
-      enable = true;
-      defaultEditor = true;
+{globals, ...}: {
+  config = {
+    programs.nixvim = {
+      imports = [
+        ./modules
+        {
+          enable = true;
+          defaultEditor = true;
+        }
+      ];
+      config = {inherit (globals) base16-scheme notesDirectory;};
     };
+  };
 }

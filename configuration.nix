@@ -1,6 +1,6 @@
 {
-  inputs,
   globals,
+  inputs,
   lib,
   pkgs,
   ...
@@ -18,14 +18,13 @@
   ];
 
   environment.systemPackages = [
-    pkgs.git
     inputs.zen-browser-flake.packages.${globals.system}.default
   ];
 
   hardware.enableAllFirmware = true;
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs globals pkgs;};
+    extraSpecialArgs = {inherit globals inputs pkgs;};
     sharedModules = [
       inputs.impermanence.nixosModules.home-manager.impermanence
       inputs.plasma-manager.homeManagerModules.plasma-manager

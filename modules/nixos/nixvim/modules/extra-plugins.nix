@@ -4,7 +4,6 @@
       define_autocmd = true,
       remember_prior = true,
     })
-
     require('lorem').opts({})
     require('substitute').setup({})
   '';
@@ -16,7 +15,17 @@
     #     owner = "A7Lavinraj";
     #     repo = "assistant.nvim";
     #     rev = "main";
-    #     hash = "sha256-w+Jag+bDS93CyIeRM/4TGm5B2/alxSO43by2rNcCgkI=";
+    #     hash = "sha256-SM3MWheqaMxvHnPxLUIdFNHqYJSLjZ2mgN7QG0qu1jw=";
+    #   };
+    # })
+
+    # (pkgs.vimUtils.buildVimPlugin {
+    #   name = "cphelper-nvim";
+    #   src = pkgs.fetchFromGitHub {
+    #     owner = "p00f";
+    #     repo = "cphelper.nvim";
+    #     rev = "main";
+    #     hash = "";
     #   };
     # })
 
@@ -40,26 +49,7 @@
       };
     })
 
-    # (pkgs.vimUtils.buildVimPlugin {
-    #   name = "menu";
-    #   src = pkgs.fetchFromGitHub {
-    #     owner = "nvzone";
-    #     repo = "menu";
-    #     rev = "main";
-    #     hash = "sha256-dc91BYkFXXDcd4+9G9BV46CoSLNOD8B0UXRiDDOMWnM=";
-    #   };
-    # })
-
-    # (pkgs.vimUtils.buildVimPlugin {
-    #   name = "volt";
-    #   src = pkgs.fetchFromGitHub {
-    #     owner = "nvzone";
-    #     repo = "volt";
-    #     rev = "main";
-    #     hash = "sha256-/sYO6nqkehVNcRHx5kaFXJ9BlAVIf8Qi21A4XI9/ymU=";
-    #   };
-    # })
-
+    pkgs.vimPlugins.dropbar-nvim
     pkgs.vimPlugins.substitute-nvim
   ];
 }

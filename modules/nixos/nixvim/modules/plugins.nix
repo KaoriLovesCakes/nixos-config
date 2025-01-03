@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -40,6 +41,7 @@
 
     colorizer.enable = true;
     comment.enable = true;
+    competitest.enable = true;
 
     conform-nvim = {
       enable = true;
@@ -93,7 +95,10 @@
       servers = {
         clangd.enable = true;
         markdown_oxide.enable = true;
-        nil_ls.enable = true;
+        nil_ls = {
+          enable = true;
+          settings.nix.flake.autoArchive = true;
+        };
         pyright.enable = true;
         tinymist = {
           enable = true;
@@ -158,6 +163,48 @@
       };
     };
 
+    mkdnflow = {
+      enable = true;
+      mappings = {
+        MkdnCreateLinkFromClipboard = {
+          key = "<leader>mp";
+          modes = [
+            "n"
+            "v"
+          ];
+        };
+        MkdnFoldSection = {
+          key = "<leader>mf";
+          modes = "n";
+        };
+        MkdnTableNewColAfter = {
+          key = "<leader>mic";
+          modes = "n";
+        };
+        MkdnTableNewColBefore = {
+          key = "<leader>miC";
+          modes = "n";
+        };
+        MkdnTableNewRowAbove = {
+          key = "<leader>miR";
+          modes = "n";
+        };
+        MkdnTableNewRowBelow = {
+          key = "<leader>mir";
+          modes = "n";
+        };
+        MkdnUnfoldSection = {
+          key = "<leader>mF";
+          modes = "n";
+        };
+        MkdnUpdateNumbering = {
+          key = "<leader>mnn";
+          modes = "n";
+        };
+      };
+      toDo.symbols = [" " "x"];
+    };
+
     nvim-autopairs = {
       enable = true;
       settings.checkTs = true;
@@ -168,23 +215,48 @@
       git.ignore = false;
     };
 
+    obsidian = lib.mkIf (config.notesDirectory != null) {
+      enable = true;
+      settings = {
+        daily_notes = {
+          folder = "journals";
+          template = "journal_template.md";
+        };
+        mappings = lib.nixvim.emptyTable;
+        templates.subdir = "templates";
+        workspaces = [
+          {
+            name = "main";
+            path = config.notesDirectory;
+          }
+        ];
+      };
+    };
+
     telescope.enable = true;
 
     treesitter = {
       enable = true;
       folding = true;
       settings = {
-        highlight.enable = true;
+        # highlight.enable = true;
         indent.enable = true;
       };
     };
 
-    treesitter-context.enable = true;
     typst-vim.enable = true;
 
     which-key = {
       enable = true;
       settings.spec = [
+        {
+          __unkeyed = "<leader>f";
+          group = "Format";
+        }
+        {
+          __unkeyed = "<leader>p";
+          group = "Pick";
+        }
         {
           __unkeyed = "<leader>t";
           group = "Toggle";

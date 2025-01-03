@@ -23,8 +23,18 @@
     }
 
     {
+      action = "vipgq$";
+      key = "<leader>fp";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Format paragraph";
+      };
+    }
+
+    {
       action = "<cmd>Pick files<CR>";
-      key = "<leader>f";
+      key = "<leader>pf";
       mode = "n";
       options = {
         noremap = true;
@@ -34,38 +44,13 @@
 
     {
       action = "<cmd>Pick grep_live<CR>";
-      key = "<leader>g";
+      key = "<leader>pg";
       mode = "n";
       options = {
         noremap = true;
         desc = "Live grep";
       };
     }
-
-    # {
-    #   action.__raw = ''
-    #     function()
-    #       require("menu").open("default")
-    #     end
-    #   '';
-    #
-    #   key = "<leader>m";
-    #   mode = "n";
-    #   options = {
-    #     noremap = true;
-    #     desc = "Open menu";
-    #   };
-    # }
-
-    # {
-    #   action = "<Cmd>AssistantToggle<CR>";
-    #   key = "<leader>a";
-    #   mode = "n";
-    #   options = {
-    #     noremap = true;
-    #     desc = "Toggle assistant";
-    #   };
-    # }
 
     {
       action.__raw = ''
@@ -120,42 +105,6 @@
       };
     }
 
-    # {
-    #   action.__raw = ''
-    #     function()
-    #       local line = vim.api.nvim_get_current_line()
-    #       if line:match("^ *`:.*` *$") then
-    #         command = line:match("^ *`:(.*)` *$")
-    #         vim.cmd(command)
-    #       end
-    #     end
-    #   '';
-    #
-    #   key = "<leader>x";
-    #   mode = "n";
-    #   options = {
-    #     noremap = true;
-    #     desc = "Execute as Vim script";
-    #   };
-    # }
-
-    # {
-    #   action.__raw = ''
-    #     function()
-    #       for _, command in pairs(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."))) do
-    #         vim.cmd(command)
-    #       end
-    #     end
-    #   '';
-    #
-    #   key = "<leader>x";
-    #   mode = "x";
-    #   options = {
-    #     noremap = true;
-    #     desc = "Execute as Vim script";
-    #   };
-    # }
-
     {
       action.__raw = "require('substitute').visual";
       key = "<C-s>";
@@ -163,6 +112,36 @@
       options = {
         noremap = true;
         desc = "Substitute";
+      };
+    }
+
+    {
+      action.__raw = "require('dropbar.api').pick";
+      key = "<leader>;";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Pick symbols in winbar";
+      };
+    }
+
+    {
+      action.__raw = "require('dropbar.api').goto_context_start";
+      key = "[;";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Go to start of current context";
+      };
+    }
+
+    {
+      action.__raw = "require('dropbar.api').select_next_context";
+      key = "];";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Select next context";
       };
     }
   ];

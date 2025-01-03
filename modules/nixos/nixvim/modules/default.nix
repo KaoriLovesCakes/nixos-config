@@ -1,36 +1,19 @@
-_: {
+{lib, ...}: {
   imports = [
     ./autocmd.nix
+    ./config.nix
     ./extra-plugins.nix
     ./keymaps.nix
     ./plugins.nix
   ];
 
-  clipboard.register = "unnamedplus";
-  colorschemes.base16 = {
-    enable = true;
-    colorscheme = "nord";
-  };
-  globals = {
-    mapleader = " ";
-    maplocalleader = ",";
-  };
-  opts = {
-    conceallevel = 2;
-    cursorline = true;
-    expandtab = true;
-    foldlevel = 16;
-    foldmethod = "indent";
-    list = true;
-    listchars = {
-      tab = "󰌒 ";
-      trail = "•";
-      nbsp = "␣";
+  options = {
+    base16-scheme = lib.mkOption {
+      type = lib.types.str;
+      default = "nord";
     };
-    showbreak = "↪ ";
-    signcolumn = "number";
-    swapfile = false;
-    shiftwidth = 2;
-    tabstop = 2;
+    notesDirectory = lib.mkOption {
+      type = lib.types.str;
+    };
   };
 }

@@ -99,7 +99,8 @@
       # };
     };
 
-    packages.${globals.system}.neovim = inputs.nixvim.legacyPackages.${globals.system}.makeNixvim ./modules/nixos/nixvim/modules;
+    packages.${globals.system}.neovim =
+      inputs.nixvim.legacyPackages.${globals.system}.makeNixvim ./modules/nixos/nixvim/modules;
 
     templates = {
       cpp = {

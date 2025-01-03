@@ -16,8 +16,10 @@
     pkgs.fastfetch
     pkgs.fd
     pkgs.ffmpeg
+    pkgs.git
     pkgs.hyfetch
     pkgs.nix-tree
+    pkgs.progress
     pkgs.rclone
     pkgs.ripgrep
     pkgs.tdf
