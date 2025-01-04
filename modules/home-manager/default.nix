@@ -1,7 +1,6 @@
 {globals, ...}: {
   imports = [
     ./desktop-environment
-    ./disk
     ./terminal
 
     ./direnv.nix

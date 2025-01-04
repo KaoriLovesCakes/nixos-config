@@ -24,6 +24,7 @@
   hardware.enableAllFirmware = true;
 
   home-manager = {
+    backupFileExtension = "backup";
     extraSpecialArgs = {inherit globals inputs pkgs;};
     sharedModules = [
       inputs.impermanence.nixosModules.home-manager.impermanence
