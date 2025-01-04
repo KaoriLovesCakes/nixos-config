@@ -22,6 +22,7 @@
           FocusPolicy = "FocusFollowsMouse";
         };
         Wayland.InputMethod = "/run/current-system/sw/share/applications/org.fcitx.Fcitx5.desktop";
+        Xwayland.Scale = 1;
       };
       plasmashellrc."PlasmaViews/Panel 2".panelVisibility = 1;
     };
@@ -82,6 +83,7 @@
     };
 
     shortcuts = {
+      ksmserver."Lock Session" = ["Meta+Shift+L"];
       kwin = {
         "Switch One Desktop Down" = "Meta+J";
         "Switch One Desktop Up" = "Meta+K";
