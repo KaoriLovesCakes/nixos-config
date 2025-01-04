@@ -127,17 +127,19 @@
             {
               __unkeyed.__raw = ''
                 function()
-                  if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" or vim.bo.filetype == "typst" then
+                  if vim.bo.filetype == "markdown" or vim.bo.filetype == "text" or vim.bo.filetype == "typst" or vim.bo.filetype == "" then
+                    local char_count = vim.fn.wordcount().chars
                     local word_count = vim.fn.wordcount().words
-                    if vim.fn.wordcount().visual_words ~= nil then
+                    if vim.fn.wordcount().visual_chars ~= nil then
+                      char_count = vim.fn.wordcount().visual_chars
                       word_count = vim.fn.wordcount().visual_words
                     end
 
-                    if word_count == 1 then
-                      return "1 word"
-                    else
-                      return tostring(word_count) .. " words"
-                    end
+                    return tostring(char_count)
+                      .. (char_count == 1 and " character" or " characters")
+                      .. ", "
+                      .. tostring(word_count)
+                      .. (word_count == 1 and " word" or " words")
                   else
                     return ""
                   end
@@ -238,10 +240,7 @@
     treesitter = {
       enable = true;
       folding = true;
-      settings = {
-        # highlight.enable = true;
-        indent.enable = true;
-      };
+      settings.indent.enable = true;
     };
 
     typst-vim.enable = true;
@@ -252,6 +251,10 @@
         {
           __unkeyed = "<leader>f";
           group = "Format";
+        }
+        {
+          __unkeyed = "<leader>m";
+          group = "Markdown";
         }
         {
           __unkeyed = "<leader>p";

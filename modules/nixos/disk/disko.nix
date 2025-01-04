@@ -30,7 +30,7 @@
           };
           root = {
             name = "root";
-            size = "100%";
+            size = "384G";
             content = {
               type = "lvm_pv";
               vg = "root_vg";
