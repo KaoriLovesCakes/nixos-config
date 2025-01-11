@@ -14,6 +14,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -85,8 +93,19 @@
   in {
     nixosConfigurations = {
       ${globals.hostname} = nixpkgs.lib.nixosSystem {
+        modules = [
+          inputs.home-manager.nixosModules.home-manager
+          inputs.aagl-gtk-on-nix.nixosModules.default
+          inputs.agenix.nixosModules.default
+          inputs.disko.nixosModules.disko
+          inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+          inputs.impermanence.nixosModules.impermanence
+          inputs.nixvim.nixosModules.nixvim
+          inputs.stylix.nixosModules.stylix
+          ./configuration.nix
+        ];
+
         specialArgs = {inherit inputs outputs globals;};
-        modules = [./configuration.nix];
       };
       #
       # live = nixpkgs.lib.nixosSystem {

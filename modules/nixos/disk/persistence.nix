@@ -35,9 +35,6 @@
         "Pictures"
         "Videos"
       ];
-      files = [
-        ".config/nix/nix.conf"
-      ];
     };
   };
 }

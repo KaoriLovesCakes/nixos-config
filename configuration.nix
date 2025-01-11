@@ -1,4 +1,5 @@
 {
+  config,
   globals,
   inputs,
   lib,
@@ -8,17 +9,11 @@
   imports = [
     ./modules/nixos
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.home-manager
-    inputs.aagl-gtk-on-nix.nixosModules.default
-    inputs.disko.nixosModules.disko
-    inputs.flake-programs-sqlite.nixosModules.programs-sqlite
-    inputs.impermanence.nixosModules.impermanence
-    inputs.nixvim.nixosModules.nixvim
-    inputs.stylix.nixosModules.stylix
   ];
 
   environment.systemPackages = [
     inputs.zen-browser-flake.packages.${globals.system}.default
+    inputs.agenix.packages.${globals.system}.default
   ];
 
   hardware.enableAllFirmware = true;
@@ -26,14 +21,15 @@
   home-manager = {
     backupFileExtension = "backup";
     extraSpecialArgs = {inherit globals inputs pkgs;};
-    sharedModules = [
-      inputs.impermanence.nixosModules.home-manager.impermanence
-      inputs.plasma-manager.homeManagerModules.plasma-manager
-      inputs.spicetify-nix.homeManagerModules.default
-    ];
     useGlobalPkgs = true;
-    users.${globals.username} = ./modules/home-manager;
+    users.${globals.username} = ./modules/home;
   };
+
+  home-manager.sharedModules = [
+    inputs.impermanence.nixosModules.home-manager.impermanence
+    inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.spicetify-nix.homeManagerModules.default
+  ];
 
   nix = {
     extraOptions = ''
@@ -75,14 +71,17 @@
   programs.fuse.userAllowOther = true;
   time.timeZone = "Asia/Ho_Chi_Minh";
 
-  users.users.${globals.username} = {
-    isNormalUser = true;
-    initialPassword = "correct-horse-battery-staple";
-    extraGroups = [
-      "networkmanager"
-      "video"
-      "wheel"
-    ];
+  users = {
+    mutableUsers = false;
+    users.${globals.username} = {
+      isNormalUser = true;
+      hashedPasswordFile = config.age.secrets.upsilon.path;
+      extraGroups = [
+        "networkmanager"
+        "video"
+        "wheel"
+      ];
+    };
   };
 
   system.stateVersion = "24.11";
