@@ -78,7 +78,7 @@
       system = "x86_64-linux";
       base16-scheme = "nord";
 
-      configDirectory = "${homeDirectory}/nix-config";
+      configDirectory = "${homeDirectory}/Downloads/nixos-config";
       homeDirectory = "/home/${username}";
       notesDirectory = "${homeDirectory}/Documents";
     };

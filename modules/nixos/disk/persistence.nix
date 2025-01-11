@@ -34,7 +34,6 @@
         "Music"
         "Pictures"
         "Videos"
-        "nix-config"
       ];
       files = [
         ".config/nix/nix.conf"
