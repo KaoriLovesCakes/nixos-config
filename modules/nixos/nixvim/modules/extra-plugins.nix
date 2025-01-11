@@ -1,36 +1,30 @@
 {pkgs, ...}: {
   extraConfigLua = ''
-    require('fcitx5').setup({
+    require("fcitx5").setup({
       define_autocmd = true,
       remember_prior = true,
     })
-    require('lorem').opts({})
-    require('substitute').setup({})
+
+    require("img-clip").setup({
+      filetypes = {
+        typst = {
+          template = [[
+            #figure(
+              image("$FILE_PATH"),
+              caption: [$CURSOR],
+            ) <fig-$LABEL>
+          ]],
+        },
+      }
+    })
+
+    require("lorem").opts({})
+    require("substitute").setup({})
   '';
 
   extraPlugins = [
-    # (pkgs.vimUtils.buildVimPlugin {
-    #   name = "assistant-nvim";
-    #   src = pkgs.fetchFromGitHub {
-    #     owner = "A7Lavinraj";
-    #     repo = "assistant.nvim";
-    #     rev = "main";
-    #     hash = "sha256-SM3MWheqaMxvHnPxLUIdFNHqYJSLjZ2mgN7QG0qu1jw=";
-    #   };
-    # })
-
-    # (pkgs.vimUtils.buildVimPlugin {
-    #   name = "cphelper-nvim";
-    #   src = pkgs.fetchFromGitHub {
-    #     owner = "p00f";
-    #     repo = "cphelper.nvim";
-    #     rev = "main";
-    #     hash = "";
-    #   };
-    # })
-
     (pkgs.vimUtils.buildVimPlugin {
-      name = "fcitx5-nvim";
+      name = "fcitx5";
       src = pkgs.fetchFromGitHub {
         owner = "pysan3";
         repo = "fcitx5.nvim";
@@ -40,7 +34,17 @@
     })
 
     (pkgs.vimUtils.buildVimPlugin {
-      name = "lorem-nvim";
+      name = "img-clip";
+      src = pkgs.fetchFromGitHub {
+        owner = "HakonHarnes";
+        repo = "img-clip.nvim";
+        rev = "v0.5.0";
+        hash = "sha256-TTfRow1rrRZ3+5YPeYAQc+2fsb42wUxTMEr6kfUiKXo=";
+      };
+    })
+
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "lorem";
       src = pkgs.fetchFromGitHub {
         owner = "derektata";
         repo = "lorem.nvim";
@@ -49,7 +53,6 @@
       };
     })
 
-    pkgs.vimPlugins.dropbar-nvim
     pkgs.vimPlugins.substitute-nvim
   ];
 }

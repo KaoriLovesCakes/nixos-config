@@ -6,6 +6,7 @@
     ./direnv.nix
     ./fzf.nix
     ./git.nix
+    ./hyfetch.nix
     ./mimeapps.nix
     ./polybar.nix
     ./rofi.nix

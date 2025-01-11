@@ -3,14 +3,11 @@
   pkgs,
   ...
 }: {
-  home = {
-    file.".config/rofimoji.rc".text = ''
-      action = copy
-      files = [math]
-      prompt =
-    '';
-    packages = [pkgs.rofimoji];
-  };
+  home.file.".config/rofimoji.rc".text = ''
+    action = copy
+    files = [math]
+    prompt =
+  '';
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;

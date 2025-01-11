@@ -19,14 +19,14 @@
     pkgs.git
     pkgs.hyfetch
     pkgs.nix-tree
+    pkgs.p7zip
     pkgs.progress
     pkgs.rclone
     pkgs.ripgrep
+    pkgs.rofimoji
     pkgs.tdf
     pkgs.texliveFull
     pkgs.typst
-    pkgs.unzip
     pkgs.wl-clipboard
-    pkgs.zip
   ];
 }

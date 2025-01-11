@@ -6,7 +6,6 @@
       mode = "v";
       options = {
         noremap = true;
-        silent = true;
         desc = "Indent left";
       };
     }
@@ -17,8 +16,17 @@
       mode = "v";
       options = {
         noremap = true;
-        silent = true;
         desc = "Indent right";
+      };
+    }
+
+    {
+      action = "<Cmd>Neotree<CR>";
+      key = "<Leader>e";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Open explorer";
       };
     }
 
@@ -29,6 +37,24 @@
       options = {
         noremap = true;
         desc = "Format paragraph";
+      };
+    }
+
+    {
+      action.__raw = ''
+        function()
+          require("img-clip").paste_image({
+            file_name = tostring(os.time()),
+            prompt_for_file_name = false,
+            relative_to_current_file = true,
+          })
+        end
+      '';
+      key = "<Leader>i";
+      mode = "n";
+      options = {
+        noremap = true;
+        desc = "Paste image";
       };
     }
 
@@ -96,12 +122,12 @@
     }
 
     {
-      action = "<Cmd>NvimTreeFindFileToggle<CR>";
-      key = "<Leader>tt";
+      action = "<Cmd>Precognition toggle<CR>";
+      key = "<Leader>tp";
       mode = "n";
       options = {
         noremap = true;
-        desc = "Toggle tree";
+        desc = "Toggle precognition";
       };
     }
 

@@ -73,7 +73,6 @@
   } @ inputs: let
     inherit (self) outputs;
     globals = rec {
-      device = "/dev/nvme0n1";
       hostname = "bqn-nixos";
       username = "_bqn";
       system = "x86_64-linux";
@@ -81,7 +80,7 @@
 
       configDirectory = "${homeDirectory}/nix-config";
       homeDirectory = "/home/${username}";
-      notesDirectory = "${homeDirectory}/Documents/notes";
+      notesDirectory = "${homeDirectory}/Documents";
     };
   in {
     nixosConfigurations = {

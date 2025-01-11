@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -80,6 +79,7 @@
       };
     };
 
+    dropbar.enable = true;
     guess-indent.enable = true;
     illuminate.enable = true;
 
@@ -207,32 +207,25 @@
       toDo.symbols = [" " "x"];
     };
 
+    neo-tree = {
+      enable = true;
+      filesystem.filteredItems.visible = true;
+    };
+
     nvim-autopairs = {
       enable = true;
       settings.checkTs = true;
     };
 
-    nvim-tree = {
-      enable = true;
-      git.ignore = false;
-    };
+    # nvim-tree = {
+    #   enable = true;
+    #   autoClose = true;
+    #   git.ignore = false;
+    # };
 
-    obsidian = lib.mkIf (config.notesDirectory != null) {
+    precognition = {
       enable = true;
-      settings = {
-        daily_notes = {
-          folder = "journals";
-          template = "journal_template.md";
-        };
-        mappings = lib.nixvim.emptyTable;
-        templates.subdir = "templates";
-        workspaces = [
-          {
-            name = "main";
-            path = config.notesDirectory;
-          }
-        ];
-      };
+      settings.startVisible = false;
     };
 
     telescope.enable = true;
@@ -240,10 +233,13 @@
     treesitter = {
       enable = true;
       folding = true;
-      settings.indent.enable = true;
+      settings = {
+        highlight.enable = true;
+        indent.enable = true;
+      };
     };
 
-    typst-vim.enable = true;
+    # typst-vim.enable = true;
 
     which-key = {
       enable = true;

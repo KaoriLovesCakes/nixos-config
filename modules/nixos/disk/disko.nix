@@ -1,7 +1,7 @@
-{globals, ...}: {
+{
   disko.devices = {
     disk.main = {
-      inherit (globals) device;
+      device = "/dev/nvme0n1";
       type = "disk";
       content = {
         type = "gpt";

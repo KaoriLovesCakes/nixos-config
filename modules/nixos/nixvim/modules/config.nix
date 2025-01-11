@@ -22,8 +22,10 @@
     };
     showbreak = "↪ ";
     signcolumn = "number";
-    swapfile = false;
     shiftwidth = 2;
+    splitbelow = true;
+    splitright = true;
+    swapfile = false;
     tabstop = 2;
   };
 }

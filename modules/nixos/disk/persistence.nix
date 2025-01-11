@@ -37,8 +37,6 @@
         "nix-config"
       ];
       files = [
-        ".config/hyfetch.json"
-        # ".config/kwinoutputconfig.json"
         ".config/nix/nix.conf"
       ];
     };
