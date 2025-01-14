@@ -1,10 +1,13 @@
 {lib, ...}: {
   imports = [
+    ./extra-plugins
+    ./plugins
     ./autocmd.nix
-    ./config.nix
-    ./extra-plugins.nix
+    ./clipboard.nix
+    ./colorschemes.nix
+    ./globals.nix
     ./keymaps.nix
-    ./plugins.nix
+    ./opts.nix
   ];
 
   options = {

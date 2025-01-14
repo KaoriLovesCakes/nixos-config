@@ -1,0 +1,26 @@
+{
+  imports = [
+    ./luasnip
+    ./cmp.nix
+    ./colorizer.nix
+    ./comment.nix
+    ./competitest.nix
+    ./conform-nvim.nix
+    ./friendly-snippets.nix
+    ./guess-indent.nix
+    ./illuminate.nix
+    ./indent-blankline.nix
+    ./leap.nix
+    ./lsp.nix
+    ./lualine.nix
+    ./mini.nix
+    ./mkdnflow.nix
+    ./neo-tree.nix
+    ./nvim-autopairs.nix
+    ./precognition.nix
+    ./telescope.nix
+    ./treesitter.nix
+    ./which-key.nix
+    ./yazi.nix
+  ];
+}

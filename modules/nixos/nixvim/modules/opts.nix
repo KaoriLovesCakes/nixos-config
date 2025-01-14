@@ -1,13 +1,4 @@
-{config, ...}: {
-  clipboard.register = "unnamedplus";
-  colorschemes.base16 = {
-    enable = true;
-    colorscheme = config.base16-scheme;
-  };
-  globals = {
-    mapleader = " ";
-    maplocalleader = ",";
-  };
+{
   opts = {
     conceallevel = 2;
     cursorline = true;

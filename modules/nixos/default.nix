@@ -1,6 +1,5 @@
 {
   imports = [
-    ./age
     ./desktop-environment
     ./disk
     ./hardware
@@ -15,7 +14,6 @@
     ./games.nix
     ./ios.nix
     ./nh.nix
-    ./nix-alien.nix
     ./packages.nix
     # ./virtualisation.nix
   ];

@@ -1,0 +1,14 @@
+{
+    "Obsidian": {
+        "prefix": "obsidian",
+        "body": [
+            "---",
+            "id: ${1:id}",
+            "alias: []",
+            "tags: []",
+            "---",
+            "",
+            "# ${2:title}"
+        ]
+    }
+}

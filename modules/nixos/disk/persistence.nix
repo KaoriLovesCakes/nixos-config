@@ -17,6 +17,7 @@
         ".config/Caprine"
         ".config/discord"
         ".config/libreoffice"
+        ".config/nix"
         ".config/qBittorrent"
         ".config/rclone"
         ".config/spotify"

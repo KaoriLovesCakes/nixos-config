@@ -14,14 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
-
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -96,12 +88,20 @@
         modules = [
           inputs.home-manager.nixosModules.home-manager
           inputs.aagl-gtk-on-nix.nixosModules.default
-          inputs.agenix.nixosModules.default
           inputs.disko.nixosModules.disko
           inputs.flake-programs-sqlite.nixosModules.programs-sqlite
           inputs.impermanence.nixosModules.impermanence
           inputs.nixvim.nixosModules.nixvim
           inputs.stylix.nixosModules.stylix
+
+          {
+            home-manager.sharedModules = [
+              inputs.impermanence.nixosModules.home-manager.impermanence
+              inputs.plasma-manager.homeManagerModules.plasma-manager
+              inputs.spicetify-nix.homeManagerModules.default
+            ];
+          }
+
           ./configuration.nix
         ];
 
