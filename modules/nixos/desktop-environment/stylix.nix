@@ -10,7 +10,7 @@
       hash = "sha256-0KP2RCkeNTYe3sf/xArmAJEcC1DF/yQJ0hIW/uR4i4Y=";
     };
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${globals.base16-scheme}.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${globals.base16Scheme}.yaml";
     fonts = {
       sizes = {
         applications = 10;

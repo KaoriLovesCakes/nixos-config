@@ -75,11 +75,10 @@
     globals = rec {
       hostname = "bqn-nixos";
       username = "_bqn";
-      base16-scheme = "nord";
+      base16Scheme = "nord";
 
-      configDirectory = "${homeDirectory}/Repositories/nixos-config";
       homeDirectory = "/home/${username}";
-      notesDirectory = "${homeDirectory}/Documents";
+      configDirectory = "${homeDirectory}/Repositories/nixos-config";
 
       keyboards = [
         "/dev/input/by-path/platform-i8042-serio-0-event-kbd"

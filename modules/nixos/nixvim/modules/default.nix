@@ -10,11 +10,11 @@
   ];
 
   options = {
-    base16-scheme = lib.mkOption {
+    base16Scheme = lib.mkOption {
       type = lib.types.str;
       default = "nord";
     };
-    notesDirectory = lib.mkOption {
+    cpDirectory = lib.mkOption {
       type = lib.types.str;
       default = "";
     };

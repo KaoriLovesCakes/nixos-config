@@ -1,5 +1,5 @@
 {
-  config,
+  lib,
   pkgs,
   ...
 }: {
@@ -51,13 +51,13 @@
       "core.concealer".__empty = null;
       "core.defaults".__empty = null;
       "core.dirman".config = {
-        workspaces.main = config.notesDirectory;
+        workspaces.main = lib.mkRaw "string.format('%s/Documents', vim.loop.os_homedir())";
         default_workspace = "main";
       };
       "core.journal".config.strategy = "flat";
       "core.latex.renderer".__empty = null;
       "external.hop-extras".__empty = null;
-      "external.templates".config.templates_dir = "${config.notesDirectory}/Templates";
+      "external.templates".config.templates_dir = lib.mkRaw "string.format('%s/Documents/Templates', vim.loop.os_homedir())";
     };
   };
 }

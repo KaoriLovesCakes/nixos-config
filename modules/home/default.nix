@@ -18,7 +18,6 @@
   home = {
     inherit (globals) username;
     sessionVariables = {
-      NIXOS_CONFIG_DIR = globals.configDirectory;
       NIXPKGS_ALLOW_UNFREE = 1;
       TYPST_ROOT = globals.homeDirectory;
     };

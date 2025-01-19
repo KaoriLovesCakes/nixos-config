@@ -8,7 +8,10 @@
           defaultEditor = true;
         }
       ];
-      config = {inherit (globals) base16-scheme notesDirectory;};
+      config = {
+        inherit (globals) base16Scheme;
+        cpDirectory = "${globals.homeDirectory}/Repositories/Competitive Programming";
+      };
     };
   };
 }
