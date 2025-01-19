@@ -77,7 +77,7 @@
       username = "_bqn";
       base16-scheme = "nord";
 
-      configDirectory = "${homeDirectory}/Downloads/nixos-config";
+      configDirectory = "${homeDirectory}/Repositories/nixos-config";
       homeDirectory = "/home/${username}";
       notesDirectory = "${homeDirectory}/Documents";
 

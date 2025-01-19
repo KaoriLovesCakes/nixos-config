@@ -21,7 +21,7 @@
     ./mini.nix
     ./mkdnflow.nix
     ./neo-tree.nix
-    ./neorg.nix
+    # ./neorg.nix
     ./noice.nix
     ./notify.nix
     ./nvim-autopairs.nix
