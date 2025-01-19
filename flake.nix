@@ -75,12 +75,17 @@
     globals = rec {
       hostname = "bqn-nixos";
       username = "_bqn";
-      system = "x86_64-linux";
       base16-scheme = "nord";
 
       configDirectory = "${homeDirectory}/Downloads/nixos-config";
       homeDirectory = "/home/${username}";
       notesDirectory = "${homeDirectory}/Documents";
+
+      keyboards = [
+        "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+        "/dev/input/by-id/usb-SEMICO_USB_Keyboard-event-kbd"
+      ];
+      system = "x86_64-linux";
     };
   in {
     nixosConfigurations = {

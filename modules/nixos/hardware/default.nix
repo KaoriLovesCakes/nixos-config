@@ -1,7 +1,7 @@
 {
   imports = [
     ./bluetooth.nix
-    ./nvidia.nix
+    ./nvidia-gpu.nix
     ./pipewire.nix
   ];
 }

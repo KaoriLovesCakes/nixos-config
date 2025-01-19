@@ -3,13 +3,13 @@
     ./desktop-environment
     ./disk
     ./hardware
+    ./input
     ./networking
     ./nixvim
     ./terminal
 
     ./appimage.nix
-    ./caps2esc.nix
-    ./fcitx5.nix
+    # ./caps2esc.nix
     ./fonts.nix
     ./games.nix
     ./ios.nix

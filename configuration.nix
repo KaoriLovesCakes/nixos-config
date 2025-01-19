@@ -56,7 +56,9 @@
       isNormalUser = true;
       hashedPassword = "$y$j9T$Y7kA6d/QIhMHRtF4UW7ky/$juHiZ7BIq5drpMZcdkqmp8c5M8JdKxUQasaBYIv3OR3";
       extraGroups = [
+        "input"
         "networkmanager"
+        "uinput"
         "video"
         "wheel"
       ];

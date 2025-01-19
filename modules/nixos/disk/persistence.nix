@@ -21,6 +21,7 @@
         ".config/qBittorrent"
         ".config/rclone"
         ".config/spotify"
+        ".local/share/direnv"
         ".local/share/fish"
         ".local/share/honkers-railway-launcher"
         ".local/share/kwalletd"
@@ -34,6 +35,7 @@
         "Downloads"
         "Music"
         "Pictures"
+        "Repositories"
         "Videos"
       ];
     };

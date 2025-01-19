@@ -5,8 +5,9 @@
       key = "<";
       mode = "v";
       options = {
-        noremap = true;
         desc = "Indent left";
+        noremap = true;
+        silent = true;
       };
     }
 
@@ -15,8 +16,9 @@
       key = ">";
       mode = "v";
       options = {
-        noremap = true;
         desc = "Indent right";
+        noremap = true;
+        silent = true;
       };
     }
 

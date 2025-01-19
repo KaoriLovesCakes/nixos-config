@@ -1,6 +1,5 @@
 {lib, ...}: {
   imports = [
-    ./extra-plugins
     ./plugins
     ./autocmd.nix
     ./clipboard.nix

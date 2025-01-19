@@ -11,7 +11,7 @@
         ];
         settings = {
           globalOptions = {
-            "Hotkey/EnumerateForwardKeys"."0" = "Shift+Shift_R";
+            "Hotkey/EnumerateForwardKeys"."0" = "Control+Tab";
             "Hotkey/TriggerKeys" = {};
           };
           inputMethod = {

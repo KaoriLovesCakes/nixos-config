@@ -22,7 +22,6 @@
           FocusPolicy = "FocusFollowsMouse";
         };
         Wayland.InputMethod = "/run/current-system/sw/share/applications/org.fcitx.Fcitx5.desktop";
-        Xwayland.Scale = 1;
       };
       plasmashellrc."PlasmaViews/Panel 2".panelVisibility = 1;
     };
