@@ -11,7 +11,7 @@
       pyright.enable = true;
       tinymist = {
         enable = true;
-        extraOptions.offset_encoding = "utf-8";
+        extraOptions.offset_encoding = "utf-16";
       };
     };
   };

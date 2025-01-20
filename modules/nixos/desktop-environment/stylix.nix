@@ -32,7 +32,7 @@
       '';
       size = 24;
     };
-    opacity.terminal = 0.5;
+    opacity.terminal = 0.6;
     targets = {
       grub.enable = false;
       nixvim.enable = false;

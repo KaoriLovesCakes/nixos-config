@@ -21,7 +21,6 @@
     };
     interactiveShellInit = ''
       fish_config prompt choose informative_vcs
-      fish_hybrid_key_bindings
       set fish_greeting
     '';
     #   if not set -q tmux

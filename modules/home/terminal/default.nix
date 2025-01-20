@@ -1,7 +1,8 @@
 {
   imports = [
+    ./alacritty.nix
     ./fish.nix
-    ./kitty.nix
+    # ./kitty.nix
     ./tmux.nix
   ];
 }

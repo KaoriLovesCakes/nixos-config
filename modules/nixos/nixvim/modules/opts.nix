@@ -12,6 +12,7 @@
       nbsp = "␣";
     };
     showbreak = "↪ ";
+    showmode = false;
     signcolumn = "number";
     shiftwidth = 2;
     splitbelow = true;

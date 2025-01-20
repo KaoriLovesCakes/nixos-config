@@ -23,6 +23,7 @@
         ".config/spotify"
         ".local/share/direnv"
         ".local/share/fish"
+        ".local/share/fonts"
         ".local/share/honkers-railway-launcher"
         ".local/share/kwalletd"
         ".local/share/qBittorrent"
