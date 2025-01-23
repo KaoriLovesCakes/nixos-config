@@ -1,0 +1,30 @@
+{
+  "Japanese learning journal": {
+    "prefix": "nihongo",
+    "body": [
+      "#import \"index.typ\": *",
+      "",
+      "#let today = datetime(year: ${1:year}, month: ${2:month}, day: ${3:day})",
+      "",
+      "#let primary-colour = primary-colour(today)",
+      "#let secondary-colour = secondary-colour(primary-colour)",
+      "#let frame = frame.with(stroke: primary-colour, fill: secondary-colour)",
+      "#show: template.with(primary-colour: primary-colour)",
+      "#show: vault.new-note.with(",
+      "  name: today.display(\"[day] [month repr:long] [year]\"),",
+      ")",
+      "",
+      "= #today.display(\"[year]年[month]月[day]日\")",
+      "",
+      "+ #ruby[せかい][世界]",
+      "",
+      "  - #highlight[Meaning]: the world, society, the universe",
+      "",
+      "  - #highlight[Kanji]:",
+      "",
+      "    世: generation, world, society, public",
+      "",
+      "    界: world, boundary"
+    ]
+  }
+}

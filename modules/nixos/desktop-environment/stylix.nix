@@ -16,6 +16,14 @@
         applications = 10;
         terminal = 11;
       };
+      serif = {
+        package = pkgs.noto-fonts-cjk-serif;
+        name = "Noto Serif CJK JP";
+      };
+      sansSerif = {
+        package = pkgs.noto-fonts-cjk-sans;
+        name = "Noto Sans CJK JP";
+      };
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMonoNL Nerd Font";

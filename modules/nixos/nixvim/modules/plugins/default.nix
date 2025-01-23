@@ -1,7 +1,8 @@
 {
   imports = [
     ./luasnip
-    ./cmp.nix
+    ./blink-cmp.nix
+    # ./cmp.nix
     ./colorizer.nix
     ./comment.nix
     ./competitest.nix

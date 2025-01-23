@@ -21,6 +21,7 @@
         ".config/qBittorrent"
         ".config/rclone"
         ".config/spotify"
+        ".local/share/Anki2"
         ".local/share/direnv"
         ".local/share/fish"
         ".local/share/fonts"

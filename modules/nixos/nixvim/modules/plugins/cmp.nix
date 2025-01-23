@@ -13,8 +13,8 @@
         {name = "nvim_lsp";}
         {name = "path";}
       ];
-      mapping = {
-        "<CR>" = ''
+      mapping = let
+        confirm_item = ''
           require('cmp').mapping(
             function(fallback)
               if require('cmp').visible() then
@@ -31,20 +31,7 @@
             end
           )
         '';
-        "<S-Tab>" = ''
-          require('cmp').mapping(
-            function(fallback)
-              if require('cmp').visible() then
-                require('cmp').select_prev_item()
-              elseif require('luasnip').locally_jumpable(-1) then
-                require('luasnip').jump(-1)
-              else
-                fallback()
-              end
-            end,
-          { 'i', 's' })
-        '';
-        "<Tab>" = ''
+        select_next_item = ''
           require('cmp').mapping(
             function(fallback)
               if require('cmp').visible() then
@@ -57,6 +44,25 @@
             end,
           { 'i', 's' })
         '';
+        select_prev_item = ''
+          require('cmp').mapping(
+            function(fallback)
+              if require('cmp').visible() then
+                require('cmp').select_prev_item()
+              elseif require('luasnip').locally_jumpable(-1) then
+                require('luasnip').jump(-1)
+              else
+                fallback()
+              end
+            end,
+          { 'i', 's' })
+        '';
+      in {
+        "<CR>" = confirm_item;
+        "<S-Tab>" = select_prev_item;
+        "<Tab>" = select_next_item;
+        "<Up>" = select_prev_item;
+        "<Down>" = select_next_item;
       };
     };
   };

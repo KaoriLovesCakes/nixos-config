@@ -5,6 +5,7 @@
 }: {
   extraPackages = [
     pkgs.alejandra
+    pkgs.fixjson
     pkgs.markdownlint-cli2
     # pkgs.nodePackages.prettier
     pkgs.ruff
@@ -33,6 +34,7 @@
       formatters_by_ft = {
         "*" = ["trim_whitespace"];
         cpp = ["clang-format"];
+        json = ["fixjson"];
         markdown = [
           "markdownlint-cli2"
           # "prettier"

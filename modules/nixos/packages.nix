@@ -24,8 +24,6 @@
     pkgs.rclone
     pkgs.ripgrep
     pkgs.rofimoji
-    pkgs.tdf
-    pkgs.texliveFull
     pkgs.typst
     pkgs.wl-clipboard
 

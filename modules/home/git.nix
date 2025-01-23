@@ -8,7 +8,7 @@
   services.git-sync = {
     enable = true;
     repositories.notes = {
-      interval = 5;
+      interval = 300;
       path = "${globals.homeDirectory}/Documents";
       uri = "git@github.com:just-bqn/notes";
     };
