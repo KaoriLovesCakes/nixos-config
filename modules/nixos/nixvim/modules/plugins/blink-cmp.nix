@@ -13,14 +13,13 @@
       keymap = {
         "<CR>" = ["accept" "fallback"];
         "<Esc>" = ["hide" "fallback"];
-        "<S-Tab>" = ["select_prev" "snippet_backward" "fallback"];
-        "<Tab>" = ["show" "select_next" "snippet_forward" "fallback"];
-        "<Up>" = ["select_prev" "fallback"];
-        "<Down>" = ["select_next" "fallback"];
         "<C-k>" = ["select_prev" "fallback"];
-        "<C-j>" = ["select_next" "fallback"];
-        "<C-h>" = ["snippet_backward"];
-        "<C-l>" = ["snippet_forward"];
+        "<C-j>" = ["show" "select_next" "fallback"];
+        "<C-h>" = ["snippet_backward" "fallback"];
+        "<C-l>" = ["snippet_forward" "fallback"];
+        "<C-space>" = ["show" "show_documentation" "hide_documentation" "fallback"];
+        "<C-p>" = ["scroll_documentation_up" "fallback"];
+        "<C-n>" = ["scroll_documentation_down" "fallback"];
       };
       snippets.preset = "luasnip";
       sources.providers.snippets.score_offset = 0;

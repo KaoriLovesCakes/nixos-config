@@ -9,8 +9,6 @@
       "/var/lib/systemd/coredump"
       "/var/lib/tailscale"
     ];
-    files = [
-    ];
     users.${globals.username} = {
       directories = [
         ".config/BetterDiscord"

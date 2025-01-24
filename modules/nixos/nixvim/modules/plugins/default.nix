@@ -2,7 +2,6 @@
   imports = [
     ./luasnip
     ./blink-cmp.nix
-    # ./cmp.nix
     ./colorizer.nix
     ./comment.nix
     ./competitest.nix
@@ -11,10 +10,8 @@
     ./friendly-snippets.nix
     ./guess-indent.nix
     ./illuminate.nix
-    ./image.nix
     ./img-clip.nix
     ./indent-blankline.nix
-    ./kanban.nix
     ./leap.nix
     ./lorem.nix
     ./lsp.nix
@@ -22,7 +19,6 @@
     ./mini.nix
     ./mkdnflow.nix
     ./neo-tree.nix
-    # ./neorg.nix
     ./noice.nix
     ./notify.nix
     ./nvim-autopairs.nix

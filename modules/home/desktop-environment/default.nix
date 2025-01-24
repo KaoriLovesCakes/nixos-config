@@ -1,3 +1,3 @@
 {
-  imports = [./plasma6.nix];
+  imports = [./kde-plasma.nix];
 }

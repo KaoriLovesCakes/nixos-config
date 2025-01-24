@@ -100,7 +100,7 @@
 
           {
             home-manager.sharedModules = [
-              inputs.impermanence.nixosModules.home-manager.impermanence
+              inputs.impermanence.homeManagerModules.default
               inputs.plasma-manager.homeManagerModules.plasma-manager
               inputs.spicetify-nix.homeManagerModules.default
             ];

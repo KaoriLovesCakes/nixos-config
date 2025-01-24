@@ -10,6 +10,7 @@
     ./mimeapps.nix
     ./polybar.nix
     ./rofi.nix
+    ./services.nix
     ./spicetify.nix
     ./vscodium.nix
     ./yazi.nix

@@ -13,8 +13,10 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${globals.base16Scheme}.yaml";
     fonts = {
       sizes = {
-        applications = 10;
-        terminal = 11;
+        # applications = 10;
+        # terminal = 11;
+        desktop = 11;
+        popups = 11;
       };
       serif = {
         package = pkgs.noto-fonts-cjk-serif;
