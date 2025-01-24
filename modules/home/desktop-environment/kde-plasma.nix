@@ -50,8 +50,7 @@
 
     panels = [
       {
-        location = "bottom";
-        height = 44;
+        floating = true;
       }
     ];
 
@@ -74,15 +73,6 @@
         "Window One Desktop to the Right" = "Meta+Ctrl+Shift+L";
       };
     };
-
-    # startup.startupScript = {
-    #   qBittorrent.text = "qbittorrent";
-    #   ksshaskpass.text = ''
-    #     SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
-    #     ssh-add ~/.ssh/id_ed25519
-    #     systemctl --user restart git-sync-notes
-    #   '';
-    # };
 
     window-rules = [
       {

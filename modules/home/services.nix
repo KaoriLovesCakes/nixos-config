@@ -9,7 +9,6 @@
 
     services = {
       qbittorrent-start = {
-        Unit.Description = "Starts qBittorrent.";
         Install.WantedBy = ["default.target"];
         Service = {
           ExecStart = ''
@@ -23,10 +22,10 @@
           '';
           Restart = "on-failure";
         };
+        Unit.Description = "Starts qBittorrent.";
       };
 
       ksshaskpass-start = {
-        Unit.Description = "Starts ksshaskpass.";
         Install.WantedBy = ["default.target"];
         Service = {
           ExecStart = ''
@@ -34,7 +33,6 @@
               pkgs.writeShellScript "ksshaskpass-start" ''
                 #!${pkgs.bash}/bin/bash
 
-                ${pkgs.qbittorrent}/bin/qbittorrent
                 SSH_ASKPASS=${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass ${pkgs.openssh}/bin/ssh-add < /dev/null
                 ${pkgs.openssh}/bin/ssh-add ${globals.homeDirectory}/.ssh/id_ed25519
               ''
@@ -51,6 +49,7 @@
           '';
           Restart = "on-failure";
         };
+        Unit.Description = "Starts ksshaskpass.";
       };
     };
   };

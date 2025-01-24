@@ -9,7 +9,7 @@
     enable = true;
     repositories.notes = {
       interval = 300;
-      path = "${globals.homeDirectory}/Documents";
+      path = "${globals.homeDirectory}/Repositories/Notes";
       uri = "git@github.com:just-bqn/notes";
     };
   };
