@@ -1,5 +1,4 @@
 {
-  config,
   globals,
   inputs,
   lib,
@@ -14,8 +13,6 @@
   environment.systemPackages = [
     inputs.zen-browser-flake.packages.${globals.system}.default
   ];
-
-  hardware.enableAllFirmware = true;
 
   home-manager = {
     backupFileExtension = "backup";
@@ -46,9 +43,6 @@
     config.allowUnfree = true;
     overlays = [inputs.nix-alien.overlays.default];
   };
-
-  programs.fuse.userAllowOther = true;
-  time.timeZone = "Asia/Ho_Chi_Minh";
 
   users = {
     mutableUsers = false;

@@ -1,3 +1,6 @@
 {
-  imports = [./kde-plasma.nix];
+  imports = [
+    ./kde-plasma
+    ./stylix.nix
+  ];
 }

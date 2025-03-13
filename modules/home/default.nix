@@ -1,6 +1,13 @@
-{globals, ...}: {
+{
+  globals,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./desktop-environment
+    ./networking
+    ./services
     ./terminal
 
     ./direnv.nix
@@ -8,9 +15,8 @@
     ./git.nix
     ./hyfetch.nix
     ./mimeapps.nix
+    ./nixcord.nix
     ./polybar.nix
-    ./rofi.nix
-    ./services.nix
     ./spicetify.nix
     ./vscodium.nix
     ./yazi.nix
@@ -19,7 +25,6 @@
   home = {
     inherit (globals) username;
     sessionVariables = {
-      NIXPKGS_ALLOW_UNFREE = 1;
       TYPST_FONT_PATHS = "${globals.homeDirectory}/.local/share/fonts";
       TYPST_ROOT = globals.homeDirectory;
     };
@@ -27,4 +32,18 @@
   };
 
   programs.home-manager.enable = true;
+
+  # Workaround
+  qt = {
+    enable = true;
+    platformTheme.package = with pkgs.kdePackages; [
+      plasma-integration
+      systemsettings
+    ];
+    style = lib.mkForce {
+      package = pkgs.kdePackages.breeze;
+      name = "Breeze";
+    };
+  };
+  systemd.user.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "kde";
 }

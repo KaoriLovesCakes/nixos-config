@@ -1,5 +1,5 @@
 {
-  description = "My Nix config.";
+  description = "My NixOS config.";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -26,12 +26,14 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-alien = {
@@ -53,6 +55,7 @@
     };
 
     stylix = {
+      # url = "github:danth/stylix?ref=b00c9f46ae6c27074d24d2db390f0ac5ebcc329f";
       url = "github:danth/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -76,6 +79,7 @@
       hostname = "bqn-nixos";
       username = "_bqn";
       base16Scheme = "nord";
+      timeZone = "Asia/Ho_Chi_Minh";
 
       homeDirectory = "/home/${username}";
       configDirectory = "${homeDirectory}/Repositories/nixos-config";
@@ -100,7 +104,7 @@
 
           {
             home-manager.sharedModules = [
-              inputs.impermanence.homeManagerModules.default
+              inputs.nixcord.homeManagerModules.nixcord
               inputs.plasma-manager.homeManagerModules.plasma-manager
               inputs.spicetify-nix.homeManagerModules.default
             ];
@@ -111,9 +115,8 @@
 
         specialArgs = {inherit inputs outputs globals;};
       };
-      #
+
       # live = nixpkgs.lib.nixosSystem {
-      #   inherit (globals) system;
       #   specialArgs = {inherit inputs outputs globals;};
       #   modules = [
       #     "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"

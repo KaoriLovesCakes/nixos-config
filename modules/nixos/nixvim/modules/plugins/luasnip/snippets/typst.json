@@ -1,8 +1,8 @@
 {
-  "Japanese learning journal": {
-    "prefix": "nihongo",
+  "New Japanese learning note": {
+    "prefix": "jnote",
     "body": [
-      "#import \"../Templates/notes.typ\": *",
+      "#import \"template.typ\": *",
       "",
       "#let today = datetime(year: ${1:year}, month: ${2:month}, day: ${3:day})",
       "",
@@ -16,38 +16,25 @@
       "  fuchsia,",
       ").at(today.weekday() - 1)",
       "#let secondary-colour = secondary-colour(primary-colour)",
-      "#let frame = frame.with(stroke: primary-colour, fill: secondary-colour)",
-      "#show: template.with(primary-colour: primary-colour)",
+      "#let frame = frame.with(primary-colour: primary-colour)",
+      "#let trivia = trivia.with(primary-colour: primary-colour)",
+      "#show: template.with(primary-colour: primary-colour, title-font: \"Jiyucho\")",
       "",
       "= #today.display(\"[year]年[month]月[day]日\")",
       "",
-      "#block(",
-      "  height: 1fr,",
-      "  grid(",
-      "    columns: 2,",
-      "    rows: 100%,",
-      "    [",
-      "      + #ruby[せかい][世界]<世界>",
-      "      ",
-      "        - #highlight[Meaning]: the world, society, the universe",
-      "      ",
-      "        - #highlight[Kanji]:",
+      "${4:body}"
+    ]
+  },
+  "New Japanese phrase": {
+    "prefix": "jphrase",
+    "body": [
+      "+ #furigana[${3:reading}][${2:phrase_sep}]<${1:phrase}>",
       "",
-      "          世: world, society",
+      "  - #highlight[Meaning]: ${4:meaning}",
       "",
-      "          界: world, boundary",
+      "  - #highlight[Kanji]:",
       "",
-      "      ${4:body1}",
-      "    ],",
-      "    align(",
-      "      bottom,",
-      "      [",
-      "        ${5:body2}",
-      "      ],",
-      "    ),",
-      "  ),",
-      ")"
-    ],
-    "description": "Vocabulary note"
+      "    ${5:kanji} (${6:kanji_vn}): ${7:kanji_meaning}"
+    ]
   }
 }

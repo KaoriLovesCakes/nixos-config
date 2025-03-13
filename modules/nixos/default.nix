@@ -9,12 +9,12 @@
     ./terminal
 
     ./appimage.nix
-    # ./caps2esc.nix
     ./fonts.nix
-    ./games.nix
-    ./ios.nix
+    ./honkers-railway-launcher.nix
     ./nh.nix
     ./packages.nix
+    ./steam.nix
+    ./time.nix
     # ./virtualisation.nix
   ];
 }

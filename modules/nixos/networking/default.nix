@@ -1,5 +1,6 @@
 {globals, ...}: {
   imports = [
+    ./cloudflare-warp.nix
     ./ssh.nix
     ./tailscale.nix
   ];

@@ -6,27 +6,22 @@
     ./comment.nix
     ./competitest.nix
     ./conform-nvim.nix
-    ./fcitx5.nix
+    ./extraPlugins.nix
     ./friendly-snippets.nix
     ./guess-indent.nix
-    ./illuminate.nix
-    ./img-clip.nix
-    ./indent-blankline.nix
     ./leap.nix
-    ./lorem.nix
     ./lsp.nix
     ./lualine.nix
     ./mini.nix
     ./mkdnflow.nix
     ./neo-tree.nix
     ./noice.nix
-    ./notify.nix
     ./nvim-autopairs.nix
-    ./precognition.nix
-    ./substitute.nix
+    ./nvim-surround.nix
+    ./snacks.nix
     ./telescope.nix
+    ./transparent.nix
     ./treesitter.nix
     ./which-key.nix
-    ./yazi.nix
   ];
 }

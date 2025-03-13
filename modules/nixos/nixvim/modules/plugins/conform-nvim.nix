@@ -1,44 +1,23 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  extraPackages = [
-    pkgs.alejandra
-    pkgs.fixjson
-    pkgs.markdownlint-cli2
-    # pkgs.nodePackages.prettier
-    pkgs.ruff
-    pkgs.typstyle
-  ];
-
+{lib, ...}: {
   plugins.conform-nvim = {
     enable = true;
     settings = {
       format_on_save = lib.nixvim.mkRaw "{}";
       formatters = {
         clang-format.prepend_args = ["--style=microsoft"];
-        markdownlint-cli2.prepend_args = let
-          configFile = builtins.toFile ".markdownlint.yaml" ''
-            MD007:
-              indent: 4
-          '';
-        in ["--config" configFile];
-        # prettier.prepend_args = let
-        #   configFile = builtins.toFile ".prettierrc.yaml" ''
-        #     tabWidth: 4
-        #     proseWrap: "always"
-        #   '';
-        # in ["--config" configFile];
+        prettier.prepend_args = [
+          "--config"
+          (builtins.toFile ".prettierrc.yaml" ''
+            tabWidth: 4
+            proseWrap: "always"
+          '')
+        ];
       };
       formatters_by_ft = {
         "*" = ["trim_whitespace"];
         cpp = ["clang-format"];
         json = ["fixjson"];
-        markdown = [
-          "markdownlint-cli2"
-          # "prettier"
-        ];
+        markdown = ["prettier"];
         nix = ["alejandra"];
         python = [
           "ruff_fix"

@@ -1,6 +1,8 @@
 {
   opts = {
+    colorcolumn = "+1";
     conceallevel = 2;
+    confirm = true;
     cursorline = true;
     expandtab = true;
     foldlevel = 16;

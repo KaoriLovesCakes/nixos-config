@@ -1,11 +1,15 @@
 {config, ...}: {
-  home.file.".config/kwinoutputconfig.json".source = config.lib.file.mkOutOfStoreSymlink ../symlinks/.config/kwinoutputconfig.json;
+  home.file.".config/kwinoutputconfig.json".source = ./kwinoutputconfig.json;
 
   programs.plasma = {
     enable = true;
     overrideConfig = true;
 
     configFile = {
+      kdeglobals.General = {
+        TerminalApplication = "kitty";
+        TerminalService = "kitty.desktop";
+      };
       kwinrc = {
         Effect-slide = {
           HorizontalGap = 0;
@@ -14,7 +18,7 @@
         };
         Plugins.krohnkiteEnabled = true;
         Script-krohnkite = {
-          screenGapBottom = 24;
+          screenGapBottom = 12;
           screenGapLeft = 12;
           screenGapRight = 12;
           screenGapTop = 12;
@@ -27,7 +31,16 @@
         };
         Xwayland.Scale = 1;
       };
-      plasmashellrc."PlasmaViews/Panel 2/Defaults".thickness = 36;
+      okularrc = {
+        General = {
+          LockSidebar = true;
+          ShowSidebar = false;
+        };
+        MainWindow = {
+          MenuBar = "Disabled";
+          ToolBarsMovable = "Disabled";
+        };
+      };
     };
 
     hotkeys.commands.rofimoji = {
@@ -51,6 +64,7 @@
     panels = [
       {
         floating = true;
+        hiding = "autohide";
       }
     ];
 
@@ -61,17 +75,23 @@
     };
 
     shortcuts = {
-      ksmserver."Lock Session" = ["Meta+Shift+L"];
+      ksmserver."Lock Session" = [];
       kwin = {
-        "Switch One Desktop Down" = "Meta+J";
-        "Switch One Desktop Up" = "Meta+K";
-        "Switch One Desktop to the Left" = "Meta+H";
-        "Switch One Desktop to the Right" = "Meta+L";
-        "Window One Desktop Down" = "Meta+Ctrl+Shift+J";
-        "Window One Desktop Up" = "Meta+Ctrl+Shift+K";
-        "Window One Desktop to the Left" = "Meta+Ctrl+Shift+H";
-        "Window One Desktop to the Right" = "Meta+Ctrl+Shift+L";
+        "KrohnkiteFocusLeft" = "Meta+H";
+        "KrohnkiteFocusDown" = "Meta+J";
+        "KrohnkiteFocusUp" = "Meta+K";
+        "KrohnkiteFocusRight" = "Meta+L";
+        "Switch One Desktop to the Left" = "Meta+Alt+H";
+        "Switch One Desktop Down" = "Meta+Alt+J";
+        "Switch One Desktop Up" = "Meta+Alt+K";
+        "Switch One Desktop to the Right" = "Meta+Alt+L";
+        "Window One Desktop to the Left" = "Meta+Alt+Shift+H";
+        "Window One Desktop Down" = "Meta+Alt+Shift+J";
+        "Window One Desktop Up" = "Meta+Alt+Shift+K";
+        "Window One Desktop to the Right" = "Meta+Alt+Shift+L";
       };
+      "KDE Keyboard Layout Switcher"."Switch to Last-Used Keyboard Layout" = [];
+      "KDE Keyboard Layout Switcher"."Switch to Next Keyboard Layout" = [];
     };
 
     window-rules = [

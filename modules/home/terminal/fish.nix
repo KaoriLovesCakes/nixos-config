@@ -1,26 +1,24 @@
 {
   programs.fish = {
     enable = true;
-    functions = {
-      rclone-mount-all = ''
-        for remote in (rclone listremotes)
-          set remote_name (echo $remote | sed "s/://g")
-          mkdir -p ~/"$remote_name"
-          nm-online --timeout=86400
-          rclone --vfs-cache-mode full mount "$remote" ~/"$remote_name" > /dev/null 2>&1 &
-        end
-      '';
-      y = ''
-        set tmp (mktemp -t "yazi-cwd.XXXXXX")
-        yazi $argv --cwd-file="$tmp"
-        if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-        	builtin cd -- "$cwd"
-        end
-        rm -f -- "$tmp"
-      '';
-    };
+    # functions.y = ''
+    #   set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    #   yazi $argv --cwd-file="$tmp"
+    #   if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+    #   	builtin cd -- "$cwd"
+    #   end
+    #   rm -f -- "$tmp"
+    # '';
     interactiveShellInit = ''
-      fish_config prompt choose informative_vcs
+      fish_config prompt choose informative
+      set __fish_git_prompt_char_cleanstate \uf00c
+      set __fish_git_prompt_char_dirtystate \uf067
+      set __fish_git_prompt_char_invalidstate \uf00d
+      set __fish_git_prompt_char_stagedstate \uf111
+      set __fish_git_prompt_char_stashstate \uf024
+      set __fish_git_prompt_char_untrackedfiles \uf141
+      set __fish_git_prompt_char_upstream_ahead \uf062
+      set __fish_git_prompt_char_upstream_behind \uf063
       set fish_greeting
     '';
     #   if not set -q tmux

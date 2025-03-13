@@ -22,7 +22,13 @@
         "<C-n>" = ["scroll_documentation_down" "fallback"];
       };
       snippets.preset = "luasnip";
-      sources.providers.snippets.score_offset = 0;
+      sources.providers = {
+        path.opts = {
+          label_trailing_slash = false;
+          trailing_slash = false;
+        };
+        snippets.score_offset = 0;
+      };
     };
   };
 }
