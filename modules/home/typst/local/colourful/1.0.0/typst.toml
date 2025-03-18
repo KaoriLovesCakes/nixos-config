@@ -1,0 +1,7 @@
+[package]
+name = "colourful"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["_bqn"]
+license = "MIT"
+description = "A colourful Typst template."

@@ -45,6 +45,7 @@
 
           #let primary-colour = blue
           #let body-font = ("SVN-Little Pea", "Tanugo-R")
+          #let raw-font = "Iosevka NFM"
           #let title-font = ("SVN-Little Pea", "Tanugo-R")
 
           #let secondary-colour = primary-colour.transparentize(60%%)
@@ -103,7 +104,7 @@
 
           #show link: it => underline(offset: 0.2em, text(it, fill: primary-colour))
 
-          #show raw: it => text(it, font: "Iosevka NFM")
+          #show raw: it => text(it, fill: primary-colour, font: raw-font)
 
           #show strong: it => highlight(it, extent: 0.1em, fill: secondary-colour)
 

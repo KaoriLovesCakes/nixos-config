@@ -9,6 +9,7 @@
     ./networking
     ./services
     ./terminal
+    ./typst
 
     ./direnv.nix
     ./fzf.nix
@@ -24,10 +25,6 @@
 
   home = {
     inherit (globals) username;
-    sessionVariables = {
-      TYPST_FONT_PATHS = "${globals.homeDirectory}/.local/share/fonts";
-      TYPST_ROOT = globals.homeDirectory;
-    };
     stateVersion = "24.11";
   };
 

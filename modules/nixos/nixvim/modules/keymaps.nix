@@ -28,6 +28,17 @@
       }
 
       {
+        action = "<Cmd>edit <cfile><CR>";
+        key = "gf";
+        mode = "n";
+        options = {
+          desc = "Go to file under cursor";
+          noremap = true;
+          silent = true;
+        };
+      }
+
+      {
         action = lib.nixvim.mkRaw ''
           function()
             if vim.wo.conceallevel == 0 then

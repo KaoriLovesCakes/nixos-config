@@ -8,13 +8,14 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${globals.base16Scheme}.yaml";
     cursor = {
       name = "Breeze";
-      package = pkgs.runCommand "moveUp" {} ''
-        mkdir -p $out/share/icons
-        ln -s ${pkgs.fetchzip {
-          url = "https://download.kde.org/unstable/plasma/6.2.91/breeze-6.2.91.tar.xz";
-          hash = "sha256-ar/t+Ujb7p5/huP7+YvuAHZE/ZrXQcbJ6yaARjiYFHA=";
-        }}/cursors/Breeze/Breeze $out/share/icons/Breeze
-      '';
+      package = pkgs.kdePackages.breeze-icons;
+      # package = pkgs.runCommand "moveUp" {} ''
+      #   mkdir -p $out/share/icons
+      #   ln -s ${pkgs.fetchzip {
+      #     url = "https://download.kde.org/unstable/plasma/6.2.91/breeze-6.2.91.tar.xz";
+      #     hash = "sha256-ar/t+Ujb7p5/huP7+YvuAHZE/ZrXQcbJ6yaARjiYFHA=";
+      #   }}/cursors/Breeze/Breeze $out/share/icons/Breeze
+      # '';
       size = 24;
     };
     fonts = {

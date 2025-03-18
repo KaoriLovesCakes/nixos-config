@@ -1,4 +1,4 @@
-{config, ...}: {
+{
   home.file.".config/kwinoutputconfig.json".source = ./kwinoutputconfig.json;
 
   programs.plasma = {
@@ -7,8 +7,8 @@
 
     configFile = {
       kdeglobals.General = {
-        TerminalApplication = "kitty";
-        TerminalService = "kitty.desktop";
+        TerminalApplication = "wezterm";
+        TerminalService = "wezterm.desktop";
       };
       kwinrc = {
         Effect-slide = {

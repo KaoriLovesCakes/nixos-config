@@ -18,7 +18,6 @@
     pkgs.qbittorrent
     pkgs.rclone
     pkgs.ripgrep
-    pkgs.typst
     pkgs.wl-clipboard
   ];
 }

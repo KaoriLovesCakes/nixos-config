@@ -18,6 +18,7 @@
     ./noice.nix
     ./nvim-autopairs.nix
     ./nvim-surround.nix
+    # ./render-markdown.nix
     ./snacks.nix
     ./telescope.nix
     ./transparent.nix
