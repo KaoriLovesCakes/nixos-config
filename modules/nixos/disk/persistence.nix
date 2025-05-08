@@ -20,13 +20,14 @@
         ".config/rclone"
         ".config/spotify"
         ".local/share/Anki2"
-        ".local/share/direnv"
         ".local/share/fish"
+        ".local/share/Steam"
+        ".local/share/direnv"
         ".local/share/fonts"
         ".local/share/honkers-railway-launcher"
         ".local/share/kwalletd"
+        ".local/share/PrismLauncher"
         ".local/share/qBittorrent"
-        ".local/share/Steam"
         ".ssh"
         ".steam"
         ".zen"
@@ -34,9 +35,12 @@
         "Documents"
         "Downloads"
         "Music"
+        "Notes"
         "Pictures"
         "Repositories"
         "Videos"
+      ];
+      files = [
       ];
     };
   };

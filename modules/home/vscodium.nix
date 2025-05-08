@@ -3,14 +3,18 @@
     enable = true;
     profiles.default = {
       extensions = [
-        pkgs.vscode-extensions.asvetliakov.vscode-neovim
+        pkgs.vscode-extensions.charliermarsh.ruff
         pkgs.vscode-extensions.mechatroner.rainbow-csv
         pkgs.vscode-extensions.mkhl.direnv
+        pkgs.vscode-extensions.ms-python.python
         pkgs.vscode-extensions.ms-toolsai.jupyter
-        # pkgs.vscode-extensions.ms-python.python
+        pkgs.vscode-extensions.ms-toolsai.jupyter-renderers
       ];
       userSettings = {
-        "extensions.experimental.affinity"."asvetliakov.vscode-neovim" = 1;
+        "direnv.path.executable" = "${pkgs.direnv}/bin/direnv";
+        "editor.formatOnSave" = true;
+        "notebook.defaultFormatter" = "ms-python.python";
+        "notebook.formatOnSave.enabled" = true;
         "window.titleBarStyle" = "custom";
         "workbench.editor.empty.hint" = "hidden";
       };

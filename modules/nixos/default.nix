@@ -3,18 +3,16 @@
     ./desktop-environment
     ./disk
     ./hardware
-    ./input
     ./networking
     ./nixvim
     ./terminal
 
     ./appimage.nix
+    ./fcitx5.nix
     ./fonts.nix
-    ./honkers-railway-launcher.nix
+    ./games.nix
     ./nh.nix
-    ./packages.nix
     ./steam.nix
     ./time.nix
-    # ./virtualisation.nix
   ];
 }

@@ -40,8 +40,23 @@
   };
 
   nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [inputs.nix-alien.overlays.default];
+    config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "cloudflare-warp"
+        "discord"
+        "minecraft-server"
+        "nvidia-persistenced"
+        "nvidia-settings"
+        "nvidia-x11"
+        "osu-lazer-bin"
+        "spotify"
+        "steam"
+        "steam-unwrapped"
+      ];
+    overlays = [
+      inputs.nix-alien.overlays.default
+      inputs.nix-minecraft.overlays.default
+    ];
   };
 
   users = {

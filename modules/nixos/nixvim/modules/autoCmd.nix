@@ -14,6 +14,16 @@
         event = ["BufRead"];
         pattern = ["*.pdf"];
       }
+
+      {
+        callback = lib.nixvim.mkRaw ''
+          function()
+            vim.fn.jobstart({"fcitx5-remote", "-s", "keyboard-us-altgr-intl"})
+          end
+        '';
+        event = ["InsertLeave"];
+        pattern = ["*"];
+      }
     ]
     ++ lib.optionals (config.plugins.snacks.enable && (builtins.hasAttr "terminal" config.plugins.snacks.settings)) [
       {

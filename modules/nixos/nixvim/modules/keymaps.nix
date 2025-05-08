@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  keymaps =
+  keymaps = lib.flatten [
     [
       {
         action = "<gv";
@@ -81,7 +81,7 @@
         };
       }
     ]
-    ++ lib.optionals config.plugins.neo-tree.enable [
+    (lib.optionals config.plugins.neo-tree.enable [
       {
         action = "<Cmd>Neotree<CR>";
         key = "<Leader>e";
@@ -91,8 +91,8 @@
           desc = "Open explorer";
         };
       }
-    ]
-    ++ lib.optionals (config.plugins.snacks.enable && (builtins.hasAttr "picker" config.plugins.snacks.settings)) [
+    ])
+    (lib.optionals (config.plugins.snacks.enable && (builtins.hasAttr "picker" config.plugins.snacks.settings)) [
       {
         action = lib.nixvim.mkRaw ''
           function()
@@ -134,27 +134,8 @@
           desc = "Grep";
         };
       }
-    ]
-    ++ lib.optionals config.plugins.extraPlugins.img-clip.enable [
-      {
-        action = lib.nixvim.mkRaw ''
-          function()
-            require("img-clip").paste_image({
-              file_name = tostring(os.time()),
-              prompt_for_file_name = false,
-              relative_to_current_file = true,
-            })
-          end
-        '';
-        key = "<Leader>i";
-        mode = "n";
-        options = {
-          noremap = true;
-          desc = "Paste image";
-        };
-      }
-    ]
-    ++ lib.optionals config.plugins.extraPlugins.substitute.enable [
+    ])
+    (lib.optionals config.plugins.extraPlugins.substitute.enable [
       {
         action = lib.nixvim.mkRaw "require('substitute').visual";
         key = "<C-s>";
@@ -164,5 +145,6 @@
           desc = "Substitute";
         };
       }
-    ];
+    ])
+  ];
 }

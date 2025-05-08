@@ -10,10 +10,13 @@
       };
       sections = {
         lualine_a = ["mode"];
-        lualine_b = [""];
+        lualine_b = ["filetype"];
         lualine_c = [
-          "filetype"
-          "filename"
+          {
+            __unkeyed = "filename";
+            file_status = true;
+            path = 2;
+          }
         ];
         lualine_x = [
           {

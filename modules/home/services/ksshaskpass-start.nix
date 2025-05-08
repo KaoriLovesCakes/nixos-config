@@ -16,15 +16,15 @@
           ''
         }
       '';
-      ExecStartPost = ''
-        ${
-          pkgs.writeShellScript "git-sync-notes-service-restart" ''
-            #!${pkgs.bash}/bin/bash
-
-            ${pkgs.systemd}/bin/systemctl --user restart git-sync-notes
-          ''
-        }
-      '';
+      # ExecStartPost = ''
+      #   ${
+      #     pkgs.writeShellScript "git-sync-notes-service-restart" ''
+      #       #!${pkgs.bash}/bin/bash
+      #
+      #       ${pkgs.systemd}/bin/systemctl --user restart git-sync-notes
+      #     ''
+      #   }
+      # '';
       Restart = "on-failure";
     };
     Unit = {

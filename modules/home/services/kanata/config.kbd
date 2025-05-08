@@ -1,0 +1,74 @@
+(defcfg
+  danger-enable-cmd     yes
+  process-unmapped-keys yes
+  linux-dev (
+    /dev/input/by-path/platform-i8042-serio-0-event-kbd
+    /dev/input/by-id/usb-SEMICO_USB_Keyboard-event-kbd
+  )
+)
+
+(defvar
+  tap-time  150
+  hold-time 150
+)
+
+(defsrc
+  grv     1       2       3       4       5       6       7       8       9       0       -       =
+  tab     q       w       e       r       t       y       u       i       o       p       [       ]
+  caps    a       s       d       f       g       h       j       k       l       ;       '       ret
+  lsft            z       x       c       v       b       n       m       ,       .       /       rsft
+                                                 spc                      ralt    rctl
+)
+
+(defvirtualkeys
+  sus (cmd bash -c "fcitx5-remote -s keyboard-us-altgr-intl")
+  tjp (cmd bash -c "fcitx5-remote -n | grep -q 'keyboard-us-altgr-intl' && fcitx5-remote -s mozc || fcitx5-remote -s keyboard-us-altgr-intl")
+  tvn (cmd bash -c "fcitx5-remote -n | grep -q 'keyboard-us-altgr-intl' && fcitx5-remote -s bamboo || fcitx5-remote -s keyboard-us-altgr-intl")
+)
+
+(defalias
+  lb (layer-switch base)
+  lu (layer-switch us-only)
+
+  vsus (on-press tap-virtualkey sus)
+  vtjp (on-press tap-virtualkey tjp)
+  vtvn (on-press tap-virtualkey tvn)
+
+  xctl (tap-hold $tap-time $hold-time (tap-dance $tap-time (esc caps)) lctl)
+
+  jp (tap-hold $tap-time $hold-time
+    (tap-dance $tap-time (@vtjp (multi @vsus @lu)))
+    lsft
+  )
+
+  vn (tap-hold $tap-time $hold-time
+    (tap-dance $tap-time (@vtvn (multi @vsus @lu)))
+    rsft
+  )
+
+  jp2 (tap-hold $tap-time $hold-time
+    (tap-dance $tap-time (lsft (multi @vtjp @lb)))
+    lsft
+  )
+
+  vn2 (tap-hold $tap-time $hold-time
+    (tap-dance $tap-time (rsft (multi @vtvn @lb)))
+    lsft
+  )
+)
+
+(deflayer base
+  grv     1       2       3       4       5       6       7       8       9       0       -       =
+  tab     q       w       e       r       t       y       u       i       o       p       [       ]
+  @xctl   a       s       d       f       g       h       j       k       l       ;       '       ret
+  @jp             z       x       c       v       b       n       m       ,       .       /       @vn
+                                                 spc                      ralt    rctl
+)
+
+(deflayer us-only
+  grv     1       2       3       4       5       6       7       8       9       0       -       =
+  tab     q       w       e       r       t       y       u       i       o       p       [       ]
+  @xctl   a       s       d       f       g       h       j       k       l       ;       '       ret
+  @jp2            z       x       c       v       b       n       m       ,       .       /       @vn2
+                                                 spc                      ralt    rctl
+)

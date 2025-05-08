@@ -1,11 +1,15 @@
-{
-  home.file.".config/kwinoutputconfig.json".source = ./kwinoutputconfig.json;
+{pkgs, ...}: {
+  home = {
+    file.".config/kwinoutputconfig.json".source = ./kwinoutputconfig.json;
+    packages = [pkgs.kdePackages.krohnkite];
+  };
 
   programs.plasma = {
     enable = true;
     overrideConfig = true;
 
     configFile = {
+      kded5rc.Module-gtkconfig.autoload = false;
       kdeglobals.General = {
         TerminalApplication = "wezterm";
         TerminalService = "wezterm.desktop";
@@ -43,12 +47,6 @@
       };
     };
 
-    hotkeys.commands.rofimoji = {
-      name = "Launch rofimoji";
-      key = "Meta+R";
-      command = ''rofi -modi "emoji:rofimoji" -show'';
-    };
-
     input.keyboard.numlockOnStartup = "on";
     kscreenlocker.autoLock = false;
 
@@ -77,17 +75,17 @@
     shortcuts = {
       ksmserver."Lock Session" = [];
       kwin = {
-        "KrohnkiteFocusLeft" = "Meta+H";
         "KrohnkiteFocusDown" = "Meta+J";
-        "KrohnkiteFocusUp" = "Meta+K";
+        "KrohnkiteFocusLeft" = "Meta+H";
         "KrohnkiteFocusRight" = "Meta+L";
-        "Switch One Desktop to the Left" = "Meta+Alt+H";
+        "KrohnkiteFocusUp" = "Meta+K";
         "Switch One Desktop Down" = "Meta+Alt+J";
         "Switch One Desktop Up" = "Meta+Alt+K";
+        "Switch One Desktop to the Left" = "Meta+Alt+H";
         "Switch One Desktop to the Right" = "Meta+Alt+L";
-        "Window One Desktop to the Left" = "Meta+Alt+Shift+H";
         "Window One Desktop Down" = "Meta+Alt+Shift+J";
         "Window One Desktop Up" = "Meta+Alt+Shift+K";
+        "Window One Desktop to the Left" = "Meta+Alt+Shift+H";
         "Window One Desktop to the Right" = "Meta+Alt+Shift+L";
       };
       "KDE Keyboard Layout Switcher"."Switch to Last-Used Keyboard Layout" = [];

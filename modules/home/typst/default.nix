@@ -11,7 +11,7 @@
     packages = [pkgs.typst];
     sessionVariables = {
       TYPST_FONT_PATHS = "${globals.homeDirectory}/.local/share/fonts";
-      TYPST_ROOT = globals.homeDirectory;
+      TYPST_ROOT = "${globals.homeDirectory}/Notes";
     };
   };
 }

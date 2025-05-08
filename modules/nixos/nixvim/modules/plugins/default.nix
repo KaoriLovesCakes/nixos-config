@@ -6,8 +6,10 @@
     ./comment.nix
     ./competitest.nix
     ./conform-nvim.nix
+    ./csvview.nix
     ./extraPlugins.nix
     ./friendly-snippets.nix
+    ./fugit2.nix
     ./guess-indent.nix
     ./leap.nix
     ./lsp.nix
@@ -18,7 +20,6 @@
     ./noice.nix
     ./nvim-autopairs.nix
     ./nvim-surround.nix
-    # ./render-markdown.nix
     ./snacks.nix
     ./telescope.nix
     ./transparent.nix

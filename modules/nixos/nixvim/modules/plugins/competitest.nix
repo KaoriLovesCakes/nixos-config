@@ -1,9 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  plugins.competitest = lib.mkIf (config.cpDirectory != "") {
+{lib, ...}: {
+  plugins.competitest = {
     enable = true;
     settings = {
       received_contests_directory = lib.nixvim.mkRaw ''
@@ -17,7 +13,7 @@
             judge = string.sub(task.group, 1, hyphen - 1)
             contest = string.sub(task.group, hyphen + 3)
           end
-          return string.format("${config.cpDirectory}/%s/%s", judge, contest)
+          return string.format("./%s/%s", judge, contest)
         end
       '';
       received_contests_problems_path = lib.nixvim.mkRaw ''
@@ -38,13 +34,13 @@
             judge = string.sub(task.group, 1, hyphen - 1)
             contest = string.sub(task.group, hyphen + 3)
           end
-          return string.format("${config.cpDirectory}/%s/%s/%s/%s.%s", judge, contest, task.name, task.name, file_extension)
+          return string.format("./%s/%s/%s/%s.%s", judge, contest, task.name, task.name, file_extension)
         end
       '';
       received_problems_prompt_path = false;
       template_file = lib.nixvim.mkRaw ''
         {
-          cpp = "${config.cpDirectory}/template.cpp"
+          cpp = "./template.cpp"
         }
       '';
     };

@@ -1,3 +1,6 @@
 {
-  imports = [./ssh.nix];
+  imports = [
+    ./cloudflare-warp.nix
+    ./ssh.nix
+  ];
 }

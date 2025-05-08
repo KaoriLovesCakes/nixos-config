@@ -41,6 +41,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs = {
@@ -55,7 +60,6 @@
     };
 
     stylix = {
-      # url = "github:danth/stylix?ref=b00c9f46ae6c27074d24d2db390f0ac5ebcc329f";
       url = "github:danth/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -78,50 +82,38 @@
     globals = rec {
       hostname = "bqn-nixos";
       username = "_bqn";
-      base16Scheme = "nord";
+      theme = "nord";
       timeZone = "Asia/Ho_Chi_Minh";
 
       homeDirectory = "/home/${username}";
       configDirectory = "${homeDirectory}/Repositories/nixos-config";
 
-      keyboards = [
-        "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-        "/dev/input/by-id/usb-SEMICO_USB_Keyboard-event-kbd"
-      ];
       system = "x86_64-linux";
     };
   in {
-    nixosConfigurations = {
-      ${globals.hostname} = nixpkgs.lib.nixosSystem {
-        modules = [
-          inputs.home-manager.nixosModules.home-manager
-          inputs.aagl-gtk-on-nix.nixosModules.default
-          inputs.disko.nixosModules.disko
-          inputs.flake-programs-sqlite.nixosModules.programs-sqlite
-          inputs.impermanence.nixosModules.impermanence
-          inputs.nixvim.nixosModules.nixvim
-          inputs.stylix.nixosModules.stylix
+    nixosConfigurations.${globals.hostname} = nixpkgs.lib.nixosSystem {
+      modules = [
+        inputs.aagl-gtk-on-nix.nixosModules.default
+        inputs.disko.nixosModules.disko
+        inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+        inputs.home-manager.nixosModules.home-manager
+        inputs.impermanence.nixosModules.impermanence
+        inputs.nix-minecraft.nixosModules.minecraft-servers
+        inputs.nixvim.nixosModules.nixvim
+        inputs.stylix.nixosModules.stylix
 
-          {
-            home-manager.sharedModules = [
-              inputs.nixcord.homeManagerModules.nixcord
-              inputs.plasma-manager.homeManagerModules.plasma-manager
-              inputs.spicetify-nix.homeManagerModules.default
-            ];
-          }
+        {
+          home-manager.sharedModules = [
+            inputs.nixcord.homeModules.nixcord
+            inputs.plasma-manager.homeManagerModules.plasma-manager
+            inputs.spicetify-nix.homeManagerModules.default
+          ];
+        }
 
-          ./configuration.nix
-        ];
+        ./configuration.nix
+      ];
 
-        specialArgs = {inherit inputs outputs globals;};
-      };
-
-      # live = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {inherit inputs outputs globals;};
-      #   modules = [
-      #     "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
-      #   ];
-      # };
+      specialArgs = {inherit inputs outputs globals;};
     };
 
     packages.${globals.system}.neovim =

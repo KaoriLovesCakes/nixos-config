@@ -9,8 +9,7 @@
       plasma6Support = true;
       settings = {
         globalOptions = {
-          "Hotkey/EnumerateForwardKeys"."0" = "Control+Tab";
-          "Hotkey/TriggerKeys" = {};
+          "Hotkey/TriggerKeys"."0" = "";
           # Behavior.PreeditEnabledByDefault = "False";
         };
         inputMethod = {
@@ -20,8 +19,8 @@
             Name = "Default";
           };
           "Groups/0/Items/0".Name = "keyboard-us-altgr-intl";
-          "Groups/0/Items/1".Name = "bamboo";
-          "Groups/0/Items/2".Name = "mozc";
+          "Groups/0/Items/1".Name = "mozc";
+          "Groups/0/Items/2".Name = "bamboo";
         };
       };
       waylandFrontend = true;

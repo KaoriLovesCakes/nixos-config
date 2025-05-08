@@ -1,0 +1,35 @@
+# General
+dotenv
+numpy
+openpyxl
+pandas
+pillow
+
+# Jupyter notebook
+jupyter
+
+# Visualisation
+matplotlib
+seaborn
+
+# General machine learning
+cupy-cuda12x
+kaggle
+opencv-python
+optuna
+scikit-learn
+ultralytics
+xgboost
+
+# Torch
+lightning
+torch
+torchinfo
+torchmetrics
+torchvision
+
+# Hugging Face
+accelerate
+datasets
+evaluate
+transformers
