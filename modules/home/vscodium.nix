@@ -3,6 +3,7 @@
     enable = true;
     profiles.default = {
       extensions = [
+        # pkgs.open-vsx.google.geminicodeassist
         pkgs.vscode-extensions.charliermarsh.ruff
         pkgs.vscode-extensions.mechatroner.rainbow-csv
         pkgs.vscode-extensions.mkhl.direnv

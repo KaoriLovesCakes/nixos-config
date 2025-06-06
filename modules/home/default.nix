@@ -1,9 +1,4 @@
-{
-  config,
-  globals,
-  lib,
-  ...
-}: {
+{globals, ...}: {
   imports = [
     ./desktop-environment
     ./networking
@@ -11,6 +6,7 @@
     ./terminal
     ./typst
 
+    ./btop.nix
     ./direnv.nix
     ./fzf.nix
     ./git.nix

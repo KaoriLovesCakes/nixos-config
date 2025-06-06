@@ -12,27 +12,31 @@
         popups = 11;
       };
       serif = {
-        package = pkgs.noto-fonts-cjk-serif;
-        name = "Noto Serif CJK JP";
+        package = pkgs.source-han-serif;
+        name = "Source Han Serif";
       };
       sansSerif = {
-        package = pkgs.noto-fonts-cjk-sans;
-        name = "Noto Sans CJK JP";
+        package = pkgs.source-han-sans;
+        name = "Source Han Sans";
       };
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMonoNL Nerd Font";
       };
     };
+    # image = pkgs.fetchurl {
+    #   url = "https://raw.githubusercontent.com/linuxdotexe/nordic-wallpapers/refs/heads/master/wallpapers/ign_astronaut.png";
+    #   hash = "sha256-0KP2RCkeNTYe3sf/xArmAJEcC1DF/yQJ0hIW/uR4i4Y=";
+    # };
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/linuxdotexe/nordic-wallpapers/refs/heads/master/wallpapers/ign_astronaut.png";
-      hash = "sha256-0KP2RCkeNTYe3sf/xArmAJEcC1DF/yQJ0hIW/uR4i4Y=";
+      url = "https://box.apeiros.xyz/public/everforest_walls/nature/forest_stairs.jpg";
+      hash = "sha256-nyVKnTJB50e1BOxj76yd32fj9+yU8b75C8i+xNrK+UQ=";
     };
-    opacity.terminal = 0.95;
+    opacity.terminal = 0.9;
     polarity = "dark";
     targets = {
       grub.enable = false;
-      nixvim.enable = false;
+      # nixvim.enable = false;
       spicetify.enable = false;
     };
   };

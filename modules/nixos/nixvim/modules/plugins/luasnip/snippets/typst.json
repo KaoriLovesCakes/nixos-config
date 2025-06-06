@@ -2,7 +2,7 @@
   "New Japanese learning note": {
     "prefix": "jnote",
     "body": [
-      "#import \"@local/utils:1.0.0\": furigana",
+      "#import \"@local/notes-template:0.1.0\": furigana",
       "",
       "$0"
     ]

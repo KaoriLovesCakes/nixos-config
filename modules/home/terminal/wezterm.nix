@@ -7,8 +7,7 @@
         enable_tab_bar = false,
         font = require("wezterm").font_with_fallback({
           "JetBrainsMonoNL NFM",
-          "Noto Sans Mono CJK JP",
-          "Noto Color Emoji",
+          "Source Han Sans",
         }),
         harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
       }

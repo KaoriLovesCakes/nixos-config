@@ -39,6 +39,7 @@
         "Pictures"
         "Repositories"
         "Videos"
+        "Virtualisation"
       ];
       files = [
       ];

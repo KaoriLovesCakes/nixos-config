@@ -12,7 +12,6 @@
     pkgs.qbittorrent
 
     # CLI
-    pkgs.btop
     pkgs.fastfetch
     pkgs.fd
     pkgs.hyfetch

@@ -22,11 +22,11 @@
         };
         Plugins.krohnkiteEnabled = true;
         Script-krohnkite = {
+          screenGapBetween = 12;
           screenGapBottom = 12;
           screenGapLeft = 12;
           screenGapRight = 12;
           screenGapTop = 12;
-          tileLayoutGap = 12;
         };
         Wayland.InputMethod = "/run/current-system/sw/share/applications/org.fcitx.Fcitx5.desktop";
         Windows = {

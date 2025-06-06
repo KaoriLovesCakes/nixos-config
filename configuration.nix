@@ -55,7 +55,7 @@
       ];
     overlays = [
       inputs.nix-alien.overlays.default
-      inputs.nix-minecraft.overlays.default
+      inputs.nix-vscode-extensions.overlays.default
     ];
   };
 

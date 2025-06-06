@@ -3,7 +3,6 @@
     ./plugins
     ./autoCmd.nix
     ./clipboard.nix
-    ./colorschemes.nix
     ./extraConfigLua.nix
     ./extraPackages.nix
     ./extraPlugins.nix

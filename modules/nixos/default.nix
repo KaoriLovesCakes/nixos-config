@@ -12,7 +12,7 @@
     ./fonts.nix
     ./games.nix
     ./nh.nix
-    ./steam.nix
     ./time.nix
+    ./virtualisation.nix
   ];
 }

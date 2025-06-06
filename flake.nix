@@ -41,8 +41,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-minecraft = {
-      url = "github:Infinidoge/nix-minecraft";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -60,7 +60,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
@@ -82,7 +82,8 @@
     globals = rec {
       hostname = "bqn-nixos";
       username = "_bqn";
-      theme = "nord";
+      # theme = "nord";
+      theme = "everforest";
       timeZone = "Asia/Ho_Chi_Minh";
 
       homeDirectory = "/home/${username}";
@@ -98,7 +99,6 @@
         inputs.flake-programs-sqlite.nixosModules.programs-sqlite
         inputs.home-manager.nixosModules.home-manager
         inputs.impermanence.nixosModules.impermanence
-        inputs.nix-minecraft.nixosModules.minecraft-servers
         inputs.nixvim.nixosModules.nixvim
         inputs.stylix.nixosModules.stylix
 
@@ -124,7 +124,6 @@
         path = ./templates/cpp;
         description = "C++ template.";
       };
-
       python = {
         path = ./templates/python;
         description = "Python template.";

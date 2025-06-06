@@ -12,7 +12,7 @@
         owner = "derektata";
         repo = "lorem.nvim";
         rev = "main";
-        hash = "sha256-3bcXlSid77GisGiJJAZvma/ZRkcUHr7Hrf9tjfViJl0=";
+        hash = "sha256-1tTFCR5mNE29nEqi3u7GcsXprkwKgGuilrSl94I6WY0=";
       };
     }))
     (lib.optional config.plugins.extraPlugins.substitute.enable pkgs.vimPlugins.substitute-nvim)
