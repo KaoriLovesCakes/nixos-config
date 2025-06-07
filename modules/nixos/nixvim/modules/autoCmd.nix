@@ -18,7 +18,9 @@
       {
         callback = lib.nixvim.mkRaw ''
           function()
-            vim.fn.jobstart({"fcitx5-remote", "-s", "keyboard-us-altgr-intl"})
+            if vim.fn.executable("fcitx5-remote") == 1 then
+              vim.fn.jobstart({"fcitx5-remote", "-s", "keyboard-us-altgr-intl"})
+            end
           end
         '';
         event = ["InsertLeave"];
