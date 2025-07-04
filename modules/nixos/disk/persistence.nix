@@ -42,8 +42,6 @@
         "Videos"
         "Virtualisation"
       ];
-      files = [
-      ];
     };
   };
 }
