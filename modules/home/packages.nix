@@ -17,6 +17,7 @@
     pkgs.hyfetch
     pkgs.nix-output-monitor
     pkgs.nix-tree
+    # pkgs.ollama
     pkgs.p7zip
     pkgs.progress
     pkgs.rclone
@@ -24,5 +25,7 @@
     pkgs.unp
     pkgs.unrar-wrapper
     pkgs.wl-clipboard
+
+    # pkgs.vscode
   ];
 }

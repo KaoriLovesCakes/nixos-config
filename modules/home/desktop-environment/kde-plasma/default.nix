@@ -45,7 +45,6 @@
           ToolBarsMovable = "Disabled";
         };
       };
-      plasma-localerc.Formats.LC_TIME = "en_GB.UTF-8";
     };
 
     input.keyboard.numlockOnStartup = "on";

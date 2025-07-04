@@ -8,6 +8,7 @@
     ./terminal
 
     ./appimage.nix
+    ./command-not-found.nix
     ./fcitx5.nix
     ./fonts.nix
     ./games.nix

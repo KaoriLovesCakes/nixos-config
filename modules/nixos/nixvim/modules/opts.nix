@@ -21,5 +21,6 @@
     splitright = true;
     swapfile = false;
     tabstop = 2;
+    timeoutlen = 150;
   };
 }

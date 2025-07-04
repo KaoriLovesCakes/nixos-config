@@ -1,6 +1,6 @@
 {
   plugins.extraPlugins = {
-    # iron.enable = true;
+    nvzone.floaterm.enable = true;
     lorem.enable = true;
     substitute.enable = true;
   };

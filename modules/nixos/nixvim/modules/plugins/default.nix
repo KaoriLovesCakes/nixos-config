@@ -1,6 +1,7 @@
 {
   imports = [
     ./luasnip
+    ./better-escape.nix
     ./blink-cmp.nix
     ./colorizer.nix
     ./comment.nix
@@ -15,7 +16,7 @@
     ./lsp.nix
     ./lualine.nix
     ./mini.nix
-    ./mkdnflow.nix
+    # ./mkdnflow.nix
     ./neo-tree.nix
     ./noice.nix
     ./nvim-autopairs.nix

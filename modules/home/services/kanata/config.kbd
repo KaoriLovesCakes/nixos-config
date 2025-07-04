@@ -21,39 +21,21 @@
 )
 
 (defvirtualkeys
-  sus (cmd bash -c "fcitx5-remote -s keyboard-us-altgr-intl")
-  tjp (cmd bash -c "fcitx5-remote -n | grep -q 'keyboard-us-altgr-intl' && fcitx5-remote -s mozc || fcitx5-remote -s keyboard-us-altgr-intl")
-  tvn (cmd bash -c "fcitx5-remote -n | grep -q 'keyboard-us-altgr-intl' && fcitx5-remote -s bamboo || fcitx5-remote -s keyboard-us-altgr-intl")
+  jp (cmd bash -c "fcitx5-remote -n | grep -q 'keyboard-us-altgr-intl' && fcitx5-remote -s mozc || fcitx5-remote -s keyboard-us-altgr-intl")
+  vn (cmd bash -c "fcitx5-remote -n | grep -q 'keyboard-us-altgr-intl' && fcitx5-remote -s bamboo || fcitx5-remote -s keyboard-us-altgr-intl")
 )
 
 (defalias
-  lb (layer-switch base)
-  lu (layer-switch us-only)
-
-  vsus (on-press tap-virtualkey sus)
-  vtjp (on-press tap-virtualkey tjp)
-  vtvn (on-press tap-virtualkey tvn)
-
   xctl (tap-hold $tap-time $hold-time (tap-dance $tap-time (esc caps)) lctl)
 
   jp (tap-hold $tap-time $hold-time
-    (tap-dance $tap-time (@vtjp (multi @vsus @lu)))
+    (tap-dance $tap-time (lsft (on-press tap-virtualkey jp)))
     lsft
   )
 
   vn (tap-hold $tap-time $hold-time
-    (tap-dance $tap-time (@vtvn (multi @vsus @lu)))
+    (tap-dance $tap-time (rsft (on-press tap-virtualkey vn)))
     rsft
-  )
-
-  jp2 (tap-hold $tap-time $hold-time
-    (tap-dance $tap-time (lsft (multi @vtjp @lb)))
-    lsft
-  )
-
-  vn2 (tap-hold $tap-time $hold-time
-    (tap-dance $tap-time (rsft (multi @vtvn @lb)))
-    lsft
   )
 )
 
@@ -62,13 +44,5 @@
   tab     q       w       e       r       t       y       u       i       o       p       [       ]
   @xctl   a       s       d       f       g       h       j       k       l       ;       '       ret
   @jp             z       x       c       v       b       n       m       ,       .       /       @vn
-                                                 spc                      ralt    rctl
-)
-
-(deflayer us-only
-  grv     1       2       3       4       5       6       7       8       9       0       -       =
-  tab     q       w       e       r       t       y       u       i       o       p       [       ]
-  @xctl   a       s       d       f       g       h       j       k       l       ;       '       ret
-  @jp2            z       x       c       v       b       n       m       ,       .       /       @vn2
                                                  spc                      ralt    rctl
 )

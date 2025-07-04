@@ -8,11 +8,12 @@
       {
         callback = lib.nixvim.mkRaw ''
           function()
-            vim.ui.open(vim.fn.expand("%:p"))
+            vim.keymap.set("n", "j", "gj", { buffer = true, noremap = true })
+            vim.keymap.set("n", "k", "gk", { buffer = true, noremap = true })
           end
         '';
-        event = ["BufRead"];
-        pattern = ["*.pdf"];
+        event = ["FileType"];
+        pattern = ["markdown" "text" "types"];
       }
 
       {
@@ -37,8 +38,8 @@
             end, { buffer = true, desc = "Compile and watch", noremap = true })
           end
         '';
-        event = ["BufRead"];
-        pattern = ["*.typ"];
+        event = ["FileType"];
+        pattern = "typst";
       }
     ];
 }

@@ -8,7 +8,8 @@
     (lib.optionals config.plugins.conform-nvim.enable [
       pkgs.alejandra
       pkgs.fixjson
-      pkgs.nodePackages.prettier
+      # pkgs.nodePackages.prettier
+      pkgs.markdownlint-cli
       pkgs.ruff
       pkgs.typstyle
     ])

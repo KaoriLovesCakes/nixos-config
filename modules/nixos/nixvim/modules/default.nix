@@ -12,7 +12,7 @@
   ];
 
   options.plugins.extraPlugins = {
-    iron.enable = lib.mkEnableOption "iron";
+    nvzone.floaterm.enable = lib.mkEnableOption "floaterm";
     lorem.enable = lib.mkEnableOption "lorem";
     substitute.enable = lib.mkEnableOption "substitute";
   };

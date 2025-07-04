@@ -4,16 +4,9 @@
   ...
 }: {
   extraConfigLua = lib.concatStringsSep "\n" [
-    (lib.optionalString config.plugins.extraPlugins.iron.enable ''
-      require("iron.core").setup({
-        config = {
-          repl_definition = {
-            python = {
-              command = { "ipython", "--matplotlib=kitcat" },
-            },
-          },
-          repl_open_cmd = require("iron.view").split.vertical.botright(0.4),
-        },
+    (lib.optionalString config.plugins.extraPlugins.nvzone.floaterm.enable ''
+      require("floaterm").setup({
+        border = true,
       })
     '')
     (lib.optionalString config.plugins.extraPlugins.lorem.enable ''

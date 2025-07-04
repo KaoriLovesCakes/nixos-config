@@ -3,13 +3,14 @@
     enable = true;
     profiles.default = {
       extensions = [
-        # pkgs.open-vsx.google.geminicodeassist
         pkgs.vscode-extensions.charliermarsh.ruff
         pkgs.vscode-extensions.mechatroner.rainbow-csv
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.ms-python.python
         pkgs.vscode-extensions.ms-toolsai.jupyter
         pkgs.vscode-extensions.ms-toolsai.jupyter-renderers
+        pkgs.vscode-extensions.tailscale.vscode-tailscale
+        pkgs.nix-vscode-extensions.open-vsx.jeanp413.open-remote-ssh
       ];
       userSettings = {
         "direnv.path.executable" = "${pkgs.direnv}/bin/direnv";
