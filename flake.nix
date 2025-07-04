@@ -26,11 +26,6 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -104,7 +99,6 @@
 
         {
           home-manager.sharedModules = [
-            inputs.nixcord.homeModules.nixcord
             inputs.plasma-manager.homeManagerModules.plasma-manager
             inputs.spicetify-nix.homeManagerModules.default
           ];

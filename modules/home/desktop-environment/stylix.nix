@@ -1,7 +1,3 @@
 {
-  stylix.targets = {
-    nixcord.enable = false;
-    vencord.enable = false;
-    vscode.profileNames = ["default"];
-  };
+  stylix.targets.vscode.profileNames = ["default"];
 }

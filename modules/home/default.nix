@@ -8,11 +8,11 @@
 
     ./btop.nix
     ./direnv.nix
+    ./discord.nix
     ./fzf.nix
     ./git.nix
     ./hyfetch.nix
     ./mimeapps.nix
-    ./nixcord.nix
     ./ollama.nix
     ./packages.nix
     ./polybar.nix
