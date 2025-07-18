@@ -9,6 +9,7 @@
     ./btop.nix
     ./direnv.nix
     ./discord.nix
+    ./firefox.nix
     ./fzf.nix
     ./git.nix
     ./hyfetch.nix

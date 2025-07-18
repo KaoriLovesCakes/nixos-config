@@ -1,3 +1,6 @@
 {
-  stylix.targets.vscode.profileNames = ["default"];
+  stylix.targets = {
+    firefox.profileNames = ["default"];
+    vscode.profileNames = ["default"];
+  };
 }

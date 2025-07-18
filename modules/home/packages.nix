@@ -8,7 +8,7 @@
     pkgs.mpv
     pkgs.obs-studio
     pkgs.osu-lazer-bin
-    pkgs.prismlauncher
+    # pkgs.prismlauncher
     pkgs.qbittorrent
 
     # CLI

@@ -57,6 +57,7 @@
     overlays = [
       inputs.nix-alien.overlays.default
       inputs.nix-vscode-extensions.overlays.default
+      inputs.nur.overlays.default
     ];
   };
 

@@ -13,7 +13,7 @@
             owner = "nvzone";
             repo = "floaterm";
             rev = "HEAD";
-            hash = "sha256-CRf6jN2uyRPfS++gyJs/Yn4Dz80tctvJ502YziiBE74=";
+            hash = "sha256-EpSYeGEQED6dmnPsGvXNLhRSeQPoEpZ9Wbw5+I9Sdk8=";
           };
         }).overrideAttrs {
           dependencies = [pkgs.vimPlugins.nvzone-volt];
