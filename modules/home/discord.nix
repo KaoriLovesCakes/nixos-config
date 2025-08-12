@@ -9,6 +9,11 @@
         url = "https://raw.githubusercontent.com/dabluee/discord-themes/refs/heads/main/prsk/nightcordmini.theme.css";
         hash = "sha256-9QuC9YEePSTC0SEzZUf+lYLa9js+E0w7m4PtTJ4OWJI=";
       });
+      ".config/discord/settings.json".text = ''
+        {
+          "SKIP_HOST_UPDATE": true
+        }
+      '';
     };
     packages = [
       pkgs.betterdiscordctl

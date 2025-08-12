@@ -61,10 +61,7 @@
 
     stylix = {
       url = "github:nix-community/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser-flake = {

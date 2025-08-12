@@ -6,11 +6,11 @@
       content = {
         type = "gpt";
         partitions = {
-          boot = {
-            name = "boot";
-            size = "1G";
-            type = "EF02";
-          };
+          # boot = {
+          #   name = "boot";
+          #   size = "1G";
+          #   type = "EF02";
+          # };
           esp = {
             name = "ESP";
             size = "1G";
