@@ -8,6 +8,7 @@
     ./extraPlugins.nix
     ./globals.nix
     ./keymaps.nix
+    ./lsp.nix
     ./opts.nix
   ];
 

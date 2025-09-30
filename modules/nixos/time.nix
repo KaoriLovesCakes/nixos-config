@@ -1,3 +1,3 @@
-{globals, ...}: {
-  time = {inherit (globals) timeZone;};
+{
+  services.automatic-timezoned.enable = true;
 }

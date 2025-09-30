@@ -1,5 +1,6 @@
 {
   globals,
+  lib,
   pkgs,
   ...
 }: {
@@ -36,7 +37,7 @@
     polarity = "dark";
     targets = {
       grub.enable = false;
-      # nixvim.enable = false;
+      qt.platform = lib.mkForce "kde";
       spicetify.enable = false;
     };
   };

@@ -1,3 +1,3 @@
 {
-  programs.ssh.addKeysToAgent = "yes";
+  programs.ssh.matchBlocks."*".addKeysToAgent = "yes";
 }

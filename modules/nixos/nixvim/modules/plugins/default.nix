@@ -13,14 +13,16 @@
     ./fugit2.nix
     ./guess-indent.nix
     ./leap.nix
-    ./lsp.nix
+    # ./lsp.nix
+    ./lspconfig.nix
     ./lualine.nix
     ./mini.nix
     # ./mkdnflow.nix
-    ./neo-tree.nix
+    # ./neo-tree.nix
     ./noice.nix
     ./nvim-autopairs.nix
     ./nvim-surround.nix
+    ./oil.nix
     ./snacks.nix
     ./telescope.nix
     ./transparent.nix

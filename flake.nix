@@ -81,7 +81,6 @@
       username = "_bqn";
       # theme = "nord";
       theme = "everforest";
-      timeZone = "Asia/Ho_Chi_Minh";
 
       homeDirectory = "/home/${username}";
       configDirectory = "${homeDirectory}/Repositories/nixos-config";
@@ -101,7 +100,7 @@
 
         {
           home-manager.sharedModules = [
-            inputs.plasma-manager.homeManagerModules.plasma-manager
+            inputs.plasma-manager.homeModules.plasma-manager
             inputs.spicetify-nix.homeManagerModules.default
           ];
         }

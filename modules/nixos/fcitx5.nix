@@ -8,7 +8,6 @@
           pkgs.fcitx5-bamboo
           pkgs.fcitx5-mozc
         ];
-        plasma6Support = true;
         settings = {
           globalOptions = {
             "Hotkey/TriggerKeys"."0" = "";

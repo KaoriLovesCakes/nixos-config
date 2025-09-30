@@ -10,6 +10,8 @@
     ./hardware-configuration.nix
   ];
 
+  services.flatpak.enable = true;
+
   environment.systemPackages = [
     inputs.zen-browser-flake.packages.${globals.system}.default
   ];

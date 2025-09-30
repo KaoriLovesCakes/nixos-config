@@ -81,14 +81,14 @@
         };
       }
     ]
-    (lib.optionals config.plugins.neo-tree.enable [
+    (lib.optionals config.plugins.oil.enable [
       {
-        action = "<Cmd>Neotree<CR>";
-        key = "<Leader>e";
+        action = "<Cmd>Oil<CR>";
+        key = "<Leader>o";
         mode = "n";
         options = {
           noremap = true;
-          desc = "Open explorer";
+          desc = "Open Oil";
         };
       }
     ])
