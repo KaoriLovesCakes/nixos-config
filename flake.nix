@@ -77,8 +77,8 @@
   } @ inputs: let
     inherit (self) outputs;
     globals = rec {
-      hostname = "bqn-nixos";
-      username = "_bqn";
+      hostname = "shirayuki";
+      username = "kaori";
       # theme = "nord";
       theme = "everforest";
 

@@ -3,6 +3,6 @@
     enable = true;
     extraConfig.init.defaultBranch = "main";
     userEmail = "self.bqnguyen@gmail.com";
-    userName = "just-bqn";
+    userName = "KaoriLovesCakes";
   };
 }

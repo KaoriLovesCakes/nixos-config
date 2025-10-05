@@ -12,8 +12,10 @@
           src = pkgs.fetchFromGitHub {
             owner = "nvzone";
             repo = "floaterm";
-            rev = "HEAD";
-            hash = "sha256-EpSYeGEQED6dmnPsGvXNLhRSeQPoEpZ9Wbw5+I9Sdk8=";
+            # rev = "HEAD";
+            # hash = "sha256-EpSYeGEQED6dmnPsGvXNLhRSeQPoEpZ9Wbw5+I9Sdk8=";
+            rev = "34e14f0b5e2687fd31a93fe75982ec84e5145856";
+            hash = "sha256-U5AFkHUmDlcjb2WlgdM7d2t9xpeyh9CS9EonAlxwHDw=";
           };
         }).overrideAttrs {
           dependencies = [pkgs.vimPlugins.nvzone-volt];

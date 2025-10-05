@@ -135,6 +135,17 @@
         };
       }
     ])
+    (lib.optionals config.plugins.extraPlugins.nvzone.floaterm.enable [
+      {
+        action = lib.nixvim.mkRaw "require('floaterm').toggle";
+        key = "<Leader>tt";
+        mode = "n";
+        options = {
+          noremap = true;
+          desc = "Toggle terminal";
+        };
+      }
+    ])
     (lib.optionals config.plugins.extraPlugins.substitute.enable [
       {
         action = lib.nixvim.mkRaw "require('substitute').visual";

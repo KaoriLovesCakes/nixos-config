@@ -12,6 +12,7 @@
     pkgs.qbittorrent
 
     # CLI
+    pkgs.blahaj
     pkgs.fastfetch
     pkgs.fd
     pkgs.hyfetch
