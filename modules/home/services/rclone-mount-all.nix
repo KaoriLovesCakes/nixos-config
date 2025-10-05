@@ -13,7 +13,7 @@
           for remote in $remotes;
           do
           remote_name=$(${pkgs.coreutils-full}/bin/echo "$remote" | ${pkgs.gnused}/bin/sed "s/://g")
-          ${pkgs.coreutils-full}/bin/mkdir -p ${globals.homeDirectory}/"$remote_name"
+          ${pkgs.coreutils-full}/bin/mkdir -p /home/${globals.username}/"$remote_name"
           done
         ''}
       '';
@@ -23,7 +23,7 @@
           for remote in $remotes;
           do
           remote_name=$(${pkgs.coreutils-full}/bin/echo "$remote" | ${pkgs.gnused}/bin/sed "s/://g")
-          ${pkgs.rclone}/bin/rclone --config=${globals.homeDirectory}/.config/rclone/rclone.conf --vfs-cache-mode writes mount "$remote" "$remote_name" &
+          ${pkgs.rclone}/bin/rclone --config=/home/${globals.username}/.config/rclone/rclone.conf --vfs-cache-mode writes mount "$remote" "$remote_name" &
           done
         ''}
       '';
@@ -33,7 +33,7 @@
           for remote in $remotes;
           do
           remote_name=$(${pkgs.coreutils-full}/bin/echo "$remote" | ${pkgs.gnused}/bin/sed "s/://g")
-          /run/wrappers/bin/fusermount -u ${globals.homeDirectory}/"$remote_name"
+          /run/wrappers/bin/fusermount -u /home/${globals.username}/"$remote_name"
           done
         ''}
       '';

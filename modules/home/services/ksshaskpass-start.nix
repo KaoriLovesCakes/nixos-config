@@ -12,7 +12,7 @@
             #!${pkgs.bash}/bin/bash
 
             SSH_ASKPASS=${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass ${pkgs.openssh}/bin/ssh-add < /dev/null
-            ${pkgs.openssh}/bin/ssh-add ${globals.homeDirectory}/.ssh/id_ed25519
+            ${pkgs.openssh}/bin/ssh-add /home/${globals.username}/.ssh/id_ed25519
           ''
         }
       '';

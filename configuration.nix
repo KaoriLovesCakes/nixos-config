@@ -67,7 +67,7 @@
     mutableUsers = false;
     users.${globals.username} = {
       isNormalUser = true;
-      hashedPassword = "$y$j9T$Y7kA6d/QIhMHRtF4UW7ky/$juHiZ7BIq5drpMZcdkqmp8c5M8JdKxUQasaBYIv3OR3";
+      hashedPassword = "$y$j9T$BGckLddbijqsTyDxP4FZT0$L6Uapd.npeyzbJbbk2p7JqLHoYLUwc8ToxWJyOI9xy1";
       extraGroups = [
         "input"
         "networkmanager"

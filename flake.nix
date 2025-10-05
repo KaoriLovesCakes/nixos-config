@@ -76,16 +76,12 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    globals = rec {
-      hostname = "shirayuki";
+    globals = {
       username = "kaori";
-      # theme = "nord";
-      theme = "everforest";
-
-      homeDirectory = "/home/${username}";
-      configDirectory = "${homeDirectory}/Repositories/nixos-config";
-
+      hostname = "shirayuki";
       system = "x86_64-linux";
+      theme = "everforest";
+      wallpaperUrl = "https://box.apeiros.xyz/public/everforest_walls/nature/forest_stairs.jpg";
     };
   in {
     nixosConfigurations.${globals.hostname} = nixpkgs.lib.nixosSystem {
@@ -114,15 +110,9 @@
     packages.${globals.system}.neovim =
       inputs.nixvim.legacyPackages.${globals.system}.makeNixvim ./modules/nixos/nixvim/modules;
 
-    templates = {
-      cpp = {
-        path = ./templates/cpp;
-        description = "C++ template.";
-      };
-      python = {
-        path = ./templates/python;
-        description = "Python template.";
-      };
+    templates.python = {
+      path = ./templates/python;
+      description = "Python template.";
     };
   };
 }

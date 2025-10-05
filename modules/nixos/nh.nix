@@ -6,6 +6,6 @@
       dates = "daily";
       extraArgs = "--keep-since 3d";
     };
-    flake = globals.configDirectory;
+    flake = "/home/${globals.username}/Repositories/${globals.hostname}";
   };
 }

@@ -30,7 +30,7 @@
     #   hash = "sha256-0KP2RCkeNTYe3sf/xArmAJEcC1DF/yQJ0hIW/uR4i4Y=";
     # };
     image = pkgs.fetchurl {
-      url = "https://box.apeiros.xyz/public/everforest_walls/nature/forest_stairs.jpg";
+      url = globals.wallpaperUrl;
       hash = "sha256-nyVKnTJB50e1BOxj76yd32fj9+yU8b75C8i+xNrK+UQ=";
     };
     opacity.terminal = 0.9;
