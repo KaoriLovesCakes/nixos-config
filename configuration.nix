@@ -24,19 +24,16 @@
   };
 
   nix = {
-    extraOptions = ''
-      extra-substituters = https://devenv.cachix.org
-      extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw= nixpkgs-python.cachix.org-1:hxjI7pFxTyuTHn2NkvWCrAUcNZLNS3ZAvfYNuYifcEU=
-      trusted-users = root ${globals.username}
-    '';
     optimise.automatic = true;
     settings =
       lib.recursiveUpdate {
         auto-optimise-store = true;
+        connect-timeout = 0;
         experimental-features = [
           "flakes"
           "nix-command"
         ];
+        trusted-users = ["root" globals.username];
       }
       inputs.aagl-gtk-on-nix.nixConfig;
   };

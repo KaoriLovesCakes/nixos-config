@@ -32,5 +32,20 @@
       };
     }))
     (lib.optional config.plugins.extraPlugins.substitute.enable pkgs.vimPlugins.substitute-nvim)
+    (
+      lib.optional config.plugins.extraPlugins.venv-selector.enable (
+        (pkgs.vimUtils.buildVimPlugin {
+          name = "venv-selector";
+          src = pkgs.fetchFromGitHub {
+            owner = "linux-cultist";
+            repo = "venv-selector.nvim";
+            rev = "HEAD";
+            hash = "sha256-m165YyY8VX0YQ5v6vxDJp4avDRrxByZQY+uMNkubggo=";
+          };
+        }).overrideAttrs {
+          dependencies = [pkgs.vimPlugins.telescope-nvim];
+        }
+      )
+    )
   ];
 }

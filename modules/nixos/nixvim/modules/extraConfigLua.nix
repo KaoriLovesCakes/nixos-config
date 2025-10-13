@@ -23,5 +23,8 @@
     (lib.optionalString config.plugins.extraPlugins.substitute.enable ''
       require("substitute").setup({})
     '')
+    (lib.optionalString config.plugins.extraPlugins.venv-selector.enable ''
+      require("venv-selector").setup({})
+    '')
   ];
 }

@@ -6,6 +6,7 @@
 #import "@preview/unify:0.7.1": *
 
 
+
 #let get-thmbox(variant) = {
   let color-and-fill = (
     if variant in ("Axiom", "Definition") {
@@ -63,6 +64,7 @@
   )
 
   show: thmbox-init()
+  show figure.where(kind: "thmbox"): set block(breakable: true)
 
   maketitle(..args)
 

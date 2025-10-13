@@ -13,6 +13,7 @@
 
     # CLI
     pkgs.blahaj
+    pkgs.cachix
     pkgs.fastfetch
     pkgs.fd
     pkgs.hyfetch
